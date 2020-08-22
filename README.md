@@ -11,34 +11,40 @@
 
 ## Things included
 
-Personal scripts
+* Personal scripts
 
-My builds of dwm, dmenu and others utilities
+* My builds of [dwm](https://dwm.suckless.org/), [dmenu](https://tools.suckless.org/dmenu/) and other utilities
 
-My shxkd config for my scripts and media control 
+* My [shxkd](https://github.com/baskerville/sxhkd) config for my scripts and media control 
 
-My slightly modified versions of neovim and ranger,
-based off [Christian Chiarulli's](https://github.com/ChristianChiarulli/nvim) and [Luke Smith's](https://github.com/LukeSmithxyz/voidrice) configs respectively
+* My slightly modified versions of [neovim](https://neovim.io/) and [ranger](https://github.com/ranger/ranger),
+* based off [Christian Chiarulli's](https://github.com/ChristianChiarulli/nvim) and [Luke Smith's](https://github.com/LukeSmithxyz/voidrice) configs respectively
 
-Configs for zsh (needs p10k) and alacritty
+* Configs for [oh my zsh](https://ohmyz.sh/) [(needs p10k)](https://github.com/romkatv/powerlevel10k) and alacritty
 
-Configs for picom (needs dual kawase fork)
+* Configs for [picom](https://github.com/yshui/picom) (needs [dual kawase fork](https://github.com/ibhagwan/picom))
 
 ## Dependancies
 
-* dwm, dmenu, ect. (these configs are meant to interact with my builds)
-* fzf (for scripts)
+* my builds of dwm, dmenu, ect. (these configs are meant to interact with my builds)
+* ranger (for the ranger and nvim config)
+* [fzf](https://github.com/junegunn/fzf) (for scripts)
 * shxkd (for hotkeys)
+* [exa](https://the.exa.website/) (for aliases)
+* [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
 
 ### Optional Dependancies
 
-* exa (for aliases)
-* dragon (for aliases)
+* dragon (for ranger use and the aliases)
+
+Note: I can't find a repo online for dragon but it should be available in your package manager of choice
 
 ## Credits
 
-[Luke Smith](https://github.com/LukeSmithxyz) For their ranger config
+[Luke Smith](https://github.com/LukeSmithxyz) For their ranger config and inspiration for dmenu and COVID scripts
 
 [Christian Chiarulli](https://github.com/ChristianChiarulli) For their slick neovim config
 
 [rpieja](https://github.com/rpieja) For their work on the [i3spotifystatus](https://github.com/rpieja/i3spotifystatus)
+
+[ibhagwan](https://github.com/ibhagwan) For their work on the [dual kawase fork of picom](https://github.com/ibhagwan/picom)
