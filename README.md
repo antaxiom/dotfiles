@@ -15,6 +15,10 @@ Personal scripts
 
 My builds of dwm, dmenu and others utilities
 
-Configs for (needs p10k) zsh and alacritty
+Configs for zsh (needs p10k) and alacritty
 
-Configs for picom
+Configs for picom (needs dual kawase fork)
+
+## Dependancies
+
+* fzf (for scripts)
