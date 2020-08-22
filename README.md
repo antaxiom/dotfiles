@@ -38,5 +38,7 @@ Configs for picom (needs dual kawase fork)
 ## Credits
 
 [Luke Smith](https://github.com/LukeSmithxyz) For their ranger config
+
 [Christian Chiarulli](https://github.com/ChristianChiarulli) For their slick neovim config
+
 [rpieja](https://github.com/rpieja) For their work on the [i3spotifystatus](https://github.com/rpieja/i3spotifystatus)
