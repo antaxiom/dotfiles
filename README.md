@@ -15,6 +15,8 @@ Personal scripts
 
 My builds of dwm, dmenu and others utilities
 
+My shxkd config for my scripts and media control 
+
 My slightly modified versions of neo vim and ranger,
 based off [Christian Chiarulli's](https://github.com/ChristianChiarulli/nvim) and [Luke Smith's](https://github.com/LukeSmithxyz/voidrice) configs respectively
 
