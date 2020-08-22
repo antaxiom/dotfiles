@@ -11,6 +11,8 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
+pfetch
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -125,10 +127,29 @@ ex ()
   fi
 }
 
+# convienient dragon
 alias dr="dragon"
+
+# safe cp
 alias cp="cp -i"                          # confirm before overwriting something
+
+# config file fzf editor and runner
 alias se="find ~/.scripts/* ~/.config/* -type f | fzf | xargs -r nvim"
 alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
+
+# ls as exa with colors
+alias ls="exa --color=always --group-directories-first"
+
+# Convenient cds
+alias ..="cd.."
+alias ...="cd ../.."
+
+# Colored grep
+alias grep="grep --color=auto"
+alias egrep="egrep --color=auto"
+alias fgrep="fgrep --color=auto"
+
+# Alias for managing configs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Path
 # Adds ~/.scripts to path
