@@ -22,3 +22,4 @@ Configs for picom (needs dual kawase fork)
 ## Dependancies
 
 * fzf (for scripts)
+* exa (for aliases)
