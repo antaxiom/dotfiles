@@ -1,6 +1,6 @@
 #! /bin/sh
 
-curl -s https://corona-stats.online/states/US?source=2 > ~/.cache/corona
+curl -s https://corona-stats.online/states/US > ~/.cache/corona
 
 grep "Puerto Rico" ~/.cache/corona |
   sed "s/\s*//g ; s/║//g ; s/│/;/g ; s/\x1b\[[0-9;]*m//g" |
