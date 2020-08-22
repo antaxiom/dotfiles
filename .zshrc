@@ -130,10 +130,6 @@ alias cp="cp -i"                          # confirm before overwriting something
 alias se="find ~/.scripts/* ~/.config/* -type f | fzf | xargs -r nvim"
 alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
-# Startup wal
-wal -i ~/Pictures/wallpapers/original/nasa-89127.jpg &> /dev/null
-
 # Path
 # Adds ~/.scripts to path
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
