@@ -149,6 +149,11 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
+# Devour Windows
+alias mpv="devour mpv"
+alias sxiv="devour sxiv"
+alias zathura="devour zathura"
+
 # Alias for managing configs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Path
