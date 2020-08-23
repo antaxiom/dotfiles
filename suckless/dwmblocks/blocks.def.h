@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 	{"", "~/.scripts/status/corona",					420,		0},
-	{" ", "~/.scripts/status/getInfo.sh song",					2,		0},
+	{" ", "~/.scripts/status/spotifystatus/getInfo.sh song",					2,		0},
 	{"", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
 

@@ -141,7 +141,7 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 alias ls="exa --color=always --group-directories-first"
 
 # Convenient cds
-alias ..="cd.."
+alias ..="cd .."
 alias ...="cd ../.."
 
 # Colored grep
@@ -154,6 +154,11 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # Path
 # Adds ~/.scripts to path
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+
+# Other path stuff
+export PATH="$PATH:/usr/lib/dart/bin"
+export PATH="$PATH:/home/alex/bin"
+
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
