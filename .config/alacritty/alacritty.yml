@@ -20,6 +20,11 @@ font:
     # Style can be specified to pick a specific face.
     # style: Italic
 
+window:
+  padding:
+    x: 10
+    y: 5
+
 background_opacity: 1
 # Colors (Dracula + One Dark-ish) (Made [partially] by antaxiom)
 colors:
@@ -33,7 +38,7 @@ colors:
     black: "0x000000"
     red: "0xf44747"
     green: "0x50fa7b"
-    yellow: "0xf1fa8c"
+    yellow: "0xe5c07b"
     blue: "0x61afef"
     magenta: "0xc678dd"
     cyan: "0x409cba"
@@ -43,9 +48,16 @@ colors:
   bright:
     black: "0x777777"
     red: "0xff5555"
-    green: "0x50fa7b"
-    yellow: "0xf1fa8c"
+    green: "0x98C379"
+    yellow: "0xd19a66"
     blue: "0x6fb8f4"
     magenta: "0xd55fde"
     cyan: "0x61b3ce"
     white: "0xffffff"
+
+  padding:
+    x: 100
+    y: 100
+
+# Spread additional padding evenly around the terminal content.
+dynamic_padding: true
