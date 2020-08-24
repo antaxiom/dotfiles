@@ -14,6 +14,8 @@
 
 - My builds of [dwm](https://dwm.suckless.org/), [dmenu](https://tools.suckless.org/dmenu/) and other utilities
 
+- My custom colorscheme One drac (tentative name) at the moment only for alacritty, dwm and neovim
+
 - My [shxkd](https://github.com/baskerville/sxhkd) config for my scripts and media control
 
 - My slightly modified versions of [neovim](https://neovim.io/) and [ranger](https://github.com/ranger/ranger),
