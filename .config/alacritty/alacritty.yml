@@ -20,32 +20,32 @@ font:
     # Style can be specified to pick a specific face.
     # style: Italic
 
-background_opacity: 0.85
-# Colors (Dracula)
+background_opacity: 1
+# Colors (Dracula + One Dark-ish) (Made [partially] by antaxiom)
 colors:
   # Default colors
   primary:
-    background: "0x282a36"
+    background: "0x111111"
     foreground: "0xf8f8f2"
 
   # Normal colors
   normal:
     black: "0x000000"
-    red: "0xff5555"
+    red: "0xf44747"
     green: "0x50fa7b"
     yellow: "0xf1fa8c"
-    blue: "0xbd93f9"
-    magenta: "0xff79c6"
-    cyan: "0x8be9fd"
+    blue: "0x61afef"
+    magenta: "0xc678dd"
+    cyan: "0x409cba"
     white: "0xbbbbbb"
 
   # Bright colors
   bright:
-    black: "0x555555"
+    black: "0x777777"
     red: "0xff5555"
     green: "0x50fa7b"
     yellow: "0xf1fa8c"
-    blue: "0xcaa9fa"
-    magenta: "0xff79c6"
-    cyan: "0x8be9fd"
+    blue: "0x6fb8f4"
+    magenta: "0xd55fde"
+    cyan: "0x61b3ce"
     white: "0xffffff"
