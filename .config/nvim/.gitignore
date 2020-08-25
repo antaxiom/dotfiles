@@ -3,8 +3,10 @@ tags*
 .netrwhist
 pythonpath.vim
 nodepath.vim
-autoload/plugged/*
 vimspector-config/*
+spell/*
+autoload/plugged/*
+!autoload/plugged/onedark.vim/
 paths.vim
 session
 wiki/
