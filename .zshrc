@@ -78,6 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+plugins=(zshnotes)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -150,7 +151,6 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # Devour Windows
-alias mpv="devour mpv"
 alias sxiv="devour sxiv"
 alias zathura="devour zathura"
 
