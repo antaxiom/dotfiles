@@ -151,7 +151,6 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # Devour Windows
-alias sxiv="devour sxiv"
 
 # Alias for managing configs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'

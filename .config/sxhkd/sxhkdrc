@@ -9,6 +9,12 @@ XF86AudioNext
 XF86AudioPrev
   playerctl previous
 
+# Open program
+
+XF86Calculator
+  alacritty -e R 
+
+
 # Screenshots
 
 alt + Print
@@ -20,9 +26,6 @@ shift + Print
 
 Print
   scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
-
-
-
 
 alt + space
   ~/.scripts/special-characters/saccent
