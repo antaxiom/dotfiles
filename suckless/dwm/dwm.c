@@ -31,7 +31,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
-#include <sys/epoll.h>
 #include <X11/cursorfont.h>
 #include <X11/keysym.h>
 #include <X11/Xatom.h>
@@ -49,8 +48,8 @@
 /* macros */
 #define BUTTONMASK              (ButtonPressMask|ButtonReleaseMask)
 #define CLEANMASK(mask)         (mask & ~(numlockmask|LockMask) & (ShiftMask|ControlMask|Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask))
-#define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->mx+(m)->mw) - MAX((x),(m)->mx)) \
-                               * MAX(0, MIN((y)+(h),(m)->my+(m)->mh) - MAX((y),(m)->my)))
+#define INTERSECT(x,y,w,h,m)    (MAX(0, MIN((x)+(w),(m)->wx+(m)->ww) - MAX((x),(m)->wx)) \
+                               * MAX(0, MIN((y)+(h),(m)->wy+(m)->wh) - MAX((y),(m)->wy)))
 #define ISVISIBLEONTAG(C, T)    ((C->tags & T))
 #define ISVISIBLE(C)            ISVISIBLEONTAG(C, C->mon->tagset[C->mon->seltags])
 #define LENGTH(X)               (sizeof X / sizeof X[0])
@@ -70,21 +69,9 @@ enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms *
 enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
        ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
 
-typedef struct TagState TagState;
-struct TagState {
-	int selected;
-	int occupied;
-	int urgent;
-};
-
-typedef struct ClientState ClientState;
-struct ClientState {
-	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
-};
-
 typedef union {
-	long i;
-	unsigned long ui;
+	int i;
+	unsigned int ui;
 	float f;
 	const void *v;
 } Arg;
@@ -112,7 +99,6 @@ struct Client {
 	Client *snext;
 	Monitor *mon;
 	Window win;
-	ClientState prevstate;
 };
 
 typedef struct {
@@ -127,16 +113,13 @@ typedef struct {
 	void (*arrange)(Monitor *);
 } Layout;
 
-
 typedef struct Pertag Pertag;
 struct Monitor {
 	char ltsymbol[16];
-	char lastltsymbol[16];
 	float mfact;
 	int nmaster;
 	int num;
-	int by, bh;           /* bar geometry */
-	int tx, tw;           /* bar tray geometry */
+	int by;               /* bar geometry */
 	int mx, my, mw, mh;   /* screen size */
 	int wx, wy, ww, wh;   /* window area  */
 	int gappih;           /* horizontal gap between windows */
@@ -146,19 +129,15 @@ struct Monitor {
 	unsigned int seltags;
 	unsigned int sellt;
 	unsigned int tagset[2];
-	TagState tagstate;
 	int showbar;
 	int topbar;
 	Client *clients;
 	Client *sel;
-	Client *lastsel;
 	Client *stack;
 	Monitor *next;
 	Window barwin;
-	Window traywin;
 	const Layout *lt[2];
 	Pertag *pertag;
-	const Layout *lastlt;
 };
 
 typedef struct {
@@ -186,7 +165,6 @@ static void clientmessage(XEvent *e);
 static void configure(Client *c);
 static void configurenotify(XEvent *e);
 static void configurerequest(XEvent *e);
-static void copyvalidchars(char *text, char *rawtext);
 static Monitor *createmon(void);
 static void destroynotify(XEvent *e);
 static void detach(Client *c);
@@ -208,13 +186,10 @@ static long getstate(Window w);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
 static void grabbuttons(Client *c, int focused);
 static void grabkeys(void);
-static int handlexevent(struct epoll_event *ev);
 static void incnmaster(const Arg *arg);
 static void keypress(XEvent *e);
 static void killclient(const Arg *arg);
 static void manage(Window w, XWindowAttributes *wa);
-static void managealtbar(Window win, XWindowAttributes *wa);
-static void managetray(Window win, XWindowAttributes *wa);
 static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
@@ -234,17 +209,14 @@ static void rotatestack(const Arg *arg);
 static void run(void);
 static void runautostart(void);
 static void scan(void);
-static void scantray(void);
 static int sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
 static void setfocus(Client *c);
 static void setfullscreen(Client *c, int fullscreen);
 static void setlayout(const Arg *arg);
-static void setlayoutsafe(const Arg *arg);
 static void setmfact(const Arg *arg);
 static void setup(void);
-static void setupepoll(void);
 static void seturgent(Client *c, int urg);
 static void showhide(Client *c);
 static void sigchld(int unused);
@@ -258,8 +230,6 @@ static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void unfocus(Client *c, int setfocus);
 static void unmanage(Client *c, int destroyed);
-static void unmanagealtbar(Window w);
-static void unmanagetray(Window w);
 static void unmapnotify(XEvent *e);
 static void updatebarpos(Monitor *m);
 static void updatebars(void);
@@ -274,7 +244,6 @@ static void updatewmhints(Client *c);
 static void view(const Arg *arg);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
-static int wmclasscontains(Window win, const char *class, const char *name);
 static int xerror(Display *dpy, XErrorEvent *ee);
 static int xerrordummy(Display *dpy, XErrorEvent *ee);
 static int xerrorstart(Display *dpy, XErrorEvent *ee);
@@ -287,9 +256,6 @@ static const char broken[] = "broken";
 static const char dwmdir[] = "dwm";
 static const char localshare[] = ".local/share";
 static char stext[256];
-static char rawstext[256];
-static int dwmblockssig;
-pid_t dwmblockspid = 0;
 static int screen;
 static int sw, sh;           /* X display screen geometry width, height */
 static int bh, blw = 0;      /* bar geometry */
@@ -313,26 +279,16 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 	[UnmapNotify] = unmapnotify
 };
 static Atom wmatom[WMLast], netatom[NetLast];
-static int epoll_fd;
-static int dpy_fd;
 static int running = 1;
 static Cur *cursor[CurLast];
 static Clr **scheme;
 static Display *dpy;
 static Drw *drw;
-static Monitor *mons, *selmon, *lastselmon;
+static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
-
-#include "ipc.h"
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
-
-#ifdef VERSION
-#include "IPCClient.c"
-#include "yajl_dumps.c"
-#include "ipc.c"
-#endif
 
 struct Pertag {
 	unsigned int curtag, prevtag; /* current and previous tag */
@@ -522,26 +478,9 @@ buttonpress(XEvent *e)
 			arg.ui = 1 << i;
 		} else if (ev->x < x + blw)
 			click = ClkLtSymbol;
-		else if (ev->x > (x = selmon->ww - TEXTW(stext) + lrpad)) {
+		else if (ev->x > selmon->ww - (int)TEXTW(stext))
 			click = ClkStatusText;
-
-			char *text = rawstext;
-			int i = -1;
-			char ch;
-			dwmblockssig = 0;
-			while (text[++i]) {
-				if ((unsigned char)text[i] < ' ') {
-					ch = text[i];
-					text[i] = '\0';
-					x += TEXTW(text) - lrpad;
-					text[i] = ch;
-					text += i+1;
-					i = -1;
-					if (x >= ev->x) break;
-					dwmblockssig = ch;
-				}
-			}
-		} else
+		else
 			click = ClkWinTitle;
 	} else if ((c = wintoclient(ev->window))) {
 		focus(c);
@@ -591,12 +530,6 @@ cleanup(void)
 	XSync(dpy, False);
 	XSetInputFocus(dpy, PointerRoot, RevertToPointerRoot, CurrentTime);
 	XDeleteProperty(dpy, root, netatom[NetActiveWindow]);
-
-	ipc_cleanup();
-
-	if (close(epoll_fd) < 0) {
-			fprintf(stderr, "Failed to close epoll file descriptor\n");
-	}
 }
 
 void
@@ -610,10 +543,8 @@ cleanupmon(Monitor *mon)
 		for (m = mons; m && m->next != mon; m = m->next);
 		m->next = mon->next;
 	}
-	if (!usealtbar) {
-		XUnmapWindow(dpy, mon->barwin);
-		XDestroyWindow(dpy, mon->barwin);
-	}
+	XUnmapWindow(dpy, mon->barwin);
+	XDestroyWindow(dpy, mon->barwin);
 	free(mon);
 }
 
@@ -675,7 +606,7 @@ configurenotify(XEvent *e)
 				for (c = m->clients; c; c = c->next)
 					if (c->isfullscreen)
 						resizeclient(c, m->mx, m->my, m->mw, m->mh);
-				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, m->bh);
+				XMoveResizeWindow(dpy, m->barwin, m->wx, m->by, m->ww, bh);
 			}
 			focus(NULL);
 			arrange(NULL);
@@ -735,19 +666,6 @@ configurerequest(XEvent *e)
 	XSync(dpy, False);
 }
 
-void
-copyvalidchars(char *text, char *rawtext)
-{
-	int i = -1, j = 0;
-
-	while(rawtext[++i]) {
-		if ((unsigned char)rawtext[i] >= ' ') {
-			text[j++] = rawtext[i];
-		}
-	}
-	text[j] = '\0';
-}
-
 Monitor *
 createmon(void)
 {
@@ -764,7 +682,6 @@ createmon(void)
 	m->gappiv = gappiv;
 	m->gappoh = gappoh;
 	m->gappov = gappov;
-	m->bh = bh;
 	m->lt[0] = &layouts[0];
 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
@@ -789,15 +706,10 @@ void
 destroynotify(XEvent *e)
 {
 	Client *c;
-	Monitor *m;
 	XDestroyWindowEvent *ev = &e->xdestroywindow;
 
 	if ((c = wintoclient(ev->window)))
 		unmanage(c, 1);
-	else if ((m = wintomon(ev->window)) && m->barwin == ev->window)
-		unmanagealtbar(ev->window);
-	else if (m->traywin == ev->window)
-		unmanagetray(ev->window);
 }
 
 void
@@ -841,9 +753,6 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	if (usealtbar)
-		return;
-
 	int x, w, tw = 0;
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
@@ -1136,25 +1045,6 @@ grabkeys(void)
 	}
 }
 
-int
-handlexevent(struct epoll_event *ev)
-{
-	if (ev->events & EPOLLIN) {
-		XEvent ev;
-		while (running && XPending(dpy)) {
-			XNextEvent(dpy, &ev);
-			if (handler[ev.type]) {
-				handler[ev.type](&ev); /* call handler */
-				ipc_send_events(mons, &lastselmon, selmon);
-			}
-		}
-	} else if (ev-> events & EPOLLHUP) {
-		return -1;
-	}
-
-	return 0;
-}
-
 void
 incnmaster(const Arg *arg)
 {
@@ -1278,45 +1168,6 @@ manage(Window w, XWindowAttributes *wa)
 }
 
 void
-managealtbar(Window win, XWindowAttributes *wa)
-{
-	Monitor *m;
-	if (!(m = recttomon(wa->x, wa->y, wa->width, wa->height)))
-		return;
-
-	m->barwin = win;
-	m->by = wa->y;
-	bh = m->bh = wa->height;
-	updatebarpos(m);
-	arrange(m);
-	XSelectInput(dpy, win, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
-	XMoveResizeWindow(dpy, win, wa->x, wa->y, wa->width, wa->height);
-	XMapWindow(dpy, win);
-	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
-		(unsigned char *) &win, 1);
-}
-
-void
-managetray(Window win, XWindowAttributes *wa)
-{
-	Monitor *m;
-	if (!(m = recttomon(wa->x, wa->y, wa->width, wa->height)))
-		return;
-
-	m->traywin = win;
-	m->tx = wa->x;
-	m->tw = wa->width;
-	updatebarpos(m);
-	arrange(m);
-	XSelectInput(dpy, win, EnterWindowMask|FocusChangeMask|PropertyChangeMask|StructureNotifyMask);
-	XMoveResizeWindow(dpy, win, wa->x, wa->y, wa->width, wa->height);
-	XMapWindow(dpy, win);
-	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
-			(unsigned char *) &win, 1);
-}
-
-
-void
 mappingnotify(XEvent *e)
 {
 	XMappingEvent *ev = &e->xmapping;
@@ -1336,9 +1187,7 @@ maprequest(XEvent *e)
 		return;
 	if (wa.override_redirect)
 		return;
-	if (wmclasscontains(ev->window, altbarclass, ""))
-		managealtbar(ev->window, &wa);
-	else if (!wintoclient(ev->window))
+	if (!wintoclient(ev->window))
 		manage(ev->window, &wa);
 }
 
@@ -1656,40 +1505,12 @@ rotatestack(const Arg *arg)
 void
 run(void)
 {
-	int event_count = 0;
-	const int MAX_EVENTS = 10;
-	struct epoll_event events[MAX_EVENTS];
-
-	XSync(dpy, False);
-
+	XEvent ev;
 	/* main event loop */
-	while (running) {
-		event_count = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
-
-		for (int i = 0; i < event_count; i++) {
-			int event_fd = events[i].data.fd;
-			DEBUG("Got event from fd %d\n", event_fd);
-
-			if (event_fd == dpy_fd) {
-				// -1 means EPOLLHUP
-				if (handlexevent(events + i) == -1)
-					return;
-			} else if (event_fd == ipc_get_sock_fd()) {
-				ipc_handle_socket_epoll_event(events + i);
-			} else if (ipc_is_client_registered(event_fd)){
-				if (ipc_handle_client_epoll_event(events + i, mons, &lastselmon, selmon,
-							tags, LENGTH(tags), layouts, LENGTH(layouts)) < 0) {
-					fprintf(stderr, "Error handling IPC event on fd %d\n", event_fd);
-				}
-			} else {
-				fprintf(stderr, "Got event from unknown fd %d, ptr %p, u32 %d, u64 %lu",
-						event_fd, events[i].data.ptr, events[i].data.u32,
-						events[i].data.u64);
-				fprintf(stderr, " with events %d\n", events[i].events);
-				return;
-			}
-		}
-	}
+	XSync(dpy, False);
+	while (running && !XNextEvent(dpy, &ev))
+		if (handler[ev.type])
+			handler[ev.type](&ev); /* call handler */
 }
 
 void
@@ -1781,9 +1602,7 @@ scan(void)
 			if (!XGetWindowAttributes(dpy, wins[i], &wa)
 			|| wa.override_redirect || XGetTransientForHint(dpy, wins[i], &d1))
 				continue;
-			if (wmclasscontains(wins[i], altbarclass, ""))
-				managealtbar(wins[i], &wa);
-			else if (wa.map_state == IsViewable || getstate(wins[i]) == IconicState)
+			if (wa.map_state == IsViewable || getstate(wins[i]) == IconicState)
 				manage(wins[i], &wa);
 		}
 		for (i = 0; i < num; i++) { /* now the transients */
@@ -1797,29 +1616,6 @@ scan(void)
 			XFree(wins);
 	}
 }
-
-void
-scantray(void)
-{
-	unsigned int num;
-	Window d1, d2, *wins = NULL;
-	XWindowAttributes wa;
-
-	if (XQueryTree(dpy, root, &d1, &d2, &wins, &num)) {
-		for (unsigned int i = 0; i < num; i++) {
-			if (wmclasscontains(wins[i], altbarclass, alttrayname)) {
-				if (!XGetWindowAttributes(dpy, wins[i], &wa))
-					break;
-				managetray(wins[i], &wa);
-			}
-		}
-	}
-
-	if (wins)
-		XFree(wins);
-}
-
-
 
 void
 sendmon(Client *c, Monitor *m)
@@ -1940,18 +1736,6 @@ setlayout(const Arg *arg)
 		drawbar(selmon);
 }
 
-void
-setlayoutsafe(const Arg *arg)
-{
-	const Layout *ltptr = (Layout *)arg->v;
-	if (ltptr == 0)
-			setlayout(arg);
-	for (int i = 0; i < LENGTH(layouts); i++) {
-		if (ltptr == &layouts[i])
-			setlayout(arg);
-	}
-}
-
 /* arg > 1.0 will set mfact absolutely */
 void
 setmfact(const Arg *arg)
@@ -2046,37 +1830,8 @@ setup(void)
 	XSelectInput(dpy, root, wa.event_mask);
 	grabkeys();
 	focus(NULL);
-	setupepoll();
 }
 
-void
-setupepoll(void)
-{
-	epoll_fd = epoll_create1(0);
-	dpy_fd = ConnectionNumber(dpy);
-	struct epoll_event dpy_event;
-
-	// Initialize struct to 0
-	memset(&dpy_event, 0, sizeof(dpy_event));
-
-	DEBUG("Display socket is fd %d\n", dpy_fd);
-
-	if (epoll_fd == -1) {
-		fputs("Failed to create epoll file descriptor", stderr);
-	}
-
-	dpy_event.events = EPOLLIN;
-	dpy_event.data.fd = dpy_fd;
-	if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, dpy_fd, &dpy_event)) {
-		fputs("Failed to add display file descriptor to epoll", stderr);
-		close(epoll_fd);
-		exit(1);
-	}
-
-	if (ipc_init(ipcsockpath, epoll_fd, ipccommands, LENGTH(ipccommands)) < 0) {
-		fputs("Failed to initialize IPC\n", stderr);
-	}
-}
 
 void
 seturgent(Client *c, int urg)
@@ -2155,14 +1910,6 @@ void
 togglebar(const Arg *arg)
 {
 	unsigned int i;
-	/**
-     * Polybar tray does not raise maprequest event. It must be manually scanned
-	 * for. Scanning it too early while the tray is being populated would give
-	 * wrong dimensions.
-     */
-	if (!selmon->traywin)
-		scantray();
-
 	selmon->showbar = !selmon->showbar;
 	for(i=0; i<LENGTH(tags); ++i)
 		if(selmon->tagset[selmon->seltags] & 1<<i)
@@ -2173,8 +1920,7 @@ togglebar(const Arg *arg)
 		selmon->pertag->showbars[0] = selmon->showbar;
 	}
 	updatebarpos(selmon);
-	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, selmon->bh);
-	XMoveResizeWindow(dpy, selmon->traywin, selmon->tx, selmon->by, selmon->tw, selmon->bh);
+	XMoveResizeWindow(dpy, selmon->barwin, selmon->wx, selmon->by, selmon->ww, bh);
 	arrange(selmon);
 }
 
@@ -2289,40 +2035,9 @@ unmanage(Client *c, int destroyed)
 }
 
 void
-unmanagealtbar(Window w)
-{
-    Monitor *m = wintomon(w);
-
-    if (!m)
-        return;
-
-    m->barwin = 0;
-    m->by = 0;
-    m->bh = 0;
-    updatebarpos(m);
-    arrange(m);
-}
-
-void
-unmanagetray(Window w)
-{
-	Monitor *m = wintomon(w);
-
-	if (!m)
-		return;
-
-	m->traywin = 0;
-	m->tx = 0;
-	m->tw = 0;
-	updatebarpos(m);
-	arrange(m);
-}
-
-void
 unmapnotify(XEvent *e)
 {
 	Client *c;
-	Monitor *m;
 	XUnmapEvent *ev = &e->xunmap;
 
 	if ((c = wintoclient(ev->window))) {
@@ -2330,18 +2045,12 @@ unmapnotify(XEvent *e)
 			setclientstate(c, WithdrawnState);
 		else
 			unmanage(c, 0);
-	} else if ((m = wintomon(ev->window)) && m->barwin == ev->window)
-		unmanagealtbar(ev->window);
-	else if (m->traywin == ev->window)
-		unmanagetray(ev->window);
+	}
 }
 
 void
 updatebars(void)
 {
-	if (usealtbar)
-		return;
-
 	Monitor *m;
 	XSetWindowAttributes wa = {
 		.override_redirect = True,
@@ -2367,11 +2076,11 @@ updatebarpos(Monitor *m)
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
-		m->wh -= m->bh;
+		m->wh -= bh;
 		m->by = m->topbar ? m->wy : m->wy + m->wh;
-		m->wy = m->topbar ? m->wy + m->bh : m->wy;
+		m->wy = m->topbar ? m->wy + bh : m->wy;
 	} else
-		m->by = -m->bh;
+		m->by = -bh;
 }
 
 void
@@ -2528,28 +2237,18 @@ updatesizehints(Client *c)
 void
 updatestatus(void)
 {
-	if (!gettextprop(root, XA_WM_NAME, rawstext, sizeof(rawstext)))
+	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 		strcpy(stext, "dwm-"VERSION);
-	else
-		copyvalidchars(stext, rawstext);
 	drawbar(selmon);
 }
 
 void
 updatetitle(Client *c)
 {
-	char oldname[sizeof(c->name)];
-	strcpy(oldname, c->name);
-
 	if (!gettextprop(c->win, netatom[NetWMName], c->name, sizeof c->name))
 		gettextprop(c->win, XA_WM_NAME, c->name, sizeof c->name);
 	if (c->name[0] == '\0') /* hack to mark broken clients */
 		strcpy(c->name, broken);
-
-	for (Monitor *m = mons; m; m = m->next) {
-		if (m->sel == c && strcmp(oldname, c->name) != 0)
-			ipc_focused_title_change_event(m->num, c->win, oldname, c->name);
-	}
 }
 
 void
@@ -2644,33 +2343,11 @@ wintomon(Window w)
 	if (w == root && getrootptr(&x, &y))
 		return recttomon(x, y, 1, 1);
 	for (m = mons; m; m = m->next)
-		if (w == m->barwin || w == m->traywin)
+		if (w == m->barwin)
 			return m;
 	if ((c = wintoclient(w)))
 		return c->mon;
 	return selmon;
-}
-
-int
-wmclasscontains(Window win, const char *class, const char *name)
-{
-	XClassHint ch = { NULL, NULL };
-	int res = 1;
-
-	if (XGetClassHint(dpy, win, &ch)) {
-		if (ch.res_name && strstr(ch.res_name, name) == NULL)
-			res = 0;
-		if (ch.res_class && strstr(ch.res_class, class) == NULL)
-			res = 0;
-	} else
-		res = 0;
-
-	if (ch.res_class)
-		XFree(ch.res_class);
-	if (ch.res_name)
-		XFree(ch.res_name);
-
-	return res;
 }
 
 /* There's no way to check accesses to destroyed windows, thus those cases are
