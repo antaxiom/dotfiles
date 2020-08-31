@@ -1,0 +1,5 @@
+#! /bin/sh
+
+sudo cp ./blocks.def.h ./blocks.h &
+
+sudo make install

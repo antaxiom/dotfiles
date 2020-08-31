@@ -1,0 +1,5 @@
+#! /bin/sh
+
+killall sxhkd
+sleep 0.25
+sxhkd &

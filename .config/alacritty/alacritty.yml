@@ -1,0 +1,63 @@
+# Font configuration (changes require restart)
+font:
+  # The size to use.
+  size: 12
+  # The normal (roman) font face to use.
+  normal:
+    family: JetBrainsMono NF
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: JetBrainsMono NF
+    # Style can be specified to pick a specific face.
+    # style: Bold
+
+  # The italic font face
+  italic:
+    family: JetBrainsMono NF
+    # Style can be specified to pick a specific face.
+    # style: Italic
+
+window:
+  padding:
+    x: 10
+    y: 5
+
+background_opacity: 1
+# Colors (Dracula + One Dark-ish) (Made [partially] by antaxiom)
+colors:
+  # Default colors
+  primary:
+    background: "0x111111"
+    foreground: "0xf8f8f2"
+
+  # Normal colors
+  normal:
+    black: "0x000000"
+    red: "0xf44747"
+    green: "0x50fa7b"
+    yellow: "0xe5c07b"
+    blue: "0x61afef"
+    magenta: "0xc678dd"
+    cyan: "0x409cba"
+    white: "0xbbbbbb"
+
+  # Bright colors
+  bright:
+    black: "0x777777"
+    red: "0xff5555"
+    green: "0x98C379"
+    yellow: "0xd19a66"
+    blue: "0x6fb8f4"
+    magenta: "0xd55fde"
+    cyan: "0x61b3ce"
+    white: "0xffffff"
+
+  padding:
+    x: 100
+    y: 100
+
+# Spread additional padding evenly around the terminal content.
+dynamic_padding: true
