@@ -50,3 +50,6 @@ fi
 
 # Display Resolution
 xrandr --output DisplayPort-1 --mode 3840x2160 --dpi 196 &
+
+# Simple X Hotkey daemon
+sxhkd 
