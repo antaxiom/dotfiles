@@ -16,7 +16,11 @@ chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nSuspen
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Logout" ]]; then
+<<<<<<< HEAD
 	pkill -x Xorg
+=======
+	jwm -exit
+>>>>>>> 693b185579685a397d9a144a60c21ae0506c1e1f
 elif [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then

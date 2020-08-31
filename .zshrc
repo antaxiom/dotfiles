@@ -11,7 +11,11 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
+<<<<<<< HEAD
 neofetch --ascii_distro arcolinux_small -l   
+=======
+pfetch
+>>>>>>> 693b185579685a397d9a144a60c21ae0506c1e1f
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -78,6 +82,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+<<<<<<< HEAD
+=======
+plugins=(zshnotes)
+>>>>>>> 693b185579685a397d9a144a60c21ae0506c1e1f
 
 source $ZSH/oh-my-zsh.sh
 
@@ -160,7 +168,10 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 # Other path stuff
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH:/home/alex/bin"
+<<<<<<< HEAD
 export EDITOR=nvim
+=======
+>>>>>>> 693b185579685a397d9a144a60c21ae0506c1e1f
 
 
 # alias zshconfig="mate ~/.zshrc"
@@ -185,4 +196,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+<<<<<<< HEAD
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+=======
+>>>>>>> 693b185579685a397d9a144a60c21ae0506c1e1f
