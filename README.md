@@ -21,7 +21,7 @@
 - My slightly modified versions of [neovim](https://neovim.io/) and [ranger](https://github.com/ranger/ranger),
 - based off [Christian Chiarulli's](https://github.com/ChristianChiarulli/nvim) and [Luke Smith's](https://github.com/LukeSmithxyz/voidrice) configs respectively
 
-- Configs for [oh my zsh](https://ohmyz.sh/) [(needs p10k)](https://github.com/romkatv/powerlevel10k) and alacritty
+- Configs for [oh my zsh](https://ohmyz.sh/) and alacritty
 
 - Configs for [picom](https://github.com/yshui/picom) (needs [dual kawase fork](https://github.com/ibhagwan/picom))
 
