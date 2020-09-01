@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Simple script to handle a DIY shutdown menu. When run you should see a bunch of options (shutdown, reboot etc.)
+#
+# Requirements:
+# - rofi
+# - systemd, but you can replace the commands for OpenRC or anything else
+#
+# Instructions:
+# - Save this file as power.sh or anything
+# - Give it exec priviledge, or chmod +x /path/to/power.sh
+# - Run it
+
+chosen=$(echo -e "[Cancel]\nTablet Mirror\nDisplay Port 1\nDisplay Port 2\nDisplay Port 3" | dmenu -i -l 8 -fn "JetBrainsMono NF")
+# Info about some states are available here:
+# https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
+
+if [[ $chosen = "Tablet Mirror" ]]; then
+	xrandr --output HDMI-A-0 --mode 1920x1080 --same-as DisplayPort-2 --scale 2.0x2.0
+elif [[ $chosen = "Display Port 1" ]]; then
+xrandr --output DisplayPort-0 --mode 3840x2160 --dpi 196
+elif [[ $chosen = "Display Port 2" ]]; then
+xrandr --output DisplayPort-1 --mode 3840x2160 --dpi 196
+elif [[ $chosen = "Display Port 3" ]]; then
+xrandr --output DisplayPort-2 --mode 3840x2160 --dpi 196
+fi
