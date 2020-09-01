@@ -181,3 +181,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+source /home/alex/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
