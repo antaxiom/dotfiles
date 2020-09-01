@@ -137,9 +137,15 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 # ls as exa with colors
 alias ls="exa --color=always --group-directories-first"
 
+# *Devour*
+alias zathura="devour zathura"
+alias sxiv="devour sxiv"
+alias mpv="devour mpv"
+
 # Convenient cds
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd../../.."
 
 # Colored grep
 alias grep="grep --color=auto"
