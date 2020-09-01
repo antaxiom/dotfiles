@@ -37,9 +37,7 @@
 
 ### Optional Dependencies
 
-- dragon (for ranger use and the aliases)
-
-Note: I can't find a repo online for dragon but it should be available in your package manager of choice
+- [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
 
 ## Credits
 
