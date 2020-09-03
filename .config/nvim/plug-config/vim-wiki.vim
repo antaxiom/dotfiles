@@ -13,9 +13,6 @@
     \   'mouse': 1,
     \ }
 
-" Filetypes enabled for
-let g:vimwiki_filetypes = ['markdown']
-
 let g:vimwiki_list = [{'path': '~/Documents/notes/vimwiki/',
 \ 'syntax': 'default', 'exclude_files': ['**/README.md', '**/Readme.md'] }]
 
