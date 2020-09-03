@@ -41,7 +41,7 @@
 
 ## Credits
 
-[Luke Smith](https://github.com/LukeSmithxyz) For their ranger config and inspiration for dmenu and COVID scripts
+[Luke Smith](https://github.com/LukeSmithxyz) For their ranger config and inspiration for dmenu and status scripts
 
 [Christian Chiarulli](https://github.com/ChristianChiarulli) For their slick neovim config
 
