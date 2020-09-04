@@ -27,21 +27,26 @@
 
 ## Dependencies
 
+- picom (fork mentioned above)
 - my builds of dwm, dmenu, ect. (these configs are meant to interact with my builds)
 - ranger (for the ranger and nvim config)
 - [fzf](https://github.com/junegunn/fzf) (for scripts)
 - shxkd (for hotkeys)
-- [exa](https://the.exa.website/) (for aliases)
 - [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
-- [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
 
-### Optional Dependencies
+### Possibly Optional Dependencies
 
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
+- [exa](https://the.exa.website/) (for aliases)
+- [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
 
 ## TODO
 
 - Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
+
+- Add screenshots to README.md
+
+- Fix funky floating windows in dwm
 
 ## Credits
 
