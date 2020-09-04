@@ -33,7 +33,7 @@
 - shxkd (for hotkeys)
 - [exa](https://the.exa.website/) (for aliases)
 - [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
-- [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases)
+- [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
 
 ### Optional Dependencies
 
@@ -41,7 +41,7 @@
 
 ## TODO
 
-* Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
+- Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
 
 ## Credits
 

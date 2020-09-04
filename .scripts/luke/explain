@@ -1,0 +1,6 @@
+#! /bin/sh
+
+# Basically stolen from Luke Smith "Laying Pipes like a unix chad video"
+# Requires devour
+
+man -k . | dmenu -l 30 | awk '{print $1}' | xargs -r man -Tpdf | devour zathura -
