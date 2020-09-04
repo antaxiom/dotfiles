@@ -39,6 +39,10 @@
 
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
 
+## TODO
+
+* Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
+
 ## Credits
 
 [Luke Smith](https://github.com/LukeSmithxyz) For their ranger config and inspiration for dmenu and status scripts
