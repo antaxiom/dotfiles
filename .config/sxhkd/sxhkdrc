@@ -18,14 +18,16 @@ XF86Calculator
 # Screenshots
 
 alt + Print
-  scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
-
+  var="$HOME/Pictures/screenshots/$(date +%d-%m-%y--%I-%M-%p).png"; \
+  maim -s -m 10 "$var"; \
+  xclip -sel c -t image/png "$var"
 
 shift + Print
-  scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`'
-
+  var="$HOME/Pictures/screenshots/$(date +%d-%m-%y--%I-%M-%p).png"; \
+  maim -m 10 "$var"; \
+  xclip -sel c -t image/png "$var"
 Print
-  scrot '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+  maim -m 10 | xclip -selection clipboard -t image/png
 
 alt + space
   ~/.scripts/special-characters/saccent
