@@ -1,4 +1,4 @@
-```
+﻿```
        __      __  _____ __
   ____/ /___  / /_/ __(_) /__  _____
  / __  / __ \/ __/ /_/ / / _ \/ ___/
@@ -14,7 +14,7 @@
 
 - My builds of [dwm](https://dwm.suckless.org/), [dmenu](https://tools.suckless.org/dmenu/) and other utilities
 
-- My custom colorscheme One drac (tentative name) at the moment only for alacritty, dwm and neovim
+- My custom color scheme One drac (tentative name) at the moment only for alacritty, dwm and neovim
 
 - My [shxkd](https://github.com/baskerville/sxhkd) config for my scripts and media control
 
@@ -30,15 +30,15 @@
 - picom (fork mentioned above)
 - my builds of dwm, dmenu, ect. (these configs are meant to interact with my builds)
 - ranger (for the ranger and nvim config)
-- [fzf](https://github.com/junegunn/fzf) (for scripts)
 - shxkd (for hotkeys)
 - [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
-
-### Possibly Optional Dependencies
-
+- [maim](https://github.com/naelstrof/maim) (For screenshots in sxhkd )
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
+- [fzf](https://github.com/junegunn/fzf) (for scripts)
 - [exa](https://the.exa.website/) (for aliases)
 - [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
+
+Note: Some of these dependencies may possibly optional but that's an unsupported use case and some basic dependencies (make an issue if this is the case)
 
 ## TODO
 
