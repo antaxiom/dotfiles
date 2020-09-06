@@ -48,11 +48,11 @@ Note: Some of these dependencies may possibly optional but that's an unsupported
 
 ## TODO
 
-- Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
+- Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu (I'm not clear on how the patch works so I'm putting this off)
 
-- Add screenshots to README.md
+- ~~Add screenshots to README.md~~ Done!
 
-- Fix funky floating windows in dwm
+- Fix funky floating windows in dwm (Saving this one for a rainy day and a repatch)
 
 ## Credits
 
