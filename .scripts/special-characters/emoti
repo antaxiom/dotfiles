@@ -2,7 +2,7 @@
 # Give dmenu a list of spanish characters to copy
 # Notifies which character has been copied
 
-grep -v "#" ~/.scripts/special-characters/emoti-list | dmenu -i -l 16 -fn "JetBrainsMono NF" | awk '{print $1}' | tr -d '\n' | xclip -selection c
+grep -v "#" ~/.scripts/special-characters/emoti-list | dmenu -l 26 | awk '{print $1}' | tr -d '\n' | xclip -selection c
 
 if ! ([ "$(xclip -o -selection c)" = '' ] || [ "$(xclip -o -selection c)" = '[X]' ]) then
   pgrep -x dunst >/dev/null && notify-send "$(xclip -o -selection c) copied to clipboard"
