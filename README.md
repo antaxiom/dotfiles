@@ -8,6 +8,10 @@
 
 # My personal dotfiles
 
+### Screenshots
+
+![Neovim](./dotfiles/images/nvim.png)
+
 ## Things included
 
 - Personal scripts
