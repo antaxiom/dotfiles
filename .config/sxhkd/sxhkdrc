@@ -17,6 +17,9 @@ XF86Calculator
 
 # Screenshots
 
+Print
+  maim -m 10 | xclip -selection clipboard -t image/png
+
 alt + Print
   var="$HOME/Pictures/screenshots/$(date +%d-%m-%y--%I-%M-%p).png"; \
   maim -s -m 10 "$var"; \
@@ -26,8 +29,6 @@ shift + Print
   var="$HOME/Pictures/screenshots/$(date +%d-%m-%y--%I-%M-%p).png"; \
   maim -m 10 "$var"; \
   xclip -sel c -t image/png "$var"
-Print
-  maim -m 10 | xclip -selection clipboard -t image/png
 
 alt + space
   ~/.scripts/special-characters/saccent
