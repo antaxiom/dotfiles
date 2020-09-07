@@ -32,9 +32,4 @@ shift + Print
 
 alt + space
   ~/.scripts/special-characters/saccent
-
-#Spanish character
-
-alt + a
-  xdotool key U00E1
   
