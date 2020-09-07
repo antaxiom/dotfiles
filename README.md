@@ -10,7 +10,7 @@
 
 ### Screenshots
 
-![Floating](./dotfiles/images/floating.png)
+![Floating](./dotfiles/images/floating2.png)
 
 ![Neovim](./dotfiles/images/nvim.png)
 
