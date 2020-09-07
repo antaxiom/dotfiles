@@ -16,7 +16,7 @@ static const int vertpadbar         = 6;        /* vertical padding for statusba
 static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *fonts[]          = { "FiraCode NF:size=12" };
+static const char *fonts[]          = { "JetBrainsMonoNF:size=12" };
 static const char dmenufont[]       = "JetBrainsMonoNF";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#222222";
@@ -35,7 +35,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -92,7 +92,8 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --dmenu=\'dmenu -p start\'")},
-	{ MODKEY,                       XK_r,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p run)")},
+	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p run)")},
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
