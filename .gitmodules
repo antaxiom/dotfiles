@@ -1,3 +1,6 @@
 [submodule "/home/alex/.config/ranger/plugins/ranger_devicons"]
 	path = /home/alex/.config/ranger/plugins/ranger_devicons
 	url = https://github.com/alexanderjeurissen/ranger_devicons.git
+[submodule "suckless/dmenu"]
+	path = suckless/dmenu
+	url = https://git.suckless.org/dmenu
