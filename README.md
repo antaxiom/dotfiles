@@ -54,7 +54,7 @@ Note: Some of these dependencies may possibly optional but that's an unsupported
 
 - ~~Add screenshots to README.md~~ Done!
 
-- Fix funky floating windows in dwm (Saving this one for a rainy day and a repatch)
+- ~~Fix funky floating windows in dwm (Saving this one for a rainy day and a repatch)~~ Took way too much time but it's done!
 
 ## Credits
 
