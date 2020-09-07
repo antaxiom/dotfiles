@@ -92,7 +92,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --dmenu=\'dmenu -p start\'")},
-	{ MODKEY,                       XK_r,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p start)")},
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p run)")},
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
