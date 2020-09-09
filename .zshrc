@@ -76,7 +76,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git compleat)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,6 +143,9 @@ alias ls="exa --color=always --group-directories-first"
 alias zathura="devour zathura"
 alias sxiv="devour sxiv"
 alias mpv="devour mpv"
+
+# Ranger exists to a shell in your directory
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # Convenient cds
 alias ..="cd .."
