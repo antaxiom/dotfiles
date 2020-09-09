@@ -16,8 +16,8 @@ static const int vertpadbar         = 6;        /* vertical padding for statusba
 static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *fonts[]          = { "JetBrainsMonoNF:size=12" };
-static const char dmenufont[]       = "JetBrainsMonoNF";
+static const char *fonts[]          = { "JetBrainsMonoMedium NF" };
+static const char dmenufont[]       = "JetBrainsMonoMedium NF";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#bbbbbb";
@@ -109,6 +109,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[11]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
