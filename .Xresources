@@ -1,4 +1,4 @@
-Xft.dpi: 176
+Xft.dpi: 192
 export GDK_SCALE=2
 
 Xft.autohint: 0
