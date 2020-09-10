@@ -7,7 +7,10 @@ XF86AudioNext
   playerctl next
 
 XF86AudioPrev
-  maim -m 10 | xclip -selection clipboard -t image/png
+  playerctl previous
+
+Print
+  maim -m 10 | xclip -sel c -t image/png
 
 alt + Print
   maim -s -m 10 | xclip -sel c -t image/png

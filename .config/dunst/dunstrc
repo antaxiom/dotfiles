@@ -1,7 +1,7 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "0x0-16+62"
+geometry = "540x0-16+62"
 indicate_hidden = yes
 shrink = no
 separator_height = 0
