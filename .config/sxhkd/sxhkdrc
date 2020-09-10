@@ -9,6 +9,11 @@ XF86AudioNext
 XF86AudioPrev
   playerctl previous
 
+XF86Calculator
+  alacritty -e R
+
+
+
 Print
   maim -m 10 | xclip -sel c -t image/png
 
