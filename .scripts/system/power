@@ -16,7 +16,7 @@ chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nSuspen
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Logout" ]]; then
-	pkill -x Xorg
+	SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A pkill -x Xorg
 elif [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then
