@@ -15,7 +15,7 @@ XF86Calculator
 
 
 Print
-  maim -m 10 | xclip -sel c -t image/png
+  maim | xclip -sel c -t image/png
 
 alt + Print
   maim -s -m 10 | xclip -sel c -t image/png
