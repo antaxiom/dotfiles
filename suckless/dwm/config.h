@@ -16,8 +16,8 @@ static const int vertpadbar         = 6;        /* vertical padding for statusba
 static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *fonts[]          = { "JetBrainsMonoMedium NF" };
-static const char dmenufont[]       = "JetBrainsMonoMedium NF";
+static const char *fonts[]          = { "JetBrains Mono Medium:antialias=true:autohint=true","JetBrainsMonoNF:size=14:antialias=true:autohint=true" };
+static const char dmenufont[]       = "JetBrainsMonoNF";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#222222";
 static const char col_gray3[]       = "#bbbbbb";
