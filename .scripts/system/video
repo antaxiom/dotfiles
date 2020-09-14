@@ -11,12 +11,14 @@
 # - Give it exec priviledge, or chmod +x /path/to/power.sh
 # - Run it
 
-chosen=$(echo -e "[Cancel]\nTablet Mirror\nDisplay Port 1\nDisplay Port 2\nDisplay Port 3" | dmenu -l 8 -fn "JetBrainsMono NF")
+chosen=$(echo -e "[Cancel]\nTablet Mirror\nTablet Extend\nDisplay Port 1\nDisplay Port 2\nDisplay Port 3" | dmenu -l 8 -fn "JetBrainsMono NF")
 # Info about some states are available here:
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Tablet Mirror" ]]; then
 	xrandr --output HDMI-A-0 --mode 1920x1080 --same-as DisplayPort-2 --scale 2.0x2.0
+elif [[ $chosen = "Tablet Extend" ]]; then
+	xrandr --output HDMI-A-0 --mode 1920x1080 --pos 0x2160 --scale 2.0x2.0
 elif [[ $chosen = "Display Port 1" ]]; then
 xrandr --output DisplayPort-0 --mode 3840x2160 --dpi 196
 elif [[ $chosen = "Display Port 2" ]]; then
