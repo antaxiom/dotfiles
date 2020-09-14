@@ -1,13 +1,11 @@
-# Base16 Nord
-# Author: arcticicestudio
 
-set default-bg                  "#555555"
+set default-bg                  "#111111"
 set default-fg                  "#ffffff"
 
 set statusbar-fg                "#DDDDDD"
-set statusbar-bg                "#555555"
+set statusbar-bg                "#111111"
 
-set inputbar-bg                 "#555555"
+set inputbar-bg                 "#111111"
 set inputbar-fg                 "#61AFEF"
 
 set notification-bg             "#222222"
