@@ -1,0 +1,35 @@
+# Base16 Nord
+# Author: arcticicestudio
+
+set default-bg                  "#555555"
+set default-fg                  "#ffffff"
+
+set statusbar-fg                "#DDDDDD"
+set statusbar-bg                "#555555"
+
+set inputbar-bg                 "#555555"
+set inputbar-fg                 "#61AFEF"
+
+set notification-bg             "#222222"
+set notification-fg             "#61AFEF"
+
+set notification-error-bg       "#222222"
+set notification-error-fg       "#BF616A"
+
+set notification-warning-bg     "#222222"
+set notification-warning-fg     "#BF616A"
+
+set highlight-color             "#E5C07B"
+set highlight-active-color      "#61AFEF"
+
+set completion-bg               "#222222"
+set completion-fg               "#61AFEF"
+
+set completion-highlight-fg     "#6FB8F4"
+set completion-highlight-bg     "#61AFEF"
+
+set recolor-lightcolor          "#222222"
+set recolor-darkcolor           "#FFFFFF"
+
+set recolor                     "false"
+set recolor-keephue             "false"

@@ -48,13 +48,15 @@ Note: Some of these dependencies may possibly optional but that's an unsupported
 
 ## TODO
 
-- Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu (I'm not clear on how the patch works so I'm putting this off)
+- Try out polybar again
 
-- Move builds and (n)vim stuff into gitsubmodules
+* Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
 
-- ~~Add screenshots to README.md~~ Done!
+* Move builds and (n)vim stuff into git submodules
 
-- ~~Fix funky floating windows in dwm (Saving this one for a rainy day and a repatch)~~ Took way too much time but it's done!
+* ~~Add screenshots to README.md~~ Done!
+
+* ~~Fix funky floating windows in dwm (Saving this one for a rainy day and a repatch)~~ Took way too much time but it's done!
 
 ## Credits
 
