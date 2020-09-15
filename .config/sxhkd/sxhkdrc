@@ -15,15 +15,13 @@ XF86Calculator
 
 
 Print
-  maim | xclip -sel c -t image/png
+  flameshot screen -c
 
 alt + Print
-  maim -s -m 10 | xclip -sel c -t image/png
+  flameshot gui
 
 shift + Print
-  var="$HOME/Pictures/screenshots/$(date +%d-%m-%y--%R-%M-%S-%p).png"; \
-  maim -m 10 "$var"; \
-  xclip -sel c -t image/png "$var"
+  flameshot screen -c -p ~/Pictures/screenshots/
 
 alt + space
   ~/.scripts/special-characters/saccent
