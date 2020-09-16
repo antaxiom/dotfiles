@@ -14,7 +14,13 @@ neofetch --ascii_distro arcolinux_small -l
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+
+# Custom PS1 inspired by luke smith
+# Have to source this after oh my zsh
+autoload -U colors && colors	# Load colors
+PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[magenta]%}%40<..<%~%{$fg[red]%}]%(?:%F{blue}#%f:%F{blue}!%f)%b%{$reset_color%}%b ${prompt_git}"
+
 
 # Risto, gentoo and lukerandall are good as well
 
@@ -29,7 +35,7 @@ ZSH_THEME="agnoster"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+ HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -53,7 +59,7 @@ ZSH_THEME="agnoster"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -76,9 +82,16 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git compleat)
 
-source $ZSH/oh-my-zsh.sh
+plugins=(compleat)
+# Plugins = Bloat????
+
+#
+ source $ZSH/oh-my-zsh.sh
+# I realized I don't even need oh my zsh, except for the title so I'm keeping it for
+# now until I can find a replacement
+
+
 
 # User configuration
 
@@ -88,11 +101,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -100,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
 # Example aliases
 
@@ -148,6 +160,7 @@ alias mpv="devour mpv"
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # Convenient cds
+setopt autocd		# Automatically cd into typed directory.
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -166,7 +179,13 @@ export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//
 # Other path stuff
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH:/home/alex/bin"
-export EDITOR=nvim
+
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+# Auto complete with case insenstivity
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# Not sure if needed but it can't hurt
 
 # Color man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
@@ -180,5 +199,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Who uses mate??????
 
 source /home/alex/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
