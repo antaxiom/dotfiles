@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Not exactly copied from luke but it's basically a clone of camtoggle
+
+pkill -f screenkey || screenkey &
