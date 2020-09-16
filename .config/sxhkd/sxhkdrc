@@ -12,16 +12,18 @@ XF86AudioPrev
 XF86Calculator
   alacritty -e R
 
-
+# Screenshots
 
 Print
-  flameshot screen -c
+  flameshot full -c
 
 alt + Print
   flameshot gui
 
 shift + Print
-  flameshot screen -c -p ~/Pictures/screenshots/
+  flameshot full -c -p ~/Pictures/screenshots/
+
+# Other
 
 alt + space
   ~/.scripts/special-characters/saccent
