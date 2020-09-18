@@ -1,13 +1,13 @@
 # Media control
 
 XF86AudioPlay
-  playerctl play-pause
+  playerctl play-pause & mpc toggle
 
 XF86AudioNext
-  playerctl next
+  playerctl next & mpc next
 
 XF86AudioPrev
-  playerctl previous
+  playerctl previous & mpc prev
 
 XF86Calculator
   alacritty -e R
