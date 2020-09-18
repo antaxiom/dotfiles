@@ -37,6 +37,7 @@
 - my builds of dwm, dmenu, ect. (these configs are meant to interact with my builds)
 - ranger (for the ranger and nvim config)
 - shxkd (for hotkeys)
+- [nitrogen](https://github.com/l3ib/nitrogen/) (for walpapers)
 - [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
 - [maim](https://github.com/naelstrof/maim) (For screenshots in sxhkd )
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
