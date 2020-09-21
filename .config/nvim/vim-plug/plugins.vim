@@ -93,8 +93,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'skywind3000/asyncrun.vim'
   " Swap windows
   Plug 'wesQ3/vim-windowswap'
+  " Vim Wiki
+  Plug 'https://github.com/vimwiki/vimwiki.git'
+  "Tabular idk
+  " Markdown highlighting?
+  Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
   " Markdown Preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+  " bullets
+  Plug 'dkarter/bullets.vim'
   " Easily Create Gists
   Plug 'mattn/vim-gist'
   Plug 'mattn/webapi-vim'
@@ -117,8 +124,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " Plug 'kaicataldo/material.vim'
   " Plug 'NLKNguyen/papercolor-theme'
   " Plug 'tomasiser/vim-code-dark'
-  " Vim Wiki
-  Plug 'https://github.com/vimwiki/vimwiki.git'
   " Better Comments
   " Plug 'jbgutierrez/vim-better-comments'
   " Echo doc
