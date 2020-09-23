@@ -172,6 +172,10 @@ alias fgrep="fgrep --color=auto"
 
 # Alias for managing configs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+# Askpass
+export SUDO_ASKPASS=~/suckless/dwm/dpass 
+
 # Path
 # Adds ~/.scripts to path
 export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
