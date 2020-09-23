@@ -15,7 +15,7 @@ XF86Calculator
 # Screenshots
 
 Print
-  flameshot full -c
+  flameshot screen -c
 
 alt + Print
   flameshot gui
