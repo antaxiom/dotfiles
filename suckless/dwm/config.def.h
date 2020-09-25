@@ -35,7 +35,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "ﭮ", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -94,6 +94,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("j4-dmenu-desktop --no-generic  --dmenu=\'dmenu -p start\'")},
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p run)")},
+	{ MODKEY,                       XK_f,      spawn,          SHCMD("thunar")},
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("brave")},
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
@@ -110,6 +112,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_i,      setlayout,      {.v = &layouts[9]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[11]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
