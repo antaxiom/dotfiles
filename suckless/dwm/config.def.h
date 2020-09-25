@@ -95,7 +95,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A $(dmenu_path | dmenu -p run)")},
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("thunar")},
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("brave")},
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("brave")},
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = +1 } },
