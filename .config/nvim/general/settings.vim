@@ -17,6 +17,7 @@ set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=4                           " Insert 4 (2 is *cringe*) spaces for a tab
 set shiftwidth=2                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
+set smartcase                           " Makes it so searchs will be case-insensitive if you use lowercase
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent

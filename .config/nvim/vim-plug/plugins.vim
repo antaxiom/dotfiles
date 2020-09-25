@@ -33,8 +33,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'luochen1990/rainbow'
   " Better Syntax Support
-  Plug 'sheerun/vim-polyglot'
-  " Cool Icons
   Plug 'ryanoasis/vim-devicons'
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
@@ -42,7 +40,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'alvan/vim-closetag'
   " Themes
   Plug 'christianchiarulli/onedark.vim'
+  " Use vim's auto complete menu while typing
+  " Plug 'vim-scripts/AutoComplPop'
   " Intellisense
+  let g:polyglot_disabled = ['csv']
+  Plug 'sheerun/vim-polyglot'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Status Line
   Plug 'vim-airline/vim-airline'
@@ -100,6 +102,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
   " Markdown Preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+  " Indent guides
+  Plug 'nathanaelkane/vim-indent-guides'
   " bullets
   Plug 'dkarter/bullets.vim'
   " Easily Create Gists
