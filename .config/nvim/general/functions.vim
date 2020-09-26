@@ -1,2 +1,0 @@
-" Random Useful Functions
-

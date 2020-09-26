@@ -7,3 +7,6 @@
 [submodule "suckless/sxiv"]
 	path = suckless/sxiv
 	url = https://github.com/muennich/sxiv.git
+[submodule ".config/https:/github.com/antaxiom/nvim.git"]
+	path = .config/https:/github.com/antaxiom/nvim.git
+	url = /home/alex/.config/nvim
