@@ -29,39 +29,41 @@ alt + space
   ~/.scripts/special-characters/saccent
 
 # Spanish characters WIP
-  
+
 alt + a
-  sleep 0.15 && xdotool type $'\u00c1'
+  xdotool sleep 0.1 type $'\u00E1'
 
 shift + alt + a
-  sleep 0.15 && xdotool type $'\u00c1'
+  xdotool sleep 0.1 type $'\u00C1'
 
 alt + e
-  sleep 0.15 && xdotool type $'\u00E9'
+  xdotool sleep 0.1 type $'\u00E9'
 
 shift + alt + e
-  sleep 0.15 && xdotool type $'\u00C9'
+  xdotool sleep 0.1 type $'\u00C9'
 
 alt + i
-  sleep 0.15 && xdotool type $'\u00CD'
+  xdotool sleep 0.1 type $'\u00CD'
 
 shift + alt + i
-  sleep 0.15 && xdotool type $'\u00ED'
+  xdotool sleep 0.1 type $'\u00ED'
 
 alt + o
-  sleep 0.15 && xdotool type $'\u00D3'
+  xdotool sleep 0.1 type $'\u00D3'
 
 shift + alt + o
-  sleep 0.15 && xdotool type $'\u00F3'
+  xdotool sleep 0.1 type $'\u00F3'
 
 alt + u
-  sleep 0.15 && xdotool type $'\u00FA'
+  xdotool sleep 0.1 type $'\u00FA'
 
 shift + alt + u
-  sleep 0.15 && xdotool type $'\u00DA'
+  xdotool sleep 0.1 type $'\u00DA'
 
 alt + n
-  sleep 0.15 && xdotool type $'\u00D1'
+  xdotool sleep 0.1 type $'\u00D1'
 
 shift + alt + n
-  sleep 0.15 && xdotool type $'\u00F1'
+  xdotool sleep 0.1 type $'\u00F1'
+
+
