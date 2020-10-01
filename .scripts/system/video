@@ -16,7 +16,7 @@ chosen=$(echo -e "[Cancel]\nTablet Mirror\nTablet Extend\nDisplay Port 1\nDispla
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Tablet Mirror" ]]; then
-	xrandr --output HDMI-A-0 --mode 1920x1080 --same-as DisplayPort-2 --scale 2.0x2.0
+	xrandr --output HDMI-A-0 --mode 1920x1080 --same-as DisplayPort-1 --scale 2.0x2.0
 elif [[ $chosen = "Tablet Extend" ]]; then
 	xrandr --output HDMI-A-0 --mode 1920x1080 --pos 0x2160 --scale 2.0x2.0
 elif [[ $chosen = "Display Port 1" ]]; then

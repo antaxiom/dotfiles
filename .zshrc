@@ -173,6 +173,9 @@ alias fgrep="fgrep --color=auto"
 # Alias for managing configs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# Easter eggs
+alias :q=exit
+
 # Askpass
 export SUDO_ASKPASS=~/suckless/dwm/dpass 
 

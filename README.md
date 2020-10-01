@@ -38,12 +38,13 @@
 - ranger (for the ranger and nvim config)
 - shxkd (for hotkeys)
 - [nitrogen](https://github.com/l3ib/nitrogen/) (for walpapers)
-- [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono Nerd Font specifically)
+- [Nerd Fonts](https://www.nerdfonts.com/) (For the heavy use of Nerd Fonts and JetBrains Mono and Nerd Font versions specifically)
 - [maim](https://github.com/naelstrof/maim) (For screenshots in sxhkd )
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
 - [fzf](https://github.com/junegunn/fzf) (for scripts)
 - [exa](https://the.exa.website/) (for aliases)
 - [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
+- mpDris2 (So playerctl works with mpd)
 
 Note: Some of these dependencies may possibly optional but that's an unsupported use case and some basic dependencies (make an issue if this is the case)
 
@@ -53,7 +54,7 @@ Note: Some of these dependencies may possibly optional but that's an unsupported
 
 * Add resources support to [dwm](https://dwm.suckless.org/patches/xresources/) and possibly dmenu
 
-* Move builds and (n)vim stuff into git submodules
+* ~~Move builds and (n)vim stuff into git submodules~~ Redid all of my nvim config so this is done
 
 * ~~Add screenshots to README.md~~ Done!
 

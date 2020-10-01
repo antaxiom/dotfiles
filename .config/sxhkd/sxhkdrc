@@ -1,13 +1,13 @@
 # Media control
 
 XF86AudioPlay
-  playerctl play-pause & mpc toggle
+  playerctl play-pause 
 
 XF86AudioNext
-  playerctl next & mpc next
+  playerctl next 
 
 XF86AudioPrev
-  playerctl previous & mpc prev
+  playerctl previous 
 
 XF86Calculator
   alacritty -e R
@@ -15,7 +15,7 @@ XF86Calculator
 # Screenshots
 
 Print
-  flameshot screen -c
+  flameshot full -c
 
 alt + Print
   flameshot gui
