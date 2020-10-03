@@ -10,13 +10,13 @@ static const unsigned int gappov    = 16;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 48;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 6;        /* vertical padding for statusbar */
+static const int user_bh            = 54;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int horizpadbar        = 12;        /* horizontal padding for statusbar */
+static const int vertpadbar         = 2;        /* vertical padding for statusbar */
 static const int usealtbar          = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass      = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname      = "tray";    /* Polybar tray instance name */
-static const char *fonts[]          = { "JetBrains Mono Medium:antialias=true:autohint=true","JetBrainsMonoNF:size=15:antialias=true:autohint=true" };
+static const char *fonts[]          = { "JetBrains Mono Medium:antialias=true:autohint=true", "Noto Sans CJK JP:antialias=true:autohint=true","JetBrainsMonoNF:size=15:antialias=true:autohint=true" };
 static const char dmenufont[]       = "JetBrainsMonoNF";
 static const char col_gray1[]       = "#111111";
 static const char col_gray2[]       = "#222222";
@@ -35,7 +35,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -43,7 +43,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -58,7 +58,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "[M]",      monocle },
+	{ "[〇]",      monocle },
 	{ "[@]",      spiral },
 	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
@@ -143,11 +143,4 @@ static Button buttons[] = {
   { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
   { ClkWinTitle,          0,              Button2,        zoom,           {0} },
   { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-  { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-  { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-  { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
-  { ClkTagBar,            0,              Button1,        view,           {0} },
-  { ClkTagBar,            0,              Button3,        toggleview,     {0} },
-  { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-  { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-};
+  { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} }, { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} }, { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} }, { ClkTagBar,            0,              Button1,        view,           {0} }, { ClkTagBar,            0,              Button3,        toggleview,     {0} }, { ClkTagBar,            MODKEY,         Button1,        tag,            {0} }, { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} }, };

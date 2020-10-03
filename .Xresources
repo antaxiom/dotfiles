@@ -1,5 +1,5 @@
-Xft.dpi: 192
-export GDK_SCALE=2
+Xft.dpi: 195
+export GDK_SCALE=1.5
 
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
