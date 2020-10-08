@@ -139,7 +139,7 @@ ex ()
 }
 
 # convienient dragon
-alias dr="dragon"
+alias dr="dragon-drag-and-drop"
 
 # safe cp
 alias cp="cp -i"                          # confirm before overwriting something
