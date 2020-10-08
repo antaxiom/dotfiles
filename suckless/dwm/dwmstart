@@ -7,11 +7,6 @@ if ps -A | grep picom; then
 	killall -q picom
 fi
 
-
-# Compositor
-
-exec picom --experimental-backends --backend glx &
-
 # Walpaper
 
 exec nitrogen --restore &
@@ -31,6 +26,6 @@ done
 
 # Start dwm
 
+
 exec dwm &
 
-exec xrandr --dpi 196
