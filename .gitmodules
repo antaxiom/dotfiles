@@ -10,3 +10,6 @@
 [submodule ".config/https:/github.com/antaxiom/nvim.git"]
 	path = .config/https:/github.com/antaxiom/nvim.git
 	url = /home/alex/.config/nvim
+[submodule ".zsh-plugins/z.lua"]
+	path = .zsh-plugins/z.lua
+	url = https://github.com/skywind3000/z.lua.git
