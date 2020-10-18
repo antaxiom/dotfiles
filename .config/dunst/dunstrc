@@ -1,13 +1,13 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "540x0-16+62"
+geometry = "360x0-14+54"
 indicate_hidden = yes
 shrink = no
 separator_height = 0
 padding = 32
 horizontal_padding = 24
-frame_width = 2
+frame_width = 3
 sort = no
 idle_threshold = 120
 font = JetBrainsMonoMedium Nerd Font 10
@@ -30,7 +30,7 @@ browser = /usr/bin/firefox -new-tab
 always_run_script = true
 title = Dunst
 class = Dunst
-corner_radius = 7
+corner_radius = 8
 
 mouse_left_click = do_action
 mouse_right_click = close_current
