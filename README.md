@@ -47,6 +47,7 @@
 - [exa](https://the.exa.website/) (for aliases)
 - [Devour](https://github.com/salman-abedin/devour) (Possibly optional but you must change zsh aliases and scripts)
 - mpDris2 (So playerctl works with mpd)
+- lua (So z.lua works)
 
 Note: Some of these dependencies may possibly optional but that's an unsupported use case and some basic dependencies (make an issue if this is the case)
 

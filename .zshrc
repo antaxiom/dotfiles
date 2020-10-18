@@ -208,4 +208,5 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Who uses mate??????
 
-source /home/alex/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/alex/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(lua5.2 .zsh-plugins/z.lua/z.lua --init zsh enchanced)"
