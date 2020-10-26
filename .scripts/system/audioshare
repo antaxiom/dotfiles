@@ -1,0 +1,15 @@
+#!/bin/bash
+
+pulseaudio --kill
+
+sleep 0.5
+
+pactl load-module module-null-sink sink_name=Combined_Output sink_properties=device.description=Combined_Output
+
+pactl load-module module-null-sink sink_name=Recorded_Sink sink_properties=device.description=Recorded_Sink
+
+pactl load-module module-loopback source=2 sink=Combined_Output
+
+pactl load-module module-loopback source=5 sink=Combined_Output
+
+pactl load-module module-loopback source=5 sink=1
