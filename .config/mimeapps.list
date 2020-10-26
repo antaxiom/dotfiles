@@ -1,0 +1,26 @@
+[Added Associations]
+font/otf=org.gnome.FontManager.desktop;org.gnome.FontViewer.desktop;
+font/ttf=org.gnome.FontManager.desktop;org.gnome.FontViewer.desktop;
+x-scheme-handler/http=exo-web-browser.desktop;
+x-scheme-handler/https=exo-web-browser.desktop;
+video/mp4=mpv.desktop;fr.handbrake.ghb.desktop;
+video/quicktime=mpv.desktop;
+image/jpeg=userapp-"sxiv"-XSKHS0.desktop;feh.desktop;
+image/png=userapp-"sxiv"-8OV9R0.desktop;gimp.desktop;
+text/x-python=goneovim.desktop;nvim.desktop;
+text/plain=emacs.desktop;
+audio/mpeg=vlc.desktop;mpv.desktop;userapp-"mpd"-KQ6OS0.desktop;userapp-"mpc"-81FTS0.desktop;
+video/x-matroska=mpv.desktop;
+text/markdown=libreoffice-writer.desktop;emacs.desktop;VSCodium.desktop;
+application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
+image/svg+xml=org.inkscape.Inkscape.desktop;
+audio/x-wav=mpv.desktop;
+
+[Default Applications]
+x-scheme-handler/discord-378347429537251328=discord-378347429537251328.desktop
+text/html=brave-browser.desktop
+x-scheme-handler/http=brave-browser.desktop
+x-scheme-handler/https=brave-browser.desktop
+x-scheme-handler/about=brave-browser.desktop
+x-scheme-handler/unknown=brave-browser.desktop
+x-scheme-handler/msteams=teams.desktop
