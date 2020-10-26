@@ -5,6 +5,8 @@ lyrics_directory = "~/.local/share/lyrics"
 mpd_music_dir = "~/Music"
 message_delay_time = "1"
 visualizer_type = "spectrum"
+
+user_interface="alternative"
 song_list_format = {$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
 song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
 song_library_format = {%n - }{%t}|{%f}
@@ -16,7 +18,8 @@ current_item_inactive_column_prefix = $(cyan)$r
 current_item_inactive_column_suffix = $/r$(end)
 playlist_display_mode = columns
 browser_display_mode = columns
-progressbar_look = ->
+progressbar_look = ━-
+alternative_ui_separator_color ="red"
 media_library_primary_tag = album_artist
 media_library_albums_split_by_date = no
 startup_screen = "media_library"
@@ -26,7 +29,14 @@ external_editor = nvim
 use_console_editor = yes
 empty_tag_color = magenta
 main_window_color = white
-progressbar_color = black:b
+progressbar_color = white:b
 progressbar_elapsed_color = blue:b
 statusbar_color = red
 statusbar_time_color = cyan:b
+
+# Visualizer
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "10"
+
+
+visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
