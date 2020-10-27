@@ -8,7 +8,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
-neofetch --ascii_distro arcolinux_small -l   
+export PF_INFO="ascii title os wm shell uptime pkgs palette"
+echo "\n"
+pfetch
+echo "Welcome back to $HOST, $USER"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -19,7 +22,7 @@ neofetch --ascii_distro arcolinux_small -l
 # Custom PS1 inspired by luke smith
 # Have to source this after oh my zsh
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[magenta]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}#%f:%F{blue}!%f)%b%{$reset_color%}%b ${prompt_git}"
+PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[magenta]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}#%f:%F{blue}!%f)%b%{$reset_color%}%b "
 
 
 # Risto, gentoo and lukerandall are good as well
