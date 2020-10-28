@@ -8,7 +8,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
-export PF_INFO="ascii title os wm shell uptime pkgs palette"
+export PF_INFO="ascii title os wm shell uptime pkgs"
 echo "\n"
 pfetch
 echo "Welcome back to $HOST, $USER"
@@ -22,7 +22,7 @@ echo "Welcome back to $HOST, $USER"
 # Custom PS1 inspired by luke smith
 # Have to source this after oh my zsh
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[magenta]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}#%f:%F{blue}!%f)%b%{$reset_color%}%b "
+PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[cyan]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}#%f:%F{blue}!%f)%b%{$reset_color%}%b "
 
 
 # Risto, gentoo and lukerandall are good as well
@@ -59,7 +59,7 @@ PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[magenta]%}%40<..<%~%{
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
  COMPLETION_WAITING_DOTS="true"

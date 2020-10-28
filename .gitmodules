@@ -19,3 +19,6 @@
 [submodule "https:/github.com/antaxiom/nvimrc.git"]
 	path = https:/github.com/antaxiom/nvimrc.git
 	url = /home/alex/.config/nvim
+[submodule ".zsh-plugins/zsh-autocomplete"]
+	path = .zsh-plugins/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete.git

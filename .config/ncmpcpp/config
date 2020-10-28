@@ -33,6 +33,7 @@ progressbar_color = white:b
 progressbar_elapsed_color = blue:b
 statusbar_color = red
 statusbar_time_color = cyan:b
+allow_for_physical_item_deletion = yes
 
 # Visualizer
 visualizer_output_name = "my_fifo"
