@@ -18,11 +18,11 @@ chosen=$(echo -e "[Cancel]\nTablet Mirror\nTablet Extend\nDisplay Port 1\nDispla
 if [[ $chosen = "Tablet Mirror" ]]; then
 	xrandr --output HDMI-1 --mode 1920x1080 --same-as DP-1 --scale 1.5x1.5
 elif [[ $chosen = "Tablet Extend" ]]; then
-	xrandr --output HDMI-1 --mode 1920x1080 --pos 0x1440 --scale 1x1 
+	xrandr --output HDMI-1 --mode 1920x1080 --pos 0x1440 --scale 1x1
 elif [[ $chosen = "Display Port 1" ]]; then
-xrandr --output DP-1 
+xrandr --output DP-1
 elif [[ $chosen = "Display Port 2" ]]; then
 xrandr --output DP-2
 elif [[ $chosen = "Display Port 3" ]]; then
-xrandr --output DP-3 
+xrandr --output DP-3
 fi

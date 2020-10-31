@@ -59,7 +59,7 @@ PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[cyan]%}%40<..<%~%{$fg
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
  COMPLETION_WAITING_DOTS="true"
@@ -122,7 +122,7 @@ plugins=(compleat)
 # Absolutely Essential!!!
 
 export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache 
+export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
 ex ()
@@ -186,7 +186,7 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias :q=exit
 
 # Askpass
-export SUDO_ASKPASS=~/suckless/dwm/dpass 
+export SUDO_ASKPASS=~/suckless/dwm/dpass
 
 # Path
 # Adds ~/.scripts to path
@@ -218,4 +218,4 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Who uses mate??????
 
 source /home/alex/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(lua5.2 .zsh-plugins/z.lua/z.lua --init zsh enchanced)"
+eval "$(lua5.2 ~/.zsh-plugins/z.lua/z.lua --init zsh enchanced)"
