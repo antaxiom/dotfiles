@@ -14,7 +14,7 @@ video/x-matroska=mpv.desktop;
 text/markdown=libreoffice-writer.desktop;emacs.desktop;VSCodium.desktop;
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
-audio/x-wav=mpv.desktop;
+audio/x-wav=audacity.desktop;mpv.desktop;
 
 [Default Applications]
 x-scheme-handler/discord-378347429537251328=discord-378347429537251328.desktop
