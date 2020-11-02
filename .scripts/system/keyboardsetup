@@ -1,0 +1,8 @@
+#!/bin/sh
+
+killall xcape 2>/dev/null
+# This script is called on startup to remap keys.
+# Increase key speed via a rate change
+xset r rate 475 50
+setxkbmap -layout us -variant altgr-intl
+# layout
