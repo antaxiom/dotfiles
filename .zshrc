@@ -86,7 +86,7 @@ PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[cyan]%}%40<..<%~%{$fg
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(compleat)
+plugins=(vi-mode)
 # Plugins = Bloat????
 
 #
@@ -160,10 +160,9 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 # ls as exa with colors
 alias ls="exa --color=always --group-directories-first"
 
-# *Devour*
-alias zathura="devour zathura"
-alias sxiv="devour sxiv"
-alias mpv="devour mpv"
+# pidswallow
+[ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$"
+trap "( rm -f /tmp/term-wid-"$$" )" EXIT HUP
 
 # Ranger exits to a shell in your directory
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
