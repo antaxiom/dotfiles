@@ -8,7 +8,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
-export PF_INFO="ascii title os wm shell uptime pkgs"
+export PF_INFO="ascii title os de shell uptime pkgs"
 echo "\n"
 pfetch
 echo "Welcome back to $HOST, $USER"
