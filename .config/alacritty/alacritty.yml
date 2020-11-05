@@ -38,26 +38,25 @@ colors:
 
   # Normal colors
   normal:
-
     black: "0x000000"
-    red: "0xf44747"
-    green: "0x50fa7b"
-    yellow: "0xe5c07b"
+    red: "0xf54545"
+    green: "0x54d887"
+    yellow: "0xe5c76b"
     blue: "0x61afef"
-    magenta: "0xd55fde"
-    cyan: "0x409cba"
-    white: "0xbbbbbb"
+    magenta: "0xc44ac0"
+    cyan: "0x36c8ed"
+    white: "0xdddddd"
 
   # Bright colors
   bright:
-    black: "0x777777"
-    red: "0xff5555"
-    green: "0x98C379"
-    yellow: "0xd19a66"
-    blue: "0x6fb8f4"
-    magenta: "0xc678dd"
-    cyan: "0x61b3ce"
-    white: "0xffffff"
+    black: "0x000000"
+    red: "0xf54545"
+    green: "0x54d887"
+    yellow: "0xe5c76b"
+    blue: "0x61afef"
+    magenta: "0xc44ac0"
+    cyan: "0x36c8ed"
+    white: "0xdddddd"
 
 # Spread additional padding evenly around the terminal content.
 dynamic_padding: true
