@@ -1,13 +1,13 @@
 # Media control
 
 XF86AudioPlay
-  playerctl play-pause 
+  playerctl play-pause
 
 XF86AudioNext
-  playerctl next 
+  playerctl next
 
 XF86AudioPrev
-  playerctl previous 
+  playerctl previous
 
 XF86AudioMute
   pulsemixer --toggle-mute
@@ -30,43 +30,3 @@ shift + Print
 
 alt + space
   ~/.scripts/special-characters/saccent
-
-# Spanish characters WIP
-
-alt + a
-  xdotool sleep 0.1 type $'\u00E1'
-
-shift + alt + a
-  xdotool sleep 0.1 type $'\u00C1'
-
-alt + e
-  xdotool sleep 0.1 type $'\u00E9'
-
-shift + alt + e
-  xdotool sleep 0.1 type $'\u00C9'
-
-alt + i
-  xdotool sleep 0.1 type $'\u00CD'
-
-shift + alt + i
-  xdotool sleep 0.1 type $'\u00ED'
-
-alt + o
-  xdotool sleep 0.1 type $'\u00D3'
-
-shift + alt + o
-  xdotool sleep 0.1 type $'\u00F3'
-
-alt + u
-  xdotool sleep 0.1 type $'\u00FA'
-
-shift + alt + u
-  xdotool sleep 0.1 type $'\u00DA'
-
-alt + n
-  xdotool sleep 0.1 type $'\u00D1'
-
-shift + alt + n
-  xdotool sleep 0.1 type $'\u00F1'
-
-

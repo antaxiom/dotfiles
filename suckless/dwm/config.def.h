@@ -16,14 +16,14 @@ static const int vertpadbar        = 6;        /* vertical padding for statusbar
 static const int usealtbar         = 0;        /* 1 means use non-dwm status bar */
 static const char *altbarclass     = "Polybar"; /* Alternate bar class name */
 static const char *alttrayname     = "tray";    /* Polybar tray instance name */
-static const char *fonts[]         = { "JetBrains Mono Medium:antialias                                 = true:autohint                             = true", "Noto Sans CJK JP:antialias = true:autohint = true","JetBrainsMonoNF:size = 15:antialias = true:autohint = true" };
+static const char *fonts[]         = { "JetBrains Mono Medium:antialias=true:autohint=true", "Noto Sans CJK JP:antialias = true:autohint = true","JetBrainsMonoNF:size = 15:antialias = true:autohint = true" };
 static const char dmenufont[]      = "JetBrainsMonoNF";
 static const char col_gray1[]      = "#111111";
 static const char col_gray2[]      = "#222222";
 static const char col_gray3[]      = "#454545";
 static const char col_gray4[]      = "#eeeeee";
 static const char col_cyan[]       = "#61afef";
-static const char col_magenta[]    = "#409CBA";
+static const char col_magenta[]    = "#5BC6D1";
 static const char *colors[][3]     = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray3 },

@@ -26,10 +26,10 @@ set completion-fg               "#61AFEF"
 set completion-highlight-fg     "#6FB8F4"
 set completion-highlight-bg     "#61AFEF"
 
-set recolor-lightcolor          "#222222"
+set recolor-lightcolor          "#111111"
 set recolor-darkcolor           "#FFFFFF"
 
-set recolor                     "false"
+set recolor                     "true"
 set recolor-keephue             "false"
 
 set selection-clipboard clipboard

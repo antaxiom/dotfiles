@@ -1,10 +1,10 @@
 #! /bin/bash
 wmname LG3D &
-j4-dmenu-desktop --no-exec --dmenu=echo &
+j4-dmenu-desktop --dmenu=echo &
 killall dwmblocks
-pgrep -fl 'pidswallow -gl' || pidswallow -gl
 ~/suckless/dwmblocks/dwmblocks &
-~/.scripts/system/keyboardsetup
-picom -b &
+~/.scripts/system/keyboardsetup &
+picom --experimental-backends -b &
 mpd &
 mpDris2 &
+pgrep -fl 'pidswallow -gl' || pidswallow -gl &
