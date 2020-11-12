@@ -159,6 +159,7 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 
 # ls as exa with colors
 alias ls="exa --color=always --group-directories-first"
+alias l="exa -lah --color=always --group-directories-first"
 
 # pidswallow
 [ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$"
@@ -168,7 +169,6 @@ trap "( rm -f /tmp/term-wid-"$$" )" EXIT HUP
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # Convenient cds
-setopt autocd		# Automatically cd into typed directory.
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -200,6 +200,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+compinit -c
 # Not sure if needed but it can't hurt
 
 # Color man pages
