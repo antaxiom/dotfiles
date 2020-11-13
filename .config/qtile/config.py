@@ -229,6 +229,14 @@ screens = [
                 widget.Systray(
                     background=colors[0]
                 ),
+                widget.Battery(
+                    background=colors[0],
+                    discharge_char='[-]',
+                    charge_char='[+]',
+                    full_char='[++]',
+                    format='{char} {percent:2.0%} ({hour:d}h:{min:02d}m)',
+                    update_interval=2
+                ),
                 widget.Clock(
                     background=colors[0],
                     format='%b %d (%a) %I:%M%p'
