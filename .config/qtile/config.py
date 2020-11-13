@@ -231,6 +231,7 @@ screens = [
                 ),
                 widget.Battery(
                     background=colors[0],
+                    low_foreground='fe4444',
                     discharge_char='[-]',
                     charge_char='[+]',
                     full_char='[++]',
