@@ -8,12 +8,6 @@
 
 # My personal dotfiles
 
-**Laptop Edition**
-
-These have been adapted for my laptop (at the moment a Thinkpad)
-
-It uses a smaller dpi, font and different bar
-
 ### Screenshots
 
 ![Floating](./dotfiles/images/floating2.png)
