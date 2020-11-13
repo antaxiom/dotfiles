@@ -1,11 +1,5 @@
 #! /bin/bash
 
-# If picom is running, kill it to prevent multiple instances
-if ps -A | grep picom; then
-	killall -q picom
-fi
-
-
 picom --experimental-backends -b &
 
 # keybinds

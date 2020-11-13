@@ -15,6 +15,12 @@ XF86AudioMute
 XF86Calculator
   alacritty -e R
 
+shift + F2
+  ~/.scripts/system/volumedown
+
+shift + F3
+  ~/.scripts/system/volumeup
+
 # Screenshots
 
 Print
