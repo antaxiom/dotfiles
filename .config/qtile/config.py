@@ -29,7 +29,7 @@ from typing import List  # noqa: F401
 import subprocess
 import os
 from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -40,7 +40,7 @@ def autostart():
 
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = guess_terminal()  # I use alacritty but just in case to be nice to others
 
 keys = [
     # Switch between windows in current stack pane
@@ -172,8 +172,8 @@ layout_theme = {
 layouts = [
     layout.MonadTall(name="[]=", **layout_theme),
     layout.Max(name="[-]", **layout_theme),
-    layout.Matrix(name="*-*", **layout_theme),
-    layout.Floating(name="<>", **layout_theme),
+    # layout.Matrix(name="*-*", **layout_theme),
+    # layout.Floating(name="<>", **layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(),
     # layout.Bsp(),
@@ -264,25 +264,30 @@ main = None  # WARNING: this is deprecated and will be removed soon
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'Steam'},  # steam
-    {'wmclass': 'dragon'},  # dragon and drop
-    {'wmclass': 'confirmreset'},  # gitk
-    {'wmclass': 'makebranch'},  # gitk
-    {'wmclass': 'maketag'},  # gitk
-    {'wname': 'branchdialog'},  # gitk
-    {'wname': 'pinentry'},  # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
+floating_layout = layout.Floating(
+    **layout_theme,
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        Match(wm_type='utility'),
+        Match(wm_type='notification'),
+        Match(wm_type='toolbar'),
+        Match(wm_type='splash'),
+        Match(wm_type='dialog'),
+        Match(wm_class='file_progress'),
+        Match(wm_class='confirm'),
+        Match(wm_class='dialog'),
+        Match(wm_class='download'),
+        Match(wm_class='error'),
+        Match(wm_class='notification'),
+        Match(wm_class='splash'),
+        Match(wm_class='toolbar'),
+        Match(wm_class='confirmreset'),  # gitk
+        Match(wm_class='makebranch'),  # gitk
+        Match(wm_class='maketag'),  # gitk
+        Match(wm_class='ssh-askpass'),  # ssh-askpass
+        Match(title='branchdialog'),  # gitk
+        Match(title='pinentry'),  # GPG key password entry
+    ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
