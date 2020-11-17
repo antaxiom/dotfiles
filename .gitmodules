@@ -1,49 +1,21 @@
-[submodule "my_plugins/onedark.vim"]
-	path = my_plugins/onedark.vim
-	url = https://github.com/antaxiom/onedark.vim.git
-[submodule "sources_non_forked/vim-airline-themes"]
-	path = sources_non_forked/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule "sources_non_forked/onedark.vim"]
-	path = sources_non_forked/onedark.vim
-	url = https://github.com/antaxiom/onedark.vim.git
-[submodule "sources_non_forked/vim-airline"]
-	path = sources_non_forked/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
-[submodule "sources_non_forked/coc.nvim"]
-	path = sources_non_forked/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
-	branch = release
-[submodule "sources_non_forked/vim-xtabline"]
-	path = sources_non_forked/vim-xtabline
-	url = https://github.com/mg979/vim-xtabline.git
-[submodule "sources_non_forked/rnvimr"]
-	path = sources_non_forked/rnvimr
-	url = https://github.com/kevinhwang91/rnvimr.git
-[submodule "sources_non_forked/bullets.vim"]
-	path = sources_non_forked/bullets.vim
-	url = https://github.com/dkarter/bullets.vim.git
-[submodule "sources_non_forked/nvim-colorizer.lua"]
-	path = sources_non_forked/nvim-colorizer.lua
-	url = https://github.com/norcalli/nvim-colorizer.lua.git
-[submodule "sources_non_forked/AutoComplPop"]
-	path = sources_non_forked/AutoComplPop
-	url = https://github.com/vim-scripts/AutoComplPop.git
-[submodule "sources_non_forked/vim-polyglot"]
-	path = sources_non_forked/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
-[submodule "sources_non_forked/vim-smoother"]
-	path = sources_non_forked/vim-smoother
-	url = https://github.com/psliwka/vim-smoothie.git
-[submodule "sources_non_forked/vim-smoothie"]
-	path = sources_non_forked/vim-smoothie
-	url = https://github.com/psliwka/vim-smoothie.git
-[submodule "sources_non_forked/vim-floaterm"]
-	path = sources_non_forked/vim-floaterm
-	url = https://github.com/voldikss/vim-floaterm.git
-[submodule "sources_non_forked/vimwiki"]
-	path = sources_non_forked/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
-[submodule "sources_non_forked/vimtex"]
-	path = sources_non_forked/vimtex
-	url = https://github.com/lervag/vimtex.git
+[submodule ".config/ranger/plugins/ranger_devicons"]
+	path = .config/ranger/plugins/ranger_devicons
+	url = https://github.com/alexanderjeurissen/ranger_devicons.git
+[submodule "suckless/dmenu"]
+	path = suckless/dmenu
+	url = https://git.suckless.org/dmenu
+[submodule "suckless/sxiv"]
+	path = suckless/sxiv
+	url = https://github.com/muennich/sxiv.git
+[submodule ".zsh-plugins/z.lua"]
+	path = .zsh-plugins/z.lua
+	url = https://github.com/skywind3000/z.lua.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/antaxiom/nvimrc.git
+[submodule ".zsh-plugins/zsh-autocomplete"]
+	path = .zsh-plugins/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
+[submodule ".zsh-plugins/zsh-syntax-highlighting"]
+	path = .zsh-plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
