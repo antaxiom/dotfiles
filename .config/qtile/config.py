@@ -164,7 +164,7 @@ for i, name in enumerate(group_names):
 
 layout_theme = {
     "border_width": 4,
-    "margin": 16,
+    "margin": 12, # Gaps
     "border_focus": "5bc6d1",
     "border_normal": "444444"
 }
@@ -227,7 +227,8 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(
-                    background=colors[0]
+                    background=colors[0],
+                    icon_size=28
                 ),
                 widget.Battery(
                     background=colors[0],

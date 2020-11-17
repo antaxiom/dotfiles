@@ -29,3 +29,7 @@ exec dunst &
 
 # Hotkeys
 sxhkd &
+
+# Wifi stuff
+
+nm-applet    2>&1 > /dev/null &
