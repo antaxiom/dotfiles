@@ -161,10 +161,6 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 alias ls="exa --color=always --group-directories-first"
 alias l="exa -lah --color=always --group-directories-first"
 
-# pidswallow
-[ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$"
-trap "( rm -f /tmp/term-wid-"$$" )" EXIT HUP
-
 # Ranger exits to a shell in your directory
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
@@ -183,6 +179,13 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Easter eggs
 alias :q=exit
+
+# Devour
+
+alias sxiv='devour sxiv'
+alias mpv='devour mpv'
+alias zathura= 'devour zathura'
+
 
 # Askpass
 export SUDO_ASKPASS=~/suckless/dwm/dpass
@@ -219,3 +222,5 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 source /home/alex/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(lua5.2 ~/.zsh-plugins/z.lua/z.lua --init zsh enchanced)"
+
+PATH="/home/alex/.mangadl-bash:${PATH}"

@@ -14,6 +14,7 @@ j4-dmenu-desktop --dmenu=echo &
 
 #mpd
 mpd &
+killall mpDris2 &
 mpDris2 &
 
 #pidswallow
@@ -29,3 +30,7 @@ exec dunst &
 
 # Hotkeys
 sxhkd &
+
+# Wifi stuff, not needed for a desktop but why not
+
+nm-applet    2>&1 > /dev/null &
