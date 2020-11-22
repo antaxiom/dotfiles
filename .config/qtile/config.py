@@ -69,7 +69,7 @@ keys = [
         lazy.prev_layout(),
         desc='Goes to the next layout'
         ),
-    Key([mod], "u",
+    Key([mod], "t",
         lazy.next_layout(),
         desc='Goes to the last layout'
         ),
