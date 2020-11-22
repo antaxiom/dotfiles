@@ -4,7 +4,7 @@ picom --experimental-backends -b &
 
 # keybinds
 
-sxhkd &
+~/.scripts/system/sxhkd-start
 
 # j4-dmenu preloading
 j4-dmenu-desktop --dmenu=echo &
