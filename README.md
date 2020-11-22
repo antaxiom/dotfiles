@@ -45,7 +45,7 @@
 - [dragon](https://github.com/mwh/dragon) (for ranger use and the aliases)
 - [fzf](https://github.com/junegunn/fzf) (for scripts)
 - [exa](https://the.exa.website/) (for aliases)
-- [pidswallow](https://github.com/Liupold/pidswallow)
+- [devour](https://github.com/salman-abedin/devour)
 - mpDris2 (So playerctl works with mpd)
 - lua (So z.lua works)
 

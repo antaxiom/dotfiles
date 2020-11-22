@@ -89,6 +89,10 @@ keys = [
         lazy.layout.normalize(),
         desc='normalize window size ratios'
         ),
+    Key([mod], "m",
+        lazy.layout.maximize(),
+        desc='normalize window size ratios'
+        ),
 
     # Stack controls
     Key([mod, "shift"], "Return",
@@ -106,10 +110,6 @@ keys = [
         lazy.prev_screen(),
         desc='Move focus to prev monitor'
         ),
-
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next(),
-        desc="Switch window focus to other pane(s) of stack"),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate(),
@@ -146,12 +146,12 @@ keys = [
 
 
 colors = [
-    ["#111111", "#111111"],  # panel background
+    ["#151515", "#151515"],  # panel background
     ["#be4dcc", "#be4dcc"],  # background for current screen tab
     ["#ffffff", "#ffffff"],  # font color for group names
     ["#444444", "#444444"],  # window border
     ["#5bc5d1", "#5bc6d1"],  # window border selected
-    ["#111111", "#1D1D1D"],  # Group gradient
+    ["#151515", "#1D1D1D"],  # Group gradient
 ]
 
 group_names = '一 二 三 四 五 六 七 八 九'.split()
@@ -198,17 +198,26 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.TextBox(
+                    text='',
+                    background=colors[1],
+                    foreground=colors[2],
+                    font='JetBrainsMonoExtraBold Nerd Font Mono',
+                    fontsize=36,
+                    padding=14
+                ),
                 widget.GroupBox(
                     highlight_method="line",
                     background=colors[0],
                     borderwidth=5,
+                    padding_x=8,
+                    margin_x=0,
                     rounded=False,
                     highlight_color=colors[5],
                     this_current_screen_border=colors[1],
                     this_screen_border=colors[1],
                     other_current_screen_border=colors[1],
-                    other_screen_border=colors[1],
-
+                    other_screen_border=colors[1]
                 ),
                 widget.CurrentLayout(
                     background=colors[0],
