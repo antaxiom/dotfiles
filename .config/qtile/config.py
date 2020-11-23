@@ -246,7 +246,8 @@ screens = [
                     charge_char='[+]',
                     full_char='[++]',
                     format='{char} {percent:2.0%} ({hour:d}h:{min:02d}m)',
-                    update_interval=2
+                    update_interval=2,
+                    show_short_text=False
                 ),
                 widget.Clock(
                     background=colors[0],
