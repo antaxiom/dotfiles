@@ -11,12 +11,16 @@
 # - Give it exec priviledge, or chmod +x /path/to/power.sh
 # - Run it
 
-chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nSuspend-then-hibernate" | dmenu -l 8 -fn "JetBrainsMono NF")
+chosen=$(echo -e "[Cancel]\nLogout\nLock\nLock+Suspend\nShutdown\nReboot\nSuspend\nHibernate\nSuspend-then-hibernate" | dmenu -l 8 -fn "JetBrainsMono NF")
 # Info about some states are available here:
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
 
 if [[ $chosen = "Logout" ]]; then
 	SUDO_ASKPASS=~/suckless/dwm/dpass sudo -A pkill -x Xorg
+elif [[ $chosen = "Lock" ]]; then
+	betterlockscreen -l
+elif [[ $chosen = "Lock+Suspend" ]]; then
+	betterlockscreen -ls
 elif [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then
