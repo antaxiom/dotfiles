@@ -227,7 +227,8 @@ screens = [
                     background=colors[0]
                 ),
                 widget.WindowName(
-                    background=colors[0]
+                    background=colors[0],
+                    fontsize=22
                 ),
                 widget.Chord(
                     chords_colors={
