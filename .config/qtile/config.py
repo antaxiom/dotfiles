@@ -66,11 +66,11 @@ keys = [
     # Change layout
 
     Key([mod], "y",
-        lazy.prev_layout(),
+        lazy.next_layout(),
         desc='Goes to the next layout'
         ),
     Key([mod], "t",
-        lazy.next_layout(),
+        lazy.prev_layout(),
         desc='Goes to the last layout'
         ),
 
@@ -172,13 +172,13 @@ layout_theme = {
 layouts = [
     layout.MonadTall(name="[]=", **layout_theme),
     layout.Max(name="[-]", **layout_theme),
+    layout.MonadWide(name="=_=",**layout_theme),
     # layout.Matrix(name="*-*", **layout_theme),
     # layout.Floating(name="<>", **layout_theme),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(),
     # layout.Bsp(),
     # layout.Columns(),
-    # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),
