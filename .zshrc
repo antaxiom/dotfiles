@@ -184,8 +184,7 @@ alias :q=exit
 
 alias sxiv='devour sxiv'
 alias mpv='devour mpv'
-alias zathura= 'devour zathura'
-
+alias zathura='devour zathura'
 
 # Askpass
 export SUDO_ASKPASS=~/suckless/dwm/dpass
