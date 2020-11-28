@@ -172,7 +172,7 @@ layout_theme = {
 layouts = [
     layout.MonadTall(name="[]=", **layout_theme),
     layout.Max(name="[-]", **layout_theme),
-    layout.MonadWide(name="=_=",**layout_theme),
+    layout.MonadWide(name="=_=", **layout_theme),
     # layout.Matrix(name="*-*", **layout_theme),
     # layout.Floating(name="<>", **layout_theme),
     # Try more layouts by unleashing below layouts.
