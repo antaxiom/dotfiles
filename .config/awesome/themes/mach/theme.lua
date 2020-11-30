@@ -18,10 +18,10 @@ theme.font      = "JetBrainsMonoMedium NF 13"
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
 theme.fg_focus   = "#BE4DCC"
-theme.fg_urgent  = "#CC9393"
-theme.bg_normal  = "#111111"
+theme.fg_urgent  = "#61afef"
+theme.bg_normal  = "#151515"
 theme.bg_focus   = "#1C1C1C"
-theme.bg_urgent  = "#111111"
+theme.bg_urgent  = "#131313"
 -- }}}
 
 -- {{{ Borders
@@ -143,7 +143,7 @@ You might just want to copy that whole part into your theme.lua and start adjust
 
 
 -- window swallowing
-theme.dont_swallow_classname_list    = {"firefox", "Gimp"}      -- list of class names that should not be swallowed
+theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave"}      -- list of class names that should not be swallowed
 theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
 
 -- flash focus
@@ -178,14 +178,14 @@ theme.mstab_bar_padding = "default"         -- how much padding there should be 
 -- you only need to set them if you want your mstab layout tabbar to have a different
 -- look then your tabbed module tabbar. By default they will look the same.
 theme.mstab_border_radius = 0               -- border radius of the tabbar
-theme.mstab_tabbar_style = "modern"        -- style of the tabbar ("default", "boxes" or "modern")
-theme.mstab_font = "Sans 12"                -- font of the tabbar
+theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
+theme.mstab_font = "Sans 8"                -- font of the tabbar
 theme.mstab_bar_height = dpi(36)                 -- height of the tabbar
 theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
-theme.mstab_bg_focus    = "#000000"         -- background color of the focused client on the tabbar
-theme.mstab_fg_focus    = "#ffffff"         -- foreground color of the focused client on the tabbar
-theme.mstab_bg_normal   = "#1A2026"         -- background color of unfocused clients on the tabbar
-theme.mstab_fg_normal   = "#ff0000"         -- foreground color of unfocused clients on the tabbar
+theme.mstab_bg_focus    = "#bfefd2"         -- background color of the focused client on the tabbar
+theme.mstab_fg_focus    = "#420420"         -- foreground color of the focused client on the tabbar
+theme.mstab_bg_normal   = "#222222"         -- background color of unfocused clients on the tabbar
+theme.mstab_fg_normal   = "#ff0ddd"         -- foreground color of unfocused clients on the tabbar
 
 -- the following variables are currently only for the "modern" tabbar style
 theme.tabbar_color_close = "#f9929b"        -- chnges the color of the close button

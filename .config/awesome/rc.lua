@@ -103,9 +103,8 @@ tag.connect_signal("property::layout", function(t)
 end)
 
 -- Other Bling Things
-
--- Swallow
 bling.module.window_swallowing.start()
+
 -- }}}
 
 -- {{{ Menu
@@ -293,7 +292,11 @@ local mydecorativebox = wibox.widget{
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mysystray_container,
+            {
             mytextclock,
+            widget = wibox.container.margin,
+            right = 12,
+        }
         },
     }
 end)
