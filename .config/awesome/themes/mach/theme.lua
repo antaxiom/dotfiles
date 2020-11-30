@@ -6,8 +6,6 @@
 local themes_path = "/home/alex/.config/awesome/themes/"
 local dpi = require("beautiful.xresources").apply_dpi
 local theme_assets = require("beautiful.theme_assets")
-local gfs = require("gears.filesystem")
-local bling = require("bling")
 
 
 -- {{{ Main
@@ -137,9 +135,6 @@ theme.titlebar_maximized_button_normal_inactive = themes_path .. "mach/titlebar/
 -- }}}
 -- }}}
 
-
--- Everything bling
-
 --[[ Bling theme variables template
 This file has all theme variables of the bling module.
 Every variable has a small comment on what it does.
@@ -152,8 +147,8 @@ theme.dont_swallow_classname_list    = {"firefox", "Gimp"}      -- list of class
 theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
 
 -- flash focus
-theme.flash_focus_start_opacity = 0.9       -- the starting opacity
-theme.flash_focus_step = 0.005               -- the step of animation
+theme.flash_focus_start_opacity = 0.6       -- the starting opacity
+theme.flash_focus_step = 0.01               -- the step of animation
 
 -- tabbed
 theme.tabbed_spawn_in_tab = false           -- whether a new client should spawn into the focused tabbing container
@@ -183,12 +178,12 @@ theme.mstab_bar_padding = "default"         -- how much padding there should be 
 -- you only need to set them if you want your mstab layout tabbar to have a different
 -- look then your tabbed module tabbar. By default they will look the same.
 theme.mstab_border_radius = 0               -- border radius of the tabbar
-theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
-theme.mstab_font = "JetBrainsMono 10"                -- font of the tabbar
-theme.mstab_bar_height = dpi(2.5)                 -- height of the tabbar
+theme.mstab_tabbar_style = "modern"        -- style of the tabbar ("default", "boxes" or "modern")
+theme.mstab_font = "Sans 12"                -- font of the tabbar
+theme.mstab_bar_height = dpi(36)                 -- height of the tabbar
 theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
 theme.mstab_bg_focus    = "#000000"         -- background color of the focused client on the tabbar
-theme.mstab_fg_focus    = "#000000"         -- foreground color of the focused client on the tabbar
+theme.mstab_fg_focus    = "#ffffff"         -- foreground color of the focused client on the tabbar
 theme.mstab_bg_normal   = "#1A2026"         -- background color of unfocused clients on the tabbar
 theme.mstab_fg_normal   = "#ff0000"         -- foreground color of unfocused clients on the tabbar
 
