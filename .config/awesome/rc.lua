@@ -5,9 +5,11 @@ pcall(require, "luarocks.loader")
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+local helpers = require("helpers")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+local dpi = require("beautiful.xresources").apply_dpi
 -- Theme handling library
 local beautiful = require("beautiful")
 local menubar = require("menubar")
@@ -45,6 +47,8 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/home/alex/.config/awesome/themes/mach/theme.lua")
 
+local bling = require("bling")
+
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "nano"
@@ -75,13 +79,33 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    -- Bling layouts
+    bling.layout.mstab,
+    bling.layout.centered,
+    -- bling.layout.vertical,
+    -- bling.layout.horizontal,
 }
 
 awful.layout.suit.tile.name = "[]="
 awful.layout.suit.spiral.dwindle.name = "[\\]"
 awful.layout.suit.max.name = "[0]"
 awful.layout.suit.floating.name = "><>"
+bling.layout.centered.name = "|M|"
+bling.layout.mstab.name = "[]^"
 
+-- Mess to make it so monacle / max doesn't have gaps
+tag.connect_signal("property::layout", function(t)
+    if t.layout.name == "[0]" then
+        t.gap = dpi(0)
+    else
+        t.gap = dpi(3)
+    end
+end)
+
+-- Other Bling Things
+
+-- Swallow
+bling.module.window_swallowing.start()
 -- }}}
 
 -- {{{ Menu
@@ -183,60 +207,70 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-    -- Create a taglist widget
+   -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
+        screen = s,
+        filter = awful.widget.taglist.filter.all,
+        style = {shape = gears.shape.rectangle},
+        layout = {spacing = 0, layout = wibox.layout.fixed.horizontal},
+        widget_template = {
+            {
+                {
+                    {id = 'text_role', widget = wibox.widget.textbox},
+                    layout = wibox.layout.fixed.horizontal
+                },
+                left = 11,
+                right = 11,
+                top = 1,
+                widget = wibox.container.margin
+            },
+            id = 'background_role',
+            widget = wibox.container.background
+        },
         buttons = taglist_buttons
     }
 
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
-    screen   = s,
-    filter   = awful.widget.tasklist.filter.currenttags,
-    buttons  = tasklist_buttons,
-    style    = {
-        shape_border_width = 0,
-        shape_border_color = '#777777',
-        shape  = gears.shape.rounded_rect,
-    },
-    layout   = {
-        spacing = 12,
-        spacing_widget = {
-            {
-                forced_width = 5,
-                shape        = gears.shape.circle,
-                widget       = wibox.widget.separator
-            },
-            valign = 'center',
-            halign = 'center',
-            widget = wibox.container.place,
-        },
-        layout  = wibox.layout.flex.horizontal
-    },
-    -- Notice that there is *NO* wibox.wibox prefix, it is a template,
-    -- not a widget instance.
-    widget_template = {
-        {
+        screen = s,
+        filter = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons,
+        style = {shape = helpers.rrect(beautiful.border_radius)},
+        layout = {spacing = 10, layout = wibox.layout.fixed.horizontal},
+        widget_template = {
             {
                 {
-                    margins = 2,
-                    widget  = wibox.container.margin,
+                    {id = 'text_role', widget = wibox.widget.textbox},
+                    layout = wibox.layout.flex.horizontal
                 },
-                {
-                    id     = 'text_role',
-                    widget = wibox.widget.textbox,
-                },
-                layout = wibox.layout.fixed.horizontal,
+                left = dpi(12),
+                right = dpi(12),
+                widget = wibox.container.margin
             },
-            left  = 12,
-            right = 12,
-            widget = wibox.container.margin
-        },
-        id     = 'background_role',
-        widget = wibox.container.background,
-    },
+            id = 'background_role',
+            widget = wibox.container.background
+        }
+    }
+
+local mysystray = wibox.widget.systray()
+mysystray:set_base_size(beautiful.systray_icon_size)
+
+local mysystray_container = {
+    mysystray,
+    left = dpi(12),
+    right = (36),
+    top = dpi(7),
+    widget = wibox.container.margin
 }
+
+local mydecorativebox = wibox.widget{
+    markup = '',
+    align  = 'center',
+    valign = 'center',
+    forced_width = dpi(38),
+    widget = wibox.widget.textbox,
+}
+
       -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -245,15 +279,20 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            mydecorativebox,
             s.mytaglist,
+            {
             s.mylayoutbox,
-            s.mypromptbox,
+            widget = wibox.container.margin,
+            left = 8,
+            right = 8,
+            }
+
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
+            mysystray_container,
             mytextclock,
         },
     }
@@ -603,4 +642,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Script
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+
+
 

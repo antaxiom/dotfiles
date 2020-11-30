@@ -5,13 +5,17 @@
 
 local themes_path = "/home/alex/.config/awesome/themes/"
 local dpi = require("beautiful.xresources").apply_dpi
+local theme_assets = require("beautiful.theme_assets")
+local gfs = require("gears.filesystem")
+local bling = require("bling")
+
 
 -- {{{ Main
 local theme = {}
 -- }}}
 
 -- {{{ Styles
-theme.font      = "JetBrainsMono Medium NF"
+theme.font      = "JetBrainsMonoMedium NF 13"
 
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
@@ -20,7 +24,6 @@ theme.fg_urgent  = "#CC9393"
 theme.bg_normal  = "#111111"
 theme.bg_focus   = "#1C1C1C"
 theme.bg_urgent  = "#111111"
-theme.bg_systray = theme.bg_normal
 -- }}}
 
 -- {{{ Borders
@@ -35,7 +38,28 @@ theme.border_marked = "#CC9393"
 theme.titlebar_bg_focus  = "#3F3F3F"
 theme.titlebar_bg_normal = "#3F3F3F"
 -- }}}
+--
+-- {{{
+-- Tasklist
+    theme.tasklist_plain_task_name = true
+    theme.tasklist_disable_task_name = false
+    theme.tasklist_disable_icon = true
+    theme.tasklist_spacing = dpi(5)
+    theme.tasklist_align = "center"
+-- }}}
 
+-- {{{
+-- Systray
+theme.systray_icon_spacing = dpi(8)
+theme.bg_systray = theme.bg_normal
+theme.systray_icon_size = dpi(15)
+-- }}}
+
+-- {{{
+-- Taglist
+local taglist_square_size = 0
+-- }}}
+--
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -45,7 +69,7 @@ theme.titlebar_bg_normal = "#3F3F3F"
 -- Example:
 --theme.taglist_bg_focus = "#CC9393"
 -- }}}
-
+theme.taglist_fg_empty = "#444444"
 -- {{{ Widgets
 -- You can add as many variables as
 -- you wish and access them by using
@@ -66,39 +90,22 @@ theme.mouse_finder_color = "#CC9393"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
+-- Wibar
+
+theme.wibar_height = dpi(33)
+theme.wibar_margin = dpi(15)
+theme.wibar_spacing = dpi(15)
+theme.wibar_bg = theme.xbackground
+
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
 -- }}}
 
--- {{{ Icons
--- {{{ Taglist
-theme.taglist_squares_sel   = themes_path .. "mach/taglist/squarefz.png"
-theme.taglist_squares_unsel = themes_path .. "mach/taglist/squarez.png"
---theme.taglist_squares_resize = "false"
--- }}}
 
+-- {{{ Icons
 -- {{{ Misc
 theme.awesome_icon           = themes_path .. "mach/awesome-icon.png"
 theme.menu_submenu_icon      = themes_path .. "default/submenu.png"
--- }}}
-
--- {{{ Layout
-theme.layout_tile       = themes_path .. "mach/layouts/tile.png"
-theme.layout_tileleft   = themes_path .. "mach/layouts/tileleft.png"
-theme.layout_tilebottom = themes_path .. "mach/layouts/tilebottom.png"
-theme.layout_tiletop    = themes_path .. "mach/layouts/tiletop.png"
-theme.layout_fairv      = themes_path .. "mach/layouts/fairv.png"
-theme.layout_fairh      = themes_path .. "mach/layouts/fairh.png"
-theme.layout_spiral     = themes_path .. "mach/layouts/spiral.png"
-theme.layout_dwindle    = themes_path .. "mach/layouts/dwindle.png"
-theme.layout_max        = themes_path .. "mach/layouts/max.png"
-theme.layout_fullscreen = themes_path .. "mach/layouts/fullscreen.png"
-theme.layout_magnifier  = themes_path .. "mach/layouts/magnifier.png"
-theme.layout_floating   = themes_path .. "mach/layouts/floating.png"
-theme.layout_cornernw   = themes_path .. "mach/layouts/cornernw.png"
-theme.layout_cornerne   = themes_path .. "mach/layouts/cornerne.png"
-theme.layout_cornersw   = themes_path .. "mach/layouts/cornersw.png"
-theme.layout_cornerse   = themes_path .. "mach/layouts/cornerse.png"
 -- }}}
 
 -- {{{ Titlebar
@@ -130,6 +137,67 @@ theme.titlebar_maximized_button_normal_inactive = themes_path .. "mach/titlebar/
 -- }}}
 -- }}}
 
-return theme
+
+-- Everything bling
+
+--[[ Bling theme variables template
+This file has all theme variables of the bling module.
+Every variable has a small comment on what it does.
+You might just want to copy that whole part into your theme.lua and start adjusting from there.
+--]]
+
+
+-- window swallowing
+theme.dont_swallow_classname_list    = {"firefox", "Gimp"}      -- list of class names that should not be swallowed
+theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
+
+-- flash focus
+theme.flash_focus_start_opacity = 0.9       -- the starting opacity
+theme.flash_focus_step = 0.005               -- the step of animation
+
+-- tabbed
+theme.tabbed_spawn_in_tab = false           -- whether a new client should spawn into the focused tabbing container
+
+-- tabbar general
+theme.tabbar_ontop  = false
+theme.tabbar_radius = 0                     -- border radius of the tabbar
+theme.tabbar_style = "default"              -- style of the tabbar ("default", "boxes" or "modern")
+theme.tabbar_font = "Sans 11"               -- font of the tabbar
+theme.tabbar_size = 40                      -- size of the tabbar
+theme.tabbar_position = "top"               -- position of the tabbar
+theme.tabbar_bg_normal = "#000000"          -- background color of the focused client on the tabbar
+theme.tabbar_fg_normal = "#ffffff"          -- foreground color of the focused client on the tabbar
+theme.tabbar_bg_focus  = "#1A2026"          -- background color of unfocused clients on the tabbar
+theme.tabbar_fg_focus  = "#ff0000"          -- foreground color of unfocused clients on the tabbar
+
+-- mstab
+theme.mstab_bar_ontop = false               -- whether you want to allow the bar to be ontop of clients
+theme.mstab_dont_resize_flaves = false      -- whether the tabbed stack windows should be smaller than the
+                                            -- currently focused stack window (set it to true if you use
+                                            -- transparent terminals. False if you use shadows on solid ones
+theme.mstab_bar_padding = "default"         -- how much padding there should be between clients and your tabbar
+                                            -- by default it will adjust based on your useless gaps.
+                                            -- If you want a custom value. Set it to the number of pixels (int)
+
+-- the following variables are still for mstab
+-- you only need to set them if you want your mstab layout tabbar to have a different
+-- look then your tabbed module tabbar. By default they will look the same.
+theme.mstab_border_radius = 0               -- border radius of the tabbar
+theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
+theme.mstab_font = "JetBrainsMono 10"                -- font of the tabbar
+theme.mstab_bar_height = dpi(2.5)                 -- height of the tabbar
+theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
+theme.mstab_bg_focus    = "#000000"         -- background color of the focused client on the tabbar
+theme.mstab_fg_focus    = "#000000"         -- foreground color of the focused client on the tabbar
+theme.mstab_bg_normal   = "#1A2026"         -- background color of unfocused clients on the tabbar
+theme.mstab_fg_normal   = "#ff0000"         -- foreground color of unfocused clients on the tabbar
+
+-- the following variables are currently only for the "modern" tabbar style
+theme.tabbar_color_close = "#f9929b"        -- chnges the color of the close button
+theme.tabbar_color_min   = "#fbdf90"        -- chnges the color of the minimize button
+theme.tabbar_color_float = "#ccaced"        -- chnges the color of the float button
+
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
+
+return theme

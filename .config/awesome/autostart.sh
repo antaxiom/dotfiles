@@ -1,5 +1,9 @@
 #! /bin/bash
 
+killall picom &
+
+sleep 1
+
 picom --experimental-backends -b &
 
 # keybinds
@@ -16,9 +20,6 @@ j4-dmenu-desktop --dmenu=echo &
 mpd &
 killall mpDris2 &
 mpDris2 &
-
-#pidswallow
-pgrep -fl 'pidswallow -gl' || pidswallow -gl &
 
 # Walpaper
 
