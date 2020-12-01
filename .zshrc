@@ -189,9 +189,7 @@ alias zathura='devour zathura'
 # Askpass
 export SUDO_ASKPASS=~/suckless/dwm/dpass
 
-# Path
-# Adds ~/.scripts to path
-export PATH="$PATH:$(du "$HOME/.scripts/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+## Path
 
 # Other path stuff
 export PATH="$PATH:/usr/lib/dart/bin"
