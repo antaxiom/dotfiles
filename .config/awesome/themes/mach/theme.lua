@@ -17,7 +17,7 @@ theme.font      = "JetBrainsMonoMedium NF 13"
 
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
-theme.fg_focus   = "#BE4DCC"
+theme.fg_focus   = "#e06ccd"
 theme.fg_urgent  = "#61afef"
 theme.bg_normal  = "#151515"
 theme.bg_focus   = "#1C1C1C"
@@ -25,11 +25,12 @@ theme.bg_urgent  = "#131313"
 -- }}}
 
 -- {{{ Borders
-theme.useless_gap   = dpi(3)
+theme.useless_gap   = dpi(4)
 theme.border_width  = dpi(3)
 theme.border_normal = "#444444"
 theme.border_focus  = "#5bc6d1"
 theme.border_marked = "#CC9393"
+theme.border_radius = dpi(6)
 -- }}}
 
 -- {{{ Titlebars
@@ -49,7 +50,7 @@ theme.titlebar_bg_normal = "#3F3F3F"
 -- {{{
 -- Systray
 theme.systray_icon_spacing = dpi(8)
-theme.bg_systray = theme.bg_normal
+theme.bg_systray = "#151515"
 theme.systray_icon_size = dpi(15)
 -- }}}
 
@@ -90,10 +91,10 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[border_color|border_width]
 -- Wibar
 
-theme.wibar_height = dpi(33)
+theme.wibar_height = dpi(43)
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
-theme.wibar_bg = theme.xbackground
+theme.wibar_bg = "#111111"
 
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
@@ -143,7 +144,7 @@ You might just want to copy that whole part into your theme.lua and start adjust
 
 
 -- window swallowing
-theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave"}      -- list of class names that should not be swallowed
+theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave-browser"}      -- list of class names that should not be swallowed
 theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
 
 -- flash focus
@@ -154,43 +155,43 @@ theme.flash_focus_step = 0.01               -- the step of animation
 theme.tabbed_spawn_in_tab = false           -- whether a new client should spawn into the focused tabbing container
 
 -- tabbar general
-theme.tabbar_ontop  = false
-theme.tabbar_radius = 0                     -- border radius of the tabbar
+theme.tabbar_ontop  = true
+theme.tabbar_radius = dpi(4)                     -- border radius of the tabbar
 theme.tabbar_style = "default"              -- style of the tabbar ("default", "boxes" or "modern")
-theme.tabbar_font = "Sans 11"               -- font of the tabbar
-theme.tabbar_size = 40                      -- size of the tabbar
-theme.tabbar_position = "top"               -- position of the tabbar
-theme.tabbar_bg_normal = "#000000"          -- background color of the focused client on the tabbar
+theme.tabbar_font = "JetBrainsMonoMedium 13"               -- font of the tabbar
+theme.tabbar_size = dpi(40)                      -- size of the tabbar
+theme.tabbar_position = "boxes"               -- position of the tabbar
+theme.tabbar_bg_normal = "#111111"          -- background color of the focused client on the tabbar
 theme.tabbar_fg_normal = "#ffffff"          -- foreground color of the focused client on the tabbar
-theme.tabbar_bg_focus  = "#1A2026"          -- background color of unfocused clients on the tabbar
-theme.tabbar_fg_focus  = "#ff0000"          -- foreground color of unfocused clients on the tabbar
+theme.tabbar_bg_focus  = "#1b1b1b"          -- background color of unfocused clients on the tabbar
+theme.tabbar_fg_focus  = "#61afef"          -- foreground color of unfocused clients on the tabbar
 
 -- mstab
-theme.mstab_bar_ontop = false               -- whether you want to allow the bar to be ontop of clients
-theme.mstab_dont_resize_flaves = false      -- whether the tabbed stack windows should be smaller than the
+theme.mstab_bar_ontop = true               -- whether you want to allow the bar to be ontop of clients
+theme.mstab_dont_resize_flaves = true      -- whether the tabbed stack windows should be smaller than the
                                             -- currently focused stack window (set it to true if you use
                                             -- transparent terminals. False if you use shadows on solid ones
-theme.mstab_bar_padding = "default"         -- how much padding there should be between clients and your tabbar
+theme.mstab_bar_padding = dpi(8)         -- how much padding there should be between clients and your tabbar
                                             -- by default it will adjust based on your useless gaps.
                                             -- If you want a custom value. Set it to the number of pixels (int)
 
 -- the following variables are still for mstab
 -- you only need to set them if you want your mstab layout tabbar to have a different
 -- look then your tabbed module tabbar. By default they will look the same.
-theme.mstab_border_radius = 0               -- border radius of the tabbar
+theme.mstab_border_radius = dpi(4)               -- border radius of the tabbar
 theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
-theme.mstab_font = "Sans 8"                -- font of the tabbar
-theme.mstab_bar_height = dpi(36)                 -- height of the tabbar
+theme.mstab_font = "JetBrainsMonoMedium 12"                -- font of the tabbar
+theme.mstab_bar_height = dpi(48)                 -- height of the tabbar
 theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
 theme.mstab_bg_focus    = "#bfefd2"         -- background color of the focused client on the tabbar
 theme.mstab_fg_focus    = "#420420"         -- foreground color of the focused client on the tabbar
-theme.mstab_bg_normal   = "#222222"         -- background color of unfocused clients on the tabbar
+theme.mstab_bg_normal   = "#1b1b1b"         -- background color of unfocused clients on the tabbar
 theme.mstab_fg_normal   = "#ff0ddd"         -- foreground color of unfocused clients on the tabbar
 
 -- the following variables are currently only for the "modern" tabbar style
-theme.tabbar_color_close = "#f9929b"        -- chnges the color of the close button
-theme.tabbar_color_min   = "#fbdf90"        -- chnges the color of the minimize button
-theme.tabbar_color_float = "#ccaced"        -- chnges the color of the float button
+theme.tabbar_color_close = "#1b1b1b"        -- chnges the color of the close button
+theme.tabbar_color_min   = "#1b1b1b"        -- chnges the color of the minimize button
+theme.tabbar_color_float = "#1b1b1b"        -- chnges the color of the float button
 
 
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

@@ -70,9 +70,8 @@ awful.layout.layouts = {
     -- awful.layout.suit.fair,
     -- awful.layout.suit.fair.horizontal,
     -- awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.floating,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
@@ -82,6 +81,7 @@ awful.layout.layouts = {
     -- Bling layouts
     bling.layout.mstab,
     bling.layout.centered,
+    awful.layout.suit.floating,
     -- bling.layout.vertical,
     -- bling.layout.horizontal,
 }
@@ -98,12 +98,11 @@ tag.connect_signal("property::layout", function(t)
     if t.layout.name == "[0]" then
         t.gap = dpi(0)
     else
-        t.gap = dpi(3)
+        t.gap = dpi(4)
     end
 end)
 
 -- Other Bling Things
-bling.module.window_swallowing.start()
 
 -- }}}
 
@@ -132,7 +131,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 
-mytextclock = wibox.widget.textclock("%b %d (%a) %I:%M%p")
+mytextclock = {
+wibox.widget.textclock("%b %d (%a) %I:%M%p"),
+widget = wibox.container.background,
+fg = "#111111"
+}
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -218,9 +221,9 @@ awful.screen.connect_for_each_screen(function(s)
                     {id = 'text_role', widget = wibox.widget.textbox},
                     layout = wibox.layout.fixed.horizontal
                 },
-                left = 11,
-                right = 11,
-                top = 1,
+                left = 12,
+                right = 12,
+                top = 0,
                 widget = wibox.container.margin
             },
             id = 'background_role',
@@ -234,21 +237,47 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
-        style = {shape = helpers.rrect(beautiful.border_radius)},
-        layout = {spacing = 10, layout = wibox.layout.fixed.horizontal},
-        widget_template = {
+        style = {shape = gears.shape.rectangle},
+        layout = {
+        spacing_widget = {
+            {
+                forced_width  = dpi(5),
+                forced_height = dpi(20),
+                thickness     = dpi(1),
+                color         = '#999999',
+                widget        = wibox.widget.separator
+        },
+        halign = 'center',
+        valign = 'center',
+        widget = wibox.container.place
+        },
+        spacing = dpi(14),
+        layout = wibox.layout.flex.horizontal
+        },
+   widget_template = {
+        {
             {
                 {
-                    {id = 'text_role', widget = wibox.widget.textbox},
-                    layout = wibox.layout.flex.horizontal
+                    {
+                        id     = 'icon_role',
+                        widget = wibox.widget.imagebox,
+                    },
+                    margins = 2,
+                    widget  = wibox.container.margin,
                 },
-                left = dpi(12),
-                right = dpi(12),
-                widget = wibox.container.margin
+                {
+                    id     = 'text_role',
+                    widget = wibox.widget.textbox,
+                },
+                layout = wibox.layout.fixed.horizontal,
             },
-            id = 'background_role',
-            widget = wibox.container.background
-        }
+            left  = 10,
+            right = 10,
+            widget = wibox.container.margin
+        },
+        id     = 'background_role',
+        widget = wibox.container.background,
+    },
     }
 
 local mysystray = wibox.widget.systray()
@@ -262,14 +291,39 @@ local mysystray_container = {
     widget = wibox.container.margin
 }
 
-local mydecorativebox = wibox.widget{
-    markup = '',
-    align  = 'center',
-    valign = 'center',
-    forced_width = dpi(38),
-    widget = wibox.widget.textbox,
-}
+-- Setup functions
+function wrap_bg(widget, bg_color)
+  return wibox.widget {
+    widget,
+    bg = bg_color,
+    shape = gears.shape.rectangle,
+    widget = wibox.container.background
+  }
+end
 
+
+function wrap_margin(widget, bg_color)
+  return wibox.widget {
+    widget,
+    left = 10,
+    right = 10,
+    widget = wibox.container.margin,
+    bg = "#111111"
+  }
+end
+
+function full_wrap_margin(widget, bg_color)
+  return wibox.widget {
+    widget,
+    left = 8,
+    right = 8,
+    top = 8,
+    bottom = 8,
+    widget = wibox.container.margin,
+    bg = "#111111"
+  }
+end
+--
       -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -278,25 +332,14 @@ local mydecorativebox = wibox.widget{
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mydecorativebox,
-            s.mytaglist,
-            {
-            s.mylayoutbox,
-            widget = wibox.container.margin,
-            left = 8,
-            right = 8,
-            }
-
+            full_wrap_margin(wrap_bg(s.mytaglist,"#171717")),
+            wrap_margin(s.mylayoutbox),
         },
-        s.mytasklist, -- Middle widget
+        full_wrap_margin(wrap_bg(s.mytasklist, "#111111")), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mysystray_container,
-            {
-            mytextclock,
-            widget = wibox.container.margin,
-            right = 12,
-        }
+            full_wrap_margin(wrap_bg(mysystray_container, "#171717")),
+            full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     }
 end)
@@ -395,7 +438,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -p run") end,
               {description = "run prompt (dmenu)", group = "launcher"}),
     -- Prompt
-    awful.key({ modkey,           }, "d", function () awful.spawn("j4-dmenu-desktop --no-generic  --dmenu='dmenu -p start'") end,
+    awful.key({ modkey,           }, "d", function () awful.spawn("/home/alex/.scripts/system/launch-desktop-dmenu") end,
               {description = "desktop launcher prompt (dmenu)", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -607,28 +650,7 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
+    awful.titlebar(c, {position = "right", size = dpi(22), bg_normal = "#1a1a1a", bg_focus = "#222222"}) : setup {
         layout = wibox.layout.align.horizontal
     }
 end)
