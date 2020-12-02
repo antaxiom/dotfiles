@@ -1,13 +1,12 @@
 export PF_INFO="ascii title os de shell uptime pkgs"
-echo "\n"
+echo \n
 pfetch
 echo 'Welcome back to' (hostname), $USER
 
 set fish_greeting                      # Supresses fish's intro message
 set TERM "xterm-256color"              # Sets the terminal type
-set EDITOR "nvim"      # $EDITOR use Emacs in terminal
-set VISUAL "code"   # $VISUAL use Emacs in GUI mode
-
+set EDITOR "nvim"
+set VISUAL "code"
 # Fishblocks prompt
 
   set -g __fish_git_prompt_show_informative_status 1
@@ -72,3 +71,7 @@ export SUDO_ASKPASS=~/suckless/dwm/dpass
 
 # z.lua
 source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)
+
+# Env stuff
+
+export EDITOR='nvim'
