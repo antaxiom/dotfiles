@@ -19,7 +19,7 @@ current_item_inactive_column_suffix = $/r$(end)
 playlist_display_mode = columns
 browser_display_mode = columns
 progressbar_look = ━-
-alternative_ui_separator_color ="red"
+alternative_ui_separator_color ="cyan"
 media_library_primary_tag = album_artist
 media_library_albums_split_by_date = no
 startup_screen = "media_library"
@@ -27,12 +27,12 @@ display_volume_level = no
 ignore_leading_the = yes
 external_editor = nvim
 use_console_editor = yes
-empty_tag_color = magenta
+empty_tag_color = red
 main_window_color = white
 progressbar_color = white:b
-progressbar_elapsed_color = blue:b
+progressbar_elapsed_color = red:b
 statusbar_color = red
-statusbar_time_color = cyan:b
+statusbar_time_color = green:b
 allow_for_physical_item_deletion = yes
 
 # Visualizer
