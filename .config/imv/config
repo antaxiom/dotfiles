@@ -14,6 +14,9 @@ background = 111111
 
 initial_pan = 0 0
 
+# Title Text
+title_text = $(pwd | grep -o 'manga/.*' | sed 's/manga//' | sed 's|/| |g')
+
 [aliases]
 # Define aliases here. Any arguments passed to an alias are appended to the
 # command.
@@ -61,3 +64,5 @@ r = reset
 # Slideshow control
 t = slideshow +1
 <Shift+T> = slideshow -1
+
+
