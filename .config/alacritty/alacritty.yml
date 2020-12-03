@@ -60,3 +60,6 @@ colors:
 
 # Spread additional padding evenly around the terminal content.
 dynamic_padding: true
+
+shell:
+    program: /bin/fish
