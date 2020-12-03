@@ -14,6 +14,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local javacafe = require("./javacafe")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -102,6 +103,17 @@ tag.connect_signal("property::layout", function(t)
     end
 end)
 
+-- Floating Windows Always on Top
+-- Doesn't full work but it's ok
+-- client.connect_signal("property::floating", function(c)
+--     -- do something
+--     if c.floating == true then
+--         c.ontop = true
+--     else
+--         c.ontop = false
+--     end
+-- end)
+
 -- Other Bling Things
 
 -- }}}
@@ -130,6 +142,11 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
+
+
+local mytextclock = wibox.widget.textclock()
+local month_calendar = awful.widget.calendar_popup.month()
+month_calendar:attach( mytextclock, "tr" )
 
 mytextclock = {
 wibox.widget.textclock("%b %d (%a) %I:%M%p"),
@@ -223,7 +240,6 @@ awful.screen.connect_for_each_screen(function(s)
                 },
                 left = 12,
                 right = 12,
-                top = 0,
                 widget = wibox.container.margin
             },
             id = 'background_role',
@@ -238,46 +254,20 @@ awful.screen.connect_for_each_screen(function(s)
         filter = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
         style = {shape = gears.shape.rectangle},
-        layout = {
-        spacing_widget = {
-            {
-                forced_width  = dpi(5),
-                forced_height = dpi(20),
-                thickness     = dpi(1),
-                color         = '#999999',
-                widget        = wibox.widget.separator
-        },
-        halign = 'center',
-        valign = 'center',
-        widget = wibox.container.place
-        },
-        spacing = dpi(14),
-        layout = wibox.layout.flex.horizontal
-        },
-   widget_template = {
-        {
+        layout = {spacing = 10, layout = wibox.layout.fixed.horizontal},
+        widget_template = {
             {
                 {
-                    {
-                        id     = 'icon_role',
-                        widget = wibox.widget.imagebox,
-                    },
-                    margins = 2,
-                    widget  = wibox.container.margin,
+                    {id = 'text_role', widget = wibox.widget.textbox},
+                    layout = wibox.layout.flex.horizontal
                 },
-                {
-                    id     = 'text_role',
-                    widget = wibox.widget.textbox,
-                },
-                layout = wibox.layout.fixed.horizontal,
+                left = dpi(12),
+                right = dpi(12),
+                widget = wibox.container.margin
             },
-            left  = 10,
-            right = 10,
-            widget = wibox.container.margin
-        },
-        id     = 'background_role',
-        widget = wibox.container.background,
-    },
+            id = 'background_role',
+            widget = wibox.container.background
+        }
     }
 
 local mysystray = wibox.widget.systray()
@@ -286,7 +276,7 @@ mysystray:set_base_size(beautiful.systray_icon_size)
 local mysystray_container = {
     mysystray,
     left = dpi(12),
-    right = (36),
+    right = dpi(30),
     top = dpi(7),
     widget = wibox.container.margin
 }
@@ -312,7 +302,7 @@ function wrap_margin(widget, bg_color)
   }
 end
 
-function full_wrap_margin(widget, bg_color)
+function full_wrap_margin(widget)
   return wibox.widget {
     widget,
     left = 8,
@@ -320,10 +310,42 @@ function full_wrap_margin(widget, bg_color)
     top = 8,
     bottom = 8,
     widget = wibox.container.margin,
-    bg = "#111111"
   }
 end
 --
+-- Playctl widget
+local music_widget =
+{
+    {
+    awful.widget.watch("playerctl metadata --format ' {{ title }}'",
+    1, function(widget, stdout)
+    widget:set_markup(stdout:gsub("\n", ""))
+    widget.align = "center"
+end),
+widget = wibox.container.background,
+fg = "#111111",
+},
+widget = wibox.container.constraint,
+width = dpi(425)
+
+}
+
+-- Java Battery
+--
+local battery_bar = require("javacafe.widgets.battery")
+
+local function format_progress_bar(bar)
+    bar.forced_width = dpi(100)
+    bar.shape = gears.shape.rounded_bar
+    bar.bar_shape = gears.shape.rounded_bar
+    bar.background_color = beautiful.xcolor8
+
+    return bar
+end
+
+local battery = format_progress_bar(battery_bar)
+
+
       -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -338,7 +360,10 @@ end
         full_wrap_margin(wrap_bg(s.mytasklist, "#111111")), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            full_wrap_margin(wrap_bg(mysystray_container, "#171717")),
+            awful.widget.only_on_screen(
+            full_wrap_margin(wrap_bg(mysystray_container, "#171717"), 1)),
+            awful.widget.only_on_screen(
+            full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     }
@@ -435,7 +460,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -p run") end,
+    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -h 59 -p run") end,
               {description = "run prompt (dmenu)", group = "launcher"}),
     -- Prompt
     awful.key({ modkey,           }, "d", function () awful.spawn("/home/alex/.scripts/system/launch-desktop-dmenu") end,

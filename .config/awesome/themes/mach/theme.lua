@@ -19,16 +19,16 @@ theme.font      = "JetBrainsMonoMedium NF 13"
 theme.fg_normal  = "#DDDDDD"
 theme.fg_focus   = "#e06ccd"
 theme.fg_urgent  = "#61afef"
-theme.bg_normal  = "#151515"
+theme.bg_normal  = "#171717"
 theme.bg_focus   = "#1C1C1C"
-theme.bg_urgent  = "#131313"
+theme.bg_urgent  = "#171717"
 -- }}}
 
 -- {{{ Borders
 theme.useless_gap   = dpi(4)
 theme.border_width  = dpi(3)
 theme.border_normal = "#444444"
-theme.border_focus  = "#5bc6d1"
+theme.border_focus  = "#61afef"
 theme.border_marked = "#CC9393"
 theme.border_radius = dpi(6)
 -- }}}
