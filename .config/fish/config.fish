@@ -1,7 +1,7 @@
 export PF_INFO="ascii title os de shell uptime pkgs"
 echo \n
 pfetch
-echo 'Welcome back to' (hostname), $USER
+echo 'Welcome back to' (hostname), $USER \n
 
 set fish_greeting                      # Supresses fish's intro message
 set TERM "xterm-256color"              # Sets the terminal type
@@ -40,9 +40,6 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 # ls as exa with colors
 alias ls="exa --color=always --group-directories-first"
 alias l="exa -lah --color=always --group-directories-first"
-
-# Ranger exits to a shell in your directory
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 # Convenient cds
 alias ..="cd .."
