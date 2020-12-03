@@ -22,7 +22,7 @@ echo "Welcome back to $HOST, $USER"
 # Custom PS1 inspired by luke smith
 # Have to source this after oh my zsh
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[cyan]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}#%f:%F{blue}!%f)%b%{$reset_color%}%b "
+PS1="%B%{$fg[red]%}[%{$fg[red]%}%M%  %{$fg[cyan]%}%n %{$fg[cyan]%}%40<..<%~%{$fg[red]%}]%(?:%F{red}$%f:%F{blue}!%f)%b%{$reset_color%}%b "
 
 
 # Risto, gentoo and lukerandall are good as well
