@@ -1,5 +1,8 @@
 #!/bin/sh
 
 
+xinput map-to-output 20 HDMI-1
+xinput map-to-output 21 HDMI-1
+xinput map-to-output 22 HDMI-1
 xinput map-to-output 23 HDMI-1
 xinput map-to-output 24 HDMI-1
