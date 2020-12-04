@@ -200,9 +200,9 @@ function fish_prompt
 	# Window title
 	switch $TERM;
 		case xterm'*' vte'*';
-			echo -ne '\033]0;[ '(prompt_pwd)' ]\007';
+			echo -ne '\033]0;['(prompt_pwd)']\007';
 		case screen'*';
-			echo -ne '\033k[ '(prompt_pwd)' ]\033\\';
+			echo -ne '\033k['(prompt_pwd)']\033\\';
 	end
 
 	# Print right-hand prompt
