@@ -1,6 +1,7 @@
 -------------------------------
---  "Zenburn" awesome theme  --
---    By Adrian C. (anrxc)   --
+--  "Too Dark" awesome theme --
+--     By Antaxiom (Alex)    --
+--    Based on the Zenburn   --
 -------------------------------
 
 local themes_path = "/home/alex/.config/awesome/themes/"
@@ -13,7 +14,7 @@ local theme = {}
 -- }}}
 
 -- {{{ Styles
-theme.font      = "JetBrainsMonoMedium NF 13"
+theme.font      = "JetBrainsMonoMedium NF 12.5"
 
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
