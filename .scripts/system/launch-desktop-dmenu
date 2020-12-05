@@ -1,0 +1,3 @@
+#!/bin/sh
+
+SHELL=/bin/sh j4-dmenu-desktop --no-generic --dmenu='dmenu -h 59 -p start' &
