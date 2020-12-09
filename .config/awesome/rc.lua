@@ -14,7 +14,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local javacafe = require("./javacafe")
+local stolen = require("./stolen")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -443,7 +443,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -h 59 -p run") end,
+    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -h 62 -p run") end,
               {description = "run prompt (dmenu)", group = "launcher"}),
     -- Prompt
     awful.key({ modkey,           }, "d", function () awful.spawn("/home/alex/.scripts/system/launch-desktop-dmenu") end,

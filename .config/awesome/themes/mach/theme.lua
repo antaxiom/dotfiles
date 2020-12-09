@@ -55,10 +55,6 @@ theme.bg_systray = "#151515"
 theme.systray_icon_size = dpi(15)
 -- }}}
 
--- {{{
--- Taglist
-local taglist_square_size = 0
--- }}}
 --
 -- There are other variable sets
 -- overriding the default one when
@@ -92,7 +88,7 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[border_color|border_width]
 -- Wibar
 
-theme.wibar_height = dpi(43)
+theme.wibar_height = dpi(44)
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
 theme.wibar_bg = "#111111"
@@ -145,7 +141,8 @@ You might just want to copy that whole part into your theme.lua and start adjust
 
 
 -- window swallowing
-theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave-browser"}      -- list of class names that should not be swallowed
+theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave-browser"}
+-- list of class names that should not be swallowed
 theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
 
 -- flash focus
