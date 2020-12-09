@@ -46,7 +46,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/alex/.config/awesome/themes/mach/theme.lua")
+beautiful.init("~/.config/awesome/themes/mach/theme.lua")
 
 local bling = require("bling")
 
@@ -106,11 +106,8 @@ end)
 -- Floating Windows Always on Top
 -- Doesn't full work but it's ok
 -- client.connect_signal("property::floating", function(c)
---     -- do something
 --     if c.floating == true then
 --         c.ontop = true
---     else
---         c.ontop = false
 --     end
 -- end)
 
@@ -223,9 +220,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 3, function () awful.layout.inc(-1) end),
-                           awful.button({ }, 4, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 5, function () awful.layout.inc(-1) end)))
+                           awful.button({ }, 3, function () awful.layout.inc(-1) end)))
    -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen = s,
@@ -270,7 +265,7 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background
         },
     widget = wibox.container.constraint,
-    width = dpi(520)
+    width = dpi(490)
     }
     }
 
@@ -376,9 +371,7 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 -- }}}
 
@@ -601,7 +594,8 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = {
+                     border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,

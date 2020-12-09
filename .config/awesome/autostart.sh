@@ -2,13 +2,18 @@
 
 killall picom &
 
-sleep 1
+sleep 0.5
 
 picom --experimental-backends -b &
 
 # keybinds
 
 ~/.scripts/system/sxhkd-start
+
+# Greenclip
+
+killall greenclip
+greenclip daemon &
 
 # j4-dmenu preloading
 j4-dmenu-desktop --dmenu=echo &
@@ -34,4 +39,4 @@ sxhkd &
 
 # Wifi stuff, not needed for a desktop but why not
 
-nm-applet    2>&1 > /dev/null &
+nm-applet 2>&1 > /dev/null &

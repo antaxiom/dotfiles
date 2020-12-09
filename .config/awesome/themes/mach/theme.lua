@@ -25,12 +25,12 @@ theme.bg_focus   = "#1C1C1C"
 theme.bg_urgent  = "#171717"
 -- }}}
 
--- {{{ Borders
+-- {{{ borders
 theme.useless_gap   = dpi(4)
 theme.border_width  = dpi(3)
 theme.border_normal = "#444444"
 theme.border_focus  = "#61afef"
-theme.border_marked = "#CC9393"
+theme.border_marked = "#cc9393"
 theme.border_radius = dpi(6)
 -- }}}
 
