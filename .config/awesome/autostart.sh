@@ -2,7 +2,7 @@
 
 killall picom &
 
-sleep 0.5
+sleep 1
 
 picom --experimental-backends -b &
 
