@@ -204,7 +204,6 @@ function fish_prompt
 		case screen'*';
 			echo -ne '\033k['(prompt_pwd)']\033\\';
 	end
-
 	# Print right-hand prompt
 	echo (_block_ssh)(_block_user_host)(_block_pwd)(set_color normal)' '
 end

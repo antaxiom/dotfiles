@@ -41,7 +41,6 @@ alias ser="find ~/.scripts/* -type f | fzf | xargs -r bash"
 alias ls="exa --color=always --group-directories-first"
 alias l="exa -lah --color=always --group-directories-first"
 
-
 # Convenient cds
 alias ..="cd .."
 alias ...="cd ../.."
