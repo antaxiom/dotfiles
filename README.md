@@ -29,7 +29,7 @@
 
 - Configs for [oh my zsh](https://ohmyz.sh/) and alacritty
 
-- Configs for [picom](https://github.com/yshui/picom) (needs [dual kawase fork](https://github.com/ibhagwan/picom))
+- Configs for [picom](https://github.com/yshui/picom) (picom-git or [jonaburg's fork](https://github.com/jonaburg/picom))
 
 ## Dependencies
 

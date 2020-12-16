@@ -25,18 +25,19 @@ theme.bg_focus   = "#1C1C1C"
 theme.bg_urgent  = "#171717"
 -- }}}
 
--- {{{ Borders
+-- {{{ borders
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(3)
-theme.border_normal = "#444444"
-theme.border_focus  = "#61afef"
-theme.border_marked = "#CC9393"
+theme.border_width  = dpi(10)
+theme.border_normal = "#151515"
+theme.border_focus  = "#151515"
+theme.border_marked = "#151515"
 theme.border_radius = dpi(6)
 -- }}}
 
 -- {{{ Titlebars
-theme.titlebar_bg_focus  = "#3F3F3F"
-theme.titlebar_bg_normal = "#3F3F3F"
+theme.titlebar_bg_focus  = "#61afef"
+theme.titlebar_bg_normal = "#444444"
+theme.titlebar_size = dpi(3)
 -- }}}
 --
 -- {{{
@@ -55,10 +56,6 @@ theme.bg_systray = "#151515"
 theme.systray_icon_size = dpi(15)
 -- }}}
 
--- {{{
--- Taglist
-local taglist_square_size = 0
--- }}}
 --
 -- There are other variable sets
 -- overriding the default one when
@@ -92,7 +89,7 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[border_color|border_width]
 -- Wibar
 
-theme.wibar_height = dpi(43)
+theme.wibar_height = dpi(44)
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
 theme.wibar_bg = "#111111"
@@ -145,7 +142,8 @@ You might just want to copy that whole part into your theme.lua and start adjust
 
 
 -- window swallowing
-theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave-browser"}      -- list of class names that should not be swallowed
+theme.dont_swallow_classname_list    = {"firefox", "Gimp", "brave-browser"}
+-- list of class names that should not be swallowed
 theme.dont_swallow_filter_activated  = true                     -- whether the filter above should be active
 
 -- flash focus
@@ -172,14 +170,14 @@ theme.mstab_bar_ontop = true               -- whether you want to allow the bar 
 theme.mstab_dont_resize_flaves = true      -- whether the tabbed stack windows should be smaller than the
                                             -- currently focused stack window (set it to true if you use
                                             -- transparent terminals. False if you use shadows on solid ones
-theme.mstab_bar_padding = dpi(8)         -- how much padding there should be between clients and your tabbar
+theme.mstab_bar_padding = dpi(6)         -- how much padding there should be between clients and your tabbar
                                             -- by default it will adjust based on your useless gaps.
                                             -- If you want a custom value. Set it to the number of pixels (int)
 
 -- the following variables are still for mstab
 -- you only need to set them if you want your mstab layout tabbar to have a different
 -- look then your tabbed module tabbar. By default they will look the same.
-theme.mstab_border_radius = dpi(4)               -- border radius of the tabbar
+theme.mstab_border_radius = dpi(0)               -- border radius of the tabbar
 theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "boxes" or "modern")
 theme.mstab_font = "JetBrainsMonoMedium 12"                -- font of the tabbar
 theme.mstab_bar_height = dpi(48)                 -- height of the tabbar

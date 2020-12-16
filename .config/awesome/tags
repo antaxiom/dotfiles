@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+<center> 🌟 Bling - Utilities for the AwesomeWM 🌟 </center>	bling/README.md	/^# <center> 🌟 Bling - Utilities for the AwesomeWM 🌟 <\/center>$/;"	c
+Centered	bling/README.md	/^### Centered$/;"	S
+Flash Focus	bling/README.md	/^### Flash Focus$/;"	S
+Mstab (dynamic tabbing layout)	bling/README.md	/^### Mstab (dynamic tabbing layout)$/;"	S
+TODO	bling/README.md	/^## TODO$/;"	s
+Tabbing	bling/README.md	/^### Tabbing$/;"	S
+Tiled Wallpaper	bling/README.md	/^### Tiled Wallpaper$/;"	S
+Wind swallowing	bling/README.md	/^### Wind swallowing$/;"	S
+adjust_visiblity	bling/layout/mstab.lua	/^        local function adjust_visiblity(t)$/;"	f
+buttons	rc.lua	/^    local buttons = gears.table.join(awful.button({}, 1, function()$/;"	f
+c	bling/module/tabbed.lua	/^            c:connect_signal("unmanage", function(c) tabbed.remove(c) end)$/;"	f
+callback	rc.lua	/^        callback = function(c)$/;"	f
+check_if_swallow	bling/module/window_swallowing.lua	/^local function check_if_swallow(c) $/;"	f
+copy_size	bling/module/tabbed.lua	/^local function copy_size(c, parent_client)$/;"	f
+copy_size	bling/module/window_swallowing.lua	/^local function copy_size(c, parent_client)$/;"	f
+create	bling/widget/tabbar/boxes.lua	/^local function create(c, focused_bool, buttons)$/;"	f
+create	bling/widget/tabbar/default.lua	/^local function create(c, focused_bool, buttons)$/;"	f
+create	bling/widget/tabbar/modern.lua	/^local function create(c, focused_bool, buttons)$/;"	f
+create_tiled_wallpaper	bling/module/tiled_wallpaper.lua	/^function create_tiled_wallpaper(str, s, args_table)$/;"	f
+create_title_button	bling/widget/tabbar/modern.lua	/^local function create_title_button(c, color_focus, color_unfocus)$/;"	f
+create_title_button	rc.lua	/^local function create_title_button(c, color_focus, color_unfocus)$/;"	f
+disable	bling/module/flash_focus.lua	/^local disable = function() client.disconnect_signal("focus", flashfocus) end$/;"	f
+enable	bling/module/flash_focus.lua	/^local enable = function() client.connect_signal("focus", flashfocus) end$/;"	f
+flashfocus	bling/module/flash_focus.lua	/^local flashfocus = function(c)$/;"	f
+full_wrap_margin	rc.lua	/^function full_wrap_margin(widget)$/;"	f
+get_icon	bling/layout/centered.lua	/^local function get_icon()$/;"	f
+get_icon	bling/layout/horizontal.lua	/^local function get_icon()$/;"	f
+get_icon	bling/layout/mstab.lua	/^local function get_icon()$/;"	f
+get_icon	bling/layout/vertical.lua	/^local function get_icon()$/;"	f
+helpers.prrect	bling/module/helpers.lua	/^helpers.prrect = function(radius, tl, tr, br, bl)$/;"	f
+helpers.prrect	helpers.lua	/^helpers.prrect = function(radius, tl, tr, br, bl)$/;"	f
+helpers.rrect	bling/module/helpers.lua	/^helpers.rrect = function(radius)$/;"	f
+helpers.rrect	helpers.lua	/^helpers.rrect = function(radius)$/;"	f
+helpers.turn_off	bling/module/helpers.lua	/^helpers.turn_off = function(c)$/;"	f
+helpers.turn_off	helpers.lua	/^helpers.turn_off = function(c)$/;"	f
+helpers.turn_on	bling/module/helpers.lua	/^helpers.turn_on = function(c)$/;"	f
+helpers.turn_on	helpers.lua	/^helpers.turn_on = function(c)$/;"	f
+manage_clientspawn	bling/module/window_swallowing.lua	/^local function manage_clientspawn(c)$/;"	f
+mylayout.arrange	bling/layout/centered.lua	/^function mylayout.arrange(p)$/;"	f
+mylayout.arrange	bling/layout/horizontal.lua	/^function mylayout.arrange(p)$/;"	f
+mylayout.arrange	bling/layout/mstab.lua	/^function mylayout.arrange(p)$/;"	f
+mylayout.arrange	bling/layout/vertical.lua	/^function mylayout.arrange(p)$/;"	f
+set_wallpaper	rc.lua	/^local function set_wallpaper(s)$/;"	f
+shape	bling/layout/mstab.lua	/^            shape = function(cr, width, height)$/;"	f
+start	bling/module/window_swallowing.lua	/^local function start()$/;"	f
+stop	bling/module/window_swallowing.lua	/^local function stop()$/;"	f
+t	bling/layout/mstab.lua	/^                           function(t) adjust_visiblity(t) end)$/;"	f
+t	rc.lua	/^                    awful.button({ }, 1, function(t) t:view_only() end),$/;"	f
+t	rc.lua	/^                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),$/;"	f
+t	rc.lua	/^                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)$/;"	f
+t,	bling/layout/mstab.lua	/^                           function(t, layout) adjust_visiblity(t) end)$/;"	f
+t,	bling/layout/mstab.lua	/^        tag.connect_signal("tagged", function(t, c) adjust_visiblity(t) end)$/;"	f
+t,	bling/layout/mstab.lua	/^        tag.connect_signal("untagged", function(t, c) adjust_visiblity(t) end)$/;"	f
+tabbed.add	bling/module/tabbed.lua	/^tabbed.add = function(c, tabobj)$/;"	f
+tabbed.init	bling/module/tabbed.lua	/^tabbed.init = function(c)$/;"	f
+tabbed.iter	bling/module/tabbed.lua	/^tabbed.iter = function(idx)$/;"	f
+tabbed.pick	bling/module/tabbed.lua	/^tabbed.pick = function()$/;"	f
+tabbed.pop	bling/module/tabbed.lua	/^tabbed.pop = function()$/;"	f
+tabbed.remove	bling/module/tabbed.lua	/^tabbed.remove = function(c)$/;"	f
+tabbed.switch_to	bling/module/tabbed.lua	/^tabbed.switch_to = function(tabobj, new_idx)$/;"	f
+tabbed.update	bling/module/tabbed.lua	/^tabbed.update = function(tabobj)$/;"	f
+tabbed.update_tabbar	bling/module/tabbed.lua	/^tabbed.update_tabbar = function(tabobj)$/;"	f
+toggle	bling/module/window_swallowing.lua	/^local function toggle()$/;"	f
+update	bling/widget/tabbar/modern.lua	/^    local function update()$/;"	f
+update	rc.lua	/^    local function update()$/;"	f
+update_tabbar	bling/layout/mstab.lua	/^function update_tabbar(clients, t, top_idx, area, master_area_width,$/;"	f
+wrap_bg	rc.lua	/^function wrap_bg(widget, bg_color)$/;"	f
+wrap_margin	rc.lua	/^function wrap_margin(widget, bg_color)$/;"	f
+❓ Why	bling/README.md	/^## ❓ Why$/;"	s
+🌈 Theme variables	bling/README.md	/^### 🌈 Theme variables$/;"	S
+🏬 Tiled Wallpaper	bling/README.md	/^##### 🏬 Tiled Wallpaper $/;"	T
+📎 Layouts	bling/README.md	/^##### 📎 Layouts$/;"	T
+📑 Tabbing	bling/README.md	/^##### 📑 Tabbing$/;"	T
+🔦 Flash Focus	bling/README.md	/^##### 🔦 Flash Focus$/;"	T
+😋 Window swallowing	bling/README.md	/^##### 😋 Window swallowing$/;"	T
+😲 Preview	bling/README.md	/^## 😲 Preview$/;"	s
+🧭 Installation and configuration	bling/README.md	/^## 🧭 Installation and configuration$/;"	s
