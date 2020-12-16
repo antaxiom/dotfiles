@@ -1,11 +1,5 @@
 #! /bin/bash
 
-killall picom &
-
-sleep 1
-
-picom --experimental-backends -b &
-
 # keybinds
 
 ~/.scripts/system/sxhkd-start
@@ -28,9 +22,6 @@ exec nitrogen --restore &
 # Notifications
 
 exec dunst &
-
-# Hotkeys
-sxhkd &
 
 # Wifi stuff, not needed for a desktop but why not
 
