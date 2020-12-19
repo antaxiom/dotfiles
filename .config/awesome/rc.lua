@@ -1,4 +1,3 @@
--- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
@@ -278,9 +277,9 @@ mysystray:set_base_size(beautiful.systray_icon_size)
 
 local mysystray_container = {
     mysystray,
-    left = dpi(12),
-    right = dpi(30),
-    top = dpi(7),
+    top = dpi(10),
+    left = dpi(6),
+    right = dpi(6),
     widget = wibox.container.margin
 }
 
@@ -298,8 +297,8 @@ end
 function wrap_margin(widget, bg_color)
   return wibox.widget {
     widget,
-    left = 10,
-    right = 10,
+    left = dpi(7),
+    right = dpi(7),
     widget = wibox.container.margin,
     bg = "#111111"
   }
@@ -308,10 +307,10 @@ end
 function full_wrap_margin(widget)
   return wibox.widget {
     widget,
-    left = 8,
-    right = 8,
-    top = 8,
-    bottom = 8,
+    left = dpi(3),
+    right = dpi(3),
+    top = dpi(6),
+    bottom = dpi(6),
     widget = wibox.container.margin,
   }
 end
@@ -385,8 +384,12 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+                     placement = awful.placement.no_overlap + awful.placement.centered + awful.placement.no_offscreen,
                      size_hints_honor = false,
+                     honor_workarea = false,
+                     maximized = false,
+                     maximized_horizontal = false,
+                     maximized_vertical = false
      }
     },
 
@@ -421,13 +424,14 @@ awful.rules.rules = {
         }
       }, properties = { floating = true }},
 
- -- Add titlebars to normal clients and dialogs (UNCOMMENT FOR DOUBLE BORDERS)
+ -- Add titlebars to normal clients and dialogs (FOR DOUBLE BORDERS)
     {
         rule_any = {type = {"normal", "dialog"}},
         properties = {titlebars_enabled = true}
-    }, {
+    },
+    {
         rule_any = {class = {"Steam"}},
-        properties = {titlebars_enabled = false, ontop = true}
+        properties = {ontop = false}
     }, -- Set Firefox to always map on the tag named "2" on screen 1.
     --   { rule = { class = "Firefox" },
     --     properties = {  tag = 2 } },
@@ -536,12 +540,12 @@ local function create_title_button(c, color_focus, color_unfocus)
 end
 -- }}
 
+-- Double Borders
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
     local buttons = gears.table.join(awful.button({}, 1, function()
         c:emit_signal("request::activate", "titlebar", {raise = true})
-        if c.maximized == true then c.maximized = false end
         awful.mouse.client.move(c)
     end), awful.button({}, 3, function()
         c:emit_signal("request::activate", "titlebar", {raise = true})

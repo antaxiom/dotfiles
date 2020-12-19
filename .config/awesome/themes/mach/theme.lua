@@ -27,7 +27,7 @@ theme.bg_urgent  = "#171717"
 
 -- {{{ borders
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(10)
+theme.border_width  = dpi(12)
 theme.border_normal = "#151515"
 theme.border_focus  = "#151515"
 theme.border_marked = "#151515"
@@ -51,9 +51,8 @@ theme.titlebar_size = dpi(3)
 
 -- {{{
 -- Systray
-theme.systray_icon_spacing = dpi(8)
-theme.bg_systray = "#151515"
-theme.systray_icon_size = dpi(15)
+theme.systray_icon_spacing = dpi(9)
+theme.systray_icon_size = dpi(18)
 -- }}}
 
 --
@@ -160,7 +159,7 @@ theme.tabbar_style = "default"              -- style of the tabbar ("default", "
 theme.tabbar_font = "JetBrainsMonoMedium 13"               -- font of the tabbar
 theme.tabbar_size = dpi(40)                      -- size of the tabbar
 theme.tabbar_position = "boxes"               -- position of the tabbar
-theme.tabbar_bg_normal = "#111111"          -- background color of the focused client on the tabbar
+theme.tabbar_bg_normal = "#151515"          -- background color of the focused client on the tabbar
 theme.tabbar_fg_normal = "#ffffff"          -- foreground color of the focused client on the tabbar
 theme.tabbar_bg_focus  = "#1b1b1b"          -- background color of unfocused clients on the tabbar
 theme.tabbar_fg_focus  = "#61afef"          -- foreground color of unfocused clients on the tabbar
@@ -182,10 +181,7 @@ theme.mstab_tabbar_style = "default"        -- style of the tabbar ("default", "
 theme.mstab_font = "JetBrainsMonoMedium 12"                -- font of the tabbar
 theme.mstab_bar_height = dpi(48)                 -- height of the tabbar
 theme.mstab_tabbar_position = "top"         -- position of the tabbar (mstab currently does not support left,right)
-theme.mstab_bg_focus    = "#bfefd2"         -- background color of the focused client on the tabbar
-theme.mstab_fg_focus    = "#420420"         -- foreground color of the focused client on the tabbar
 theme.mstab_bg_normal   = "#1b1b1b"         -- background color of unfocused clients on the tabbar
-theme.mstab_fg_normal   = "#ff0ddd"         -- foreground color of unfocused clients on the tabbar
 
 -- the following variables are currently only for the "modern" tabbar style
 theme.tabbar_color_close = "#1b1b1b"        -- chnges the color of the close button
