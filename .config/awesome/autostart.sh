@@ -1,10 +1,8 @@
 #! /bin/bash
 
-killall picom &
+# Session manager
 
-sleep 1
-
-picom --experimental-backends -b &
+lxsession &
 
 # keybinds
 
@@ -40,3 +38,12 @@ sxhkd &
 # Wifi stuff, not needed for a desktop but why not
 
 nm-applet 2>&1 > /dev/null &
+
+
+# Picom situation
+
+killall picom &
+
+sleep 1
+
+picom --experimental-backends -b &
