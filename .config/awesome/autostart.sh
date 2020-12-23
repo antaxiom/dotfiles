@@ -4,6 +4,10 @@
 
 lxsession &
 
+# Volume
+
+volumeicon &
+
 # keybinds
 
 ~/.scripts/system/sxhkd-start
