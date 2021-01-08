@@ -1,1 +1,0 @@
-require("javacafe.widgets.battery")

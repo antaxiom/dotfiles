@@ -27,10 +27,10 @@ theme.bg_urgent  = "#171717"
 
 -- {{{ borders
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(12)
-theme.border_normal = "#151515"
-theme.border_focus  = "#151515"
-theme.border_marked = "#151515"
+theme.border_width  = dpi(8)
+theme.border_normal = "#171717"
+theme.border_focus  = "#171717"
+theme.border_marked = "#171717"
 theme.border_radius = dpi(6)
 -- }}}
 
@@ -51,8 +51,8 @@ theme.titlebar_size = dpi(3)
 
 -- {{{
 -- Systray
-theme.systray_icon_spacing = dpi(9)
-theme.systray_icon_size = dpi(18)
+theme.systray_icon_spacing = dpi(6)
+theme.systray_icon_size = dpi(12)
 -- }}}
 
 --

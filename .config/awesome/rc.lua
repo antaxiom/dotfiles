@@ -277,7 +277,7 @@ mysystray:set_base_size(beautiful.systray_icon_size)
 
 local mysystray_container = {
     mysystray,
-    top = dpi(10),
+    top = dpi(6),
     left = dpi(6),
     right = dpi(6),
     widget = wibox.container.margin
@@ -331,22 +331,6 @@ widget = wibox.container.constraint,
 width = dpi(425)
 
 }
-
--- Java Battery
---
-local battery_bar = require("javacafe.widgets.battery")
-
-local function format_progress_bar(bar)
-    bar.forced_width = dpi(100)
-    bar.shape = gears.shape.rounded_bar
-    bar.bar_shape = gears.shape.rounded_bar
-    bar.background_color = beautiful.xcolor8
-
-    return bar
-end
-
-local battery = format_progress_bar(battery_bar)
-
 
       -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
