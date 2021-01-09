@@ -268,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background
         },
     widget = wibox.container.constraint,
-    width = dpi(490)
+    width = dpi(515)
     }
     }
 
@@ -338,12 +338,15 @@ width = dpi(425)
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
+        expand = "inside",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             full_wrap_margin(wrap_bg(s.mytaglist,"#171717")),
             wrap_margin(s.mylayoutbox),
         },
-        full_wrap_margin(wrap_bg(s.mytasklist, "#111111")), -- Middle widget
+        full_wrap_margin(wrap_bg(
+                s.mytasklist,
+        "#111111")), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             awful.widget.only_on_screen(

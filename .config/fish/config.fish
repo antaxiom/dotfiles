@@ -69,7 +69,7 @@ alias mpv='devour mpv'
 alias zathura='devour zathura'
 
 # Askpass
-export SUDO_ASKPASS=~/suckless/dwm/dpass
+export SUDO_ASKPASS=/home/alex/suckless/dwm/dpass
 
 # z.lua
 source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)

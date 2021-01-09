@@ -37,6 +37,10 @@ exec dunst &
 # Hotkeys
 sxhkd &
 
-# Wifi stuff, not needed for a desktop but why not
+# Lxsession
+lxsession &
+
+# Wifi stuff and Bluetooth, not needed for a desktop but why not
 
 nm-applet 2>&1 > /dev/null &
+blueman-applet &
