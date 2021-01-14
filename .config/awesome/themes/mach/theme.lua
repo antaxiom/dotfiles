@@ -26,7 +26,7 @@ theme.bg_urgent  = "#171717"
 -- }}}
 
 -- {{{ borders
-theme.useless_gap   = dpi(4)
+theme.useless_gap   = dpi(3)
 theme.border_width  = dpi(8)
 theme.border_normal = "#171717"
 theme.border_focus  = "#171717"
@@ -37,7 +37,7 @@ theme.border_radius = dpi(6)
 -- {{{ Titlebars
 theme.titlebar_bg_focus  = "#61afef"
 theme.titlebar_bg_normal = "#444444"
-theme.titlebar_size = dpi(3)
+theme.titlebar_size = dpi(2)
 -- }}}
 --
 -- {{{

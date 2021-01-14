@@ -90,7 +90,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -h 62 -p run") end,
+    awful.key({ modkey,           }, "r", function () awful.spawn("dmenu_run -h 57 -p run") end,
               {description = "run prompt (dmenu)", group = "launcher"}),
     -- Prompt
     awful.key({ modkey,           }, "d", function () awful.spawn("/home/alex/.scripts/system/launch-desktop-dmenu") end,
