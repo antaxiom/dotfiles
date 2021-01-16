@@ -6,6 +6,8 @@ lxsession &
 
 # Volume
 
+killall volumeicon &
+
 volumeicon &
 
 # keybinds
