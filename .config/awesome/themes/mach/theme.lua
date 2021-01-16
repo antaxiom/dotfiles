@@ -51,8 +51,8 @@ theme.titlebar_size = dpi(2)
 
 -- {{{
 -- Systray
-theme.systray_icon_spacing = dpi(6)
-theme.systray_icon_size = dpi(12)
+theme.systray_icon_spacing = dpi(3)
+theme.systray_icon_size = dpi(18)
 -- }}}
 
 --

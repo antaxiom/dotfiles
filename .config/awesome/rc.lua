@@ -214,7 +214,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({"一", "二", "三", "四", "五", "六", "七", "八", "九"}, s, awful.layout.layouts[1])
+    awful.tag({"一", "二", "三", "四", "五", "六", "七"}, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -278,8 +278,8 @@ mysystray:set_base_size(beautiful.systray_icon_size)
 local mysystray_container = {
     mysystray,
     top = dpi(6),
-    left = dpi(6),
-    right = dpi(6),
+    left = dpi(12),
+    right = dpi(12),
     widget = wibox.container.margin
 }
 
@@ -328,7 +328,7 @@ widget = wibox.container.background,
 fg = "#111111",
 },
 widget = wibox.container.constraint,
-width = dpi(425)
+width = dpi(300)
 
 }
 
