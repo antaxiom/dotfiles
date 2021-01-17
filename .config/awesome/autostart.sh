@@ -1,10 +1,14 @@
 #! /bin/bash
 
-killall picom &
+# Session manager
 
-sleep 1
+lxsession &
 
-picom --experimental-backends -b &
+# Volume
+
+killall volumeicon &
+
+volumeicon &
 
 # keybinds
 
@@ -44,3 +48,11 @@ lxsession &
 
 nm-applet 2>&1 > /dev/null &
 blueman-applet &
+
+# Picom situation
+
+killall picom &
+
+sleep 1
+
+picom --experimental-backends -b &
