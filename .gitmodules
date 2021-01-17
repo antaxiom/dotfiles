@@ -25,3 +25,6 @@
 [submodule "/home/alex/.config/nvim"]
 	path = /home/alex/.config/nvim
 	url = https://github.com/antaxiom/nvimrc.git
+[submodule ".config/awesome/battery-widget"]
+	path = .config/awesome/battery-widget
+	url = https://github.com/deficient/battery-widget.git

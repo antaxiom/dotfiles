@@ -315,7 +315,7 @@ function full_wrap_margin(widget)
   }
 end
 --
--- Playctl widget
+-- Playerctl widget
 local music_widget =
 {
     {
@@ -329,7 +329,40 @@ fg = "#111111",
 },
 widget = wibox.container.constraint,
 width = dpi(300)
+}
 
+-- Battery Widget
+
+local battery_widget = require("battery-widget")
+local my_battery_widget = battery_widget {
+    ac = "AC",
+    adapter = "BAT0",
+    ac_prefix = "AC: ",
+    battery_prefix = {
+        {10, " "},
+        {20, " "},
+        {30, " "},
+        {40, " "},
+        {50, " "},
+        {60, " "},
+        {70, " "},
+        {80, " "},
+        {90, " "},
+        {100, " "},
+    },
+    percent_colors = {
+        { 25, "#000000"   },
+        { 50, "#111111"},
+        { 85, "#151515" },
+    },
+    listen = true,
+    timeout = 10,
+    widget_text = "${color_on}${AC_BAT}${percent}%${color_off}",
+    tooltip_text = "Battery ${state}${time_est}\nCapacity: ${capacity_percent}%",
+    alert_threshold = 5,
+    alert_timeout = 0,
+    alert_title = "Low battery !",
+    alert_text = "${AC_BAT}${time_est}"
 }
 
       -- Create the wibox
@@ -346,9 +379,11 @@ width = dpi(300)
         full_wrap_margin(wrap_bg(s.mytasklist, "#111111")), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+
             awful.widget.only_on_screen(
             full_wrap_margin(wrap_bg(mysystray_container, "#171717"), 1)),
-            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
+            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(my_battery_widget), "#ff4444")), 1),
+            -- awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     }

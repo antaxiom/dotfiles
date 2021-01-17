@@ -12,7 +12,7 @@ volumeicon &
 
 # keybinds
 
-~/.scripts/system/sxhkd-start
+~/.scripts/system/sxhkd-start &
 
 # Greenclip
 
