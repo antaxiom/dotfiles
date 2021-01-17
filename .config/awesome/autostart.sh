@@ -6,7 +6,7 @@ lxsession &
 
 # Volume
 
-killall volumeicon
+killall volumeicon &
 
 volumeicon &
 
