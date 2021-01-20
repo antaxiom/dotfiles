@@ -13,16 +13,16 @@ set VISUAL "code"
   set -g __fish_git_prompt_showupstream informative
   set -g __fish_git_prompt_showdirtystate yes
   set -g __fish_git_prompt_char_stateseparator ' '
-  set -g __fish_git_prompt_char_cleanstate '✔'
-  set -g __fish_git_prompt_char_dirtystate '✚'
-  set -g __fish_git_prompt_char_invalidstate '✖'
-  set -g __fish_git_prompt_char_stagedstate '●'
-  set -g __fish_git_prompt_char_stashstate '⚑'
-  set -g __fish_git_prompt_char_untrackedfiles '?'
-  set -g __fish_git_prompt_char_upstream_ahead ''
-  set -g __fish_git_prompt_char_upstream_behind ''
-  set -g __fish_git_prompt_char_upstream_diverged 'ﱟ'
-  set -g __fish_git_prompt_char_upstream_equal ''
+  set -g __fish_git_prompt_char_cleanstate ' ✔ '
+  set -g __fish_git_prompt_char_dirtystate ' ✚ '
+  set -g __fish_git_prompt_char_invalidstate ' ✖ '
+  set -g __fish_git_prompt_char_stagedstate ' ● '
+  set -g __fish_git_prompt_char_stashstate ' ⚑ '
+  set -g __fish_git_prompt_char_untrackedfiles ' ? '
+  set -g __fish_git_prompt_char_upstream_ahead '  '
+  set -g __fish_git_prompt_char_upstream_behind '  '
+  set -g __fish_git_prompt_char_upstream_diverged ' ﱟ '
+  set -g __fish_git_prompt_char_upstream_equal '  '
   set -g __fish_git_prompt_char_upstream_prefix ''''
 
 # Aliases from zsh
@@ -77,3 +77,9 @@ source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)
 # Env stuff
 
 export EDITOR='nvim'
+# THEME PURE #
+set fish_function_path /home/alex/.config/fish/functions/theme-pure/functions/ $fish_function_path
+source /home/alex/.config/fish/functions/theme-pure/conf.d/pure.fish
+
+# Seems to help
+set -x SHELL /bin/bash

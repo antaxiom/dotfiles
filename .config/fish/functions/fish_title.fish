@@ -1,4 +1,1 @@
-function fish_title
-	# Customize terminal window title
-	echo -ne '[ '(prompt_pwd)' ]';
-end
+/home/alex/.config/fish/functions/theme-pure/functions/fish_title.fish
