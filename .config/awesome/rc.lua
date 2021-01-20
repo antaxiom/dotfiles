@@ -337,6 +337,8 @@ width = dpi(425)
 
     -- Add widgets to the wibox
     s.mywibox:setup {
+        layout = wibox.container.margin,
+        {
         layout = wibox.layout.align.horizontal,
         expand = "inside",
         { -- Left widgets
@@ -354,6 +356,9 @@ width = dpi(425)
             awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
+    },
+    left = dpi(3),
+    right = dpi(3)
     }
 end)
 -- }}}

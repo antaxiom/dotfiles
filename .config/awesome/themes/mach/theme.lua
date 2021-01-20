@@ -157,7 +157,7 @@ theme.tabbar_ontop  = true
 theme.tabbar_radius = dpi(4)                     -- border radius of the tabbar
 theme.tabbar_style = "default"              -- style of the tabbar ("default", "boxes" or "modern")
 theme.tabbar_font = "JetBrainsMonoMedium 13"               -- font of the tabbar
-theme.tabbar_size = dpi(40)                      -- size of the tabbar
+theme.tabbar_size = dpi(42)                      -- size of the tabbar
 theme.tabbar_position = "boxes"               -- position of the tabbar
 theme.tabbar_bg_normal = "#151515"          -- background color of the focused client on the tabbar
 theme.tabbar_fg_normal = "#ffffff"          -- foreground color of the focused client on the tabbar
@@ -165,11 +165,11 @@ theme.tabbar_bg_focus  = "#1b1b1b"          -- background color of unfocused cli
 theme.tabbar_fg_focus  = "#61afef"          -- foreground color of unfocused clients on the tabbar
 
 -- mstab
-theme.mstab_bar_ontop = true               -- whether you want to allow the bar to be ontop of clients
-theme.mstab_dont_resize_flaves = true      -- whether the tabbed stack windows should be smaller than the
+theme.mstab_bar_ontop = false               -- whether you want to allow the bar to be ontop of clients
+theme.mstab_dont_resize_flaves = false      -- whether the tabbed stack windows should be smaller than the
                                             -- currently focused stack window (set it to true if you use
                                             -- transparent terminals. False if you use shadows on solid ones
-theme.mstab_bar_padding = dpi(6)         -- how much padding there should be between clients and your tabbar
+theme.mstab_bar_padding = dpi(4)         -- how much padding there should be between clients and your tabbar
                                             -- by default it will adjust based on your useless gaps.
                                             -- If you want a custom value. Set it to the number of pixels (int)
 
