@@ -337,7 +337,18 @@ local battery_widget = require("battery-widget")
 local my_battery_widget = battery_widget {
     ac = "AC",
     adapter = "BAT0",
-    ac_prefix = "AC: ",
+    ac_prefix = {
+        {10, "+ "},
+        {20, "+ "},
+        {30, "+ "},
+        {40, "+ "},
+        {50, "+ "},
+        {60, "+ "},
+        {70, "+ "},
+        {80, "+ "},
+        {90, "+ "},
+        {100, "+ "},
+    },
     battery_prefix = {
         {10, " "},
         {20, " "},

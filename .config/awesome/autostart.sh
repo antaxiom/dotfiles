@@ -4,6 +4,10 @@
 
 lxsession &
 
+# Power management
+
+xfce4-power-manager &
+
 # Volume
 
 killall volumeicon &
