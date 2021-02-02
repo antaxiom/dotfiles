@@ -221,3 +221,4 @@ source /home/alex/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 eval "$(lua5.2 ~/.zsh-plugins/z.lua/z.lua --init zsh enchanced)"
 
 PATH="/home/alex/.mangadl-bash:${PATH}"
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

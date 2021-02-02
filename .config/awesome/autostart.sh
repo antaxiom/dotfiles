@@ -42,10 +42,11 @@ exec nitrogen --restore &
 
 exec dunst &
 
-# Wifi stuff, not needed for a desktop but why not
+
+# Wifi stuff and Bluetooth
 
 nm-applet 2>&1 > /dev/null &
-
+blueman-applet &
 
 # Picom situation
 

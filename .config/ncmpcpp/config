@@ -37,7 +37,6 @@ allow_for_physical_item_deletion = yes
 
 # Visualizer
 visualizer_output_name = "my_fifo"
-visualizer_sync_interval = "10"
 
 
 visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161

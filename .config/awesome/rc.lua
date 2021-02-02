@@ -268,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background
         },
     widget = wibox.container.constraint,
-    width = dpi(520)
+    width = dpi(515)
     }
     }
 
@@ -381,13 +381,18 @@ local my_battery_widget = battery_widget {
 
     -- Add widgets to the wibox
     s.mywibox:setup {
+        layout = wibox.container.margin,
+        {
         layout = wibox.layout.align.horizontal,
+        expand = "inside",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             full_wrap_margin(wrap_bg(s.mytaglist,"#171717")),
             wrap_margin(s.mylayoutbox),
         },
-        full_wrap_margin(wrap_bg(s.mytasklist, "#111111")), -- Middle widget
+        full_wrap_margin(wrap_bg(
+                s.mytasklist,
+        "#111111")), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
 
@@ -397,6 +402,9 @@ local my_battery_widget = battery_widget {
             -- awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
+    },
+    left = dpi(3),
+    right = dpi(3)
     }
 end)
 -- }}}
