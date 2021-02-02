@@ -3,7 +3,6 @@
 local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
-local naughty = require("naughty")
 
 local timer = gears.timer or timer
 local watch = awful.spawn and awful.spawn.with_line_callback
