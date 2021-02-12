@@ -24,7 +24,7 @@ font:
     # style: Italic
   offset:
     x: 0
-    y: 2
+    y: 0
 
 window:
   padding:
@@ -34,6 +34,9 @@ window:
 
 shell:
     program: /bin/fish
+    args:
+     - --login
+
 
 background_opacity: 1
 # Colors (Dracula + One Dark-ish) (Made [partially] by antaxiom)
@@ -45,8 +48,8 @@ colors:
 
   # Normal colors
   normal:
-    black: "0x252525"
-    red: "0xfe4444"
+    black: "0x111111"
+    red: "0xff4444"
     green: "0x55ee82"
     yellow: "0xdfbf60"
     blue: "0x61afef"

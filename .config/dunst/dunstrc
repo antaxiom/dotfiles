@@ -92,4 +92,5 @@
 [flameshot]
     appname = flameshot
     format = "<span size="x-large">📷<b>  %s </b></span>\n<i>%b</i>"
-    background = "#55ee82"
+    background = "#dfbf60"
+    foreground = "#111111"
