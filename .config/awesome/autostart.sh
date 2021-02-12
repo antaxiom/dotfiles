@@ -1,9 +1,5 @@
 #! /bin/bash
 
-# Session manager
-
-lxsession &
-
 # Volume
 
 killall volumeicon &
@@ -38,10 +34,9 @@ exec nitrogen --restore &
 
 exec dunst &
 
-# Hotkeys
-sxhkd &
-
 # Lxsession
+
+killall lxsession
 lxsession &
 
 # Wifi stuff and Bluetooth, not needed for a desktop but why not
