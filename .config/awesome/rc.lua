@@ -100,14 +100,14 @@ awful.layout.suit.floating.name = "><>"
 -- Mess to make it so monacle / max doesn't have gaps
 tag.connect_signal("property::layout", function(t)
     if t.layout.name == "[0]" then
-        t.gap = dpi(0)
+        t.gap = dpi(2)
     else
-        t.gap = dpi(4)
+        t.gap = theme.useless_gap
     end
 end)
 
 -- Floating Windows Always on Top
--- Doesn't full work but it's ok
+-- Doesn't fully work but it's ok
 -- client.connect_signal("property::floating", function(c)
 --     if c.floating == true then
 --         c.ontop = true
@@ -213,8 +213,22 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
+
     -- Each screen has its own tag table.
-    awful.tag({"一", "二", "三", "四", "五", "六", "七"}, s, awful.layout.layouts[1])
+function tag_add(tagname, layout)
+  return awful.tag.add(tagname, {
+    layout = layout,
+    screen = s,
+  })
+end
+
+tag_add("一", awful.layout.layouts[1])
+tag_add("二", awful.layout.layouts[1])
+tag_add("三", awful.layout.layouts[1])
+tag_add("四", awful.layout.layouts[2])
+tag_add("五", awful.layout.layouts[2])
+tag_add("六", awful.layout.layouts[1])
+tag_add("七", awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -268,9 +282,9 @@ awful.screen.connect_for_each_screen(function(s)
             widget = wibox.container.background
         },
     widget = wibox.container.constraint,
-    width = dpi(515)
+    width = dpi(275)
     }
-    }
+}
 
 local mysystray = wibox.widget.systray()
 mysystray:set_base_size(beautiful.systray_icon_size)
@@ -313,6 +327,22 @@ function full_wrap_margin(widget)
     bottom = dpi(6),
     widget = wibox.container.margin,
   }
+end
+
+function full_wrap_tasklist(widget)
+  return wibox.widget {
+  {
+    widget,
+    left = dpi(3),
+    right = dpi(3),
+    top = dpi(6),
+    bottom = dpi(6),
+    widget = wibox.container.margin,
+  },
+  strategy = "max",
+  width = dpi(7*100),
+  widget = wibox.container.constraint
+}
 end
 --
 -- Playerctl widget
@@ -384,13 +414,13 @@ local my_battery_widget = battery_widget {
         layout = wibox.container.margin,
         {
         layout = wibox.layout.align.horizontal,
-        expand = "inside",
+        expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             full_wrap_margin(wrap_bg(s.mytaglist,"#171717")),
             wrap_margin(s.mylayoutbox),
         },
-        full_wrap_margin(wrap_bg(
+        full_wrap_tasklist(wrap_bg(
                 s.mytasklist,
         "#111111")), -- Middle widget
         { -- Right widgets
@@ -532,6 +562,14 @@ client.connect_signal("manage", function (c)
     end
 end)
 
+-- un-minimize all proton or wine instances
+local prowine = function (c)
+  return awful.rules.match(c, {class = string.gsub("steam_app_", ".")})
+end
+
+for c in awful.client.iterate(prowine) do
+  c.minimized = true
+end
 
 -- {{ Helper to create mult tb buttons
 local function create_title_button(c, color_focus, color_unfocus)

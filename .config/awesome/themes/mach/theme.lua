@@ -26,18 +26,18 @@ theme.bg_urgent  = "#171717"
 -- }}}
 
 -- {{{ borders
-theme.useless_gap   = dpi(3)
-theme.border_width  = dpi(8)
-theme.border_normal = "#171717"
-theme.border_focus  = "#171717"
-theme.border_marked = "#171717"
+theme.useless_gap   = dpi(5)
+theme.border_width  = dpi(0)
+theme.border_normal = "#151515"
+theme.border_focus  = "#151515"
+theme.border_marked = "#151515"
 theme.border_radius = dpi(6)
 -- }}}
 
 -- {{{ Titlebars
 theme.titlebar_bg_focus  = "#61afef"
-theme.titlebar_bg_normal = "#444444"
-theme.titlebar_size = dpi(2)
+theme.titlebar_bg_normal = "#111111"
+theme.titlebar_size = dpi(4)
 -- }}}
 --
 -- {{{
@@ -51,8 +51,8 @@ theme.titlebar_size = dpi(2)
 
 -- {{{
 -- Systray
-theme.systray_icon_spacing = dpi(3)
-theme.systray_icon_size = dpi(18)
+theme.systray_icon_spacing = dpi(6)
+theme.systray_icon_size = dpi(14)
 -- }}}
 
 --

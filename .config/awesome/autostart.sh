@@ -42,6 +42,10 @@ exec nitrogen --restore &
 
 exec dunst &
 
+# Lxsession
+
+killall lxsession
+lxsession &
 
 # Wifi stuff and Bluetooth
 
