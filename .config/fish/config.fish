@@ -1,7 +1,5 @@
 export PF_INFO="ascii title os de shell uptime pkgs"
-echo \n
-pfetch
-echo 'Welcome back to' (hostname), $USER \n
+echo 'Welcome back to' (hostname), $USER
 
 set fish_greeting                      # Supresses fish's intro message
 set TERM "xterm-256color"              # Sets the terminal type
