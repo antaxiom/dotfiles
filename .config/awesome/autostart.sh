@@ -8,12 +8,6 @@ lxsession &
 
 xfce4-power-manager &
 
-# Volume
-
-killall volumeicon &
-
-volumeicon &
-
 # keybinds
 
 ~/.scripts/system/sxhkd-start &
@@ -54,8 +48,12 @@ blueman-applet &
 
 # Picom situation
 
-killall picom &
-
-sleep 1
+killall picom
 
 picom --experimental-backends -b &
+
+# Volume
+
+killall volumeicon
+
+volumeicon &
