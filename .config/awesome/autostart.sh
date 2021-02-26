@@ -2,11 +2,8 @@
 
 # Session manager
 
+killall lxsession
 lxsession &
-
-# Power management
-
-xfce4-power-manager &
 
 # keybinds
 
@@ -34,6 +31,7 @@ exec nitrogen --restore &
 
 # Notifications
 
+killall dunst
 exec dunst &
 
 # Lxsession
@@ -43,17 +41,17 @@ lxsession &
 
 # Wifi stuff and Bluetooth
 
+killall nm-applet
 nm-applet 2>&1 > /dev/null &
+killall blueman-applet
 blueman-applet &
 
 # Picom situation
 
 killall picom
-
 picom --experimental-backends -b &
 
 # Volume
 
 killall volumeicon
-
 volumeicon &

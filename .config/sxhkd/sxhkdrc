@@ -15,6 +15,12 @@ XF86AudioMute
 XF86Calculator
   alacritty -e R
 
+XF86MonBrightnessUp
+    light -A 5
+
+XF86MonBrightnessDown
+    light -U 5
+
 # Screenshots
 
 Print
