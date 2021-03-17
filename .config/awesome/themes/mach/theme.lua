@@ -26,18 +26,18 @@ theme.bg_urgent  = "#171717"
 -- }}}
 
 -- {{{ borders
-theme.useless_gap   = dpi(8)
-theme.border_width  = dpi(0)
-theme.border_normal = "#151515"
-theme.border_focus  = "#151515"
-theme.border_marked = "#151515"
-theme.border_radius = dpi(6)
+theme.useless_gap   = dpi(6)
+theme.border_width  = dpi(4)
+theme.border_normal = "#202020"
+theme.border_focus  = "#61afef"
+theme.border_marked = "#202020"
+theme.border_radius = dpi(0)
 -- }}}
 
 -- {{{ Titlebars
 theme.titlebar_bg_focus  = "#61afef"
-theme.titlebar_bg_normal = "#111111"
-theme.titlebar_size = dpi(4)
+theme.titlebar_bg_normal = "#202020"
+theme.titlebar_size = dpi(0)
 -- }}}
 --
 -- {{{
@@ -51,8 +51,8 @@ theme.titlebar_size = dpi(4)
 
 -- {{{
 -- Systray
-theme.systray_icon_spacing = dpi(6)
-theme.systray_icon_size = dpi(14)
+theme.systray_icon_spacing = dpi(1)
+theme.systray_icon_size = dpi(17)
 -- }}}
 
 --

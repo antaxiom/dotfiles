@@ -222,15 +222,10 @@ function tag_add(tagname, layout)
   })
 end
 
-tag_add("一", awful.layout.layouts[1])
-tag_add("二", awful.layout.layouts[1])
-tag_add("三", awful.layout.layouts[1])
-tag_add("四", awful.layout.layouts[2])
-tag_add("五", awful.layout.layouts[2])
-tag_add("六", awful.layout.layouts[1])
-tag_add("七", awful.layout.layouts[1])
-tag_add("八", awful.layout.layouts[1])
-tag_add("九", awful.layout.layouts[1])
+
+awful.tag( { "一", "二", "三", "四", "五", "六", "七", "八", "九" },
+    s,
+    {awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1]} )
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -265,7 +260,7 @@ tag_add("九", awful.layout.layouts[1])
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist {
         screen = s,
-        filter = awful.widget.tasklist.filter.currenttags,
+        filter = awful.widget.tasklist.filter.focused,
         buttons = tasklist_buttons,
         style = {shape = gears.shape.rectangle},
         layout = {spacing = 10, layout = wibox.layout.fixed.horizontal},
@@ -284,7 +279,7 @@ tag_add("九", awful.layout.layouts[1])
             widget = wibox.container.background
         },
     widget = wibox.container.constraint,
-    width = dpi(480)
+    width = dpi(700)
     }
 }
 
@@ -293,7 +288,7 @@ mysystray:set_base_size(beautiful.systray_icon_size)
 
 local mysystray_container = {
     mysystray,
-    top = dpi(10),
+    top = dpi(8),
     left = dpi(6),
     right = dpi(6),
     widget = wibox.container.margin
@@ -316,7 +311,7 @@ function wrap_margin(widget, bg_color)
     left = dpi(7),
     right = dpi(7),
     widget = wibox.container.margin,
-    bg = "#111111"
+    bg = bg_color
   }
 end
 
@@ -342,27 +337,32 @@ function full_wrap_tasklist(widget)
     widget = wibox.container.margin,
   },
   strategy = "max",
-  width = dpi(13.5*100),
+  width = dpi(9*100),
   widget = wibox.container.constraint
 }
 end
---
--- Playctl widget
-local music_widget =
-{
-    {
-    awful.widget.watch("playerctl metadata --format ' {{ title }}'",
-    1, function(widget, stdout)
-    widget:set_markup(stdout:gsub("\n", ""))
-    widget.align = "center"
-end),
-widget = wibox.container.background,
-fg = "#111111",
-},
-widget = wibox.container.constraint,
-width = dpi(425)
 
+
+-- Basedpilled Bling Playerctl Widget
+
+bling.signal.playerctl.enable()
+
+local title_widget = wibox.widget {
+    markup = '',
+    align = 'center',
+    valign = 'center',
+    widget = wibox.widget.textbox
 }
+
+mytitlewidget = { { title_widget, widget = wibox.container.background, fg = "#111111" }, widget = wibox.container.constraint, width = dpi(275) }
+
+-- Get Song Info
+awesome.connect_signal("bling::playerctl::title_artist_album",
+                       function(title, _, _)
+
+    -- Set title and artist widgets
+    title_widget:set_markup_silently(title)
+end)
 
       -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -372,12 +372,12 @@ width = dpi(425)
         layout = wibox.container.margin,
         {
         layout = wibox.layout.align.horizontal,
-        expand = "none",
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             full_wrap_margin(wrap_bg(s.mytaglist,"#171717")),
             wrap_margin(s.mylayoutbox),
         },
+            expand = "none",
         full_wrap_tasklist(wrap_bg(
                 s.mytasklist,
         "#111111")), -- Middle widget
@@ -385,12 +385,12 @@ width = dpi(425)
             layout = wibox.layout.fixed.horizontal,
             awful.widget.only_on_screen(
             full_wrap_margin(wrap_bg(mysystray_container, "#171717"), 1)),
-            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(music_widget), "#ff4444")), 1),
+            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(mytitlewidget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     },
-    left = dpi(3),
-    right = dpi(3)
+    left = dpi(5),
+    right = dpi(5)
     }
 end)
 -- }}}
@@ -518,14 +518,10 @@ client.connect_signal("manage", function (c)
     end
 end)
 
--- un-minimize all proton or wine instances
-local prowine = function (c)
-  return awful.rules.match(c, {class = string.gsub("steam_app_", ".")})
-end
-
-for c in awful.client.iterate(prowine) do
-  c.minimized = true
-end
+-- un-minimize all windows
+client.connect_signal("property::minimized", function(c)
+    c.minimized = false
+end)
 
 -- {{ Helper to create mult tb buttons
 local function create_title_button(c, color_focus, color_unfocus)
