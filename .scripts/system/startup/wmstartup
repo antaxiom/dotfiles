@@ -1,0 +1,56 @@
+#! /bin/sh
+
+## Killall
+
+killall volumeicon
+killall greenclip
+killall dunst
+killall mpDris2
+killall lxsession
+killall nm-applet
+killall blueman-applet
+killall picom
+
+## Startup
+
+# Volume
+
+volumeicon &
+
+# keybinds
+
+~/.scripts/system/sxhkd-start &
+
+# Greenclip
+
+greenclip daemon &
+
+# setupkeyboard
+~/.scripts/system/keyboardsetup &
+
+# Notifications
+
+exec dunst &
+
+# mpd
+
+mpd &
+mpDris2 &
+
+# Walpaper
+
+exec nitrogen --restore &
+
+# Lxsession
+
+exec lxsession &
+
+# Picom
+
+exec picom --experimental-backends -b
+
+# Wifi stuff and Bluetooth, not needed for a desktop but why not
+
+nm-applet 2>&1 > /dev/null
+blueman-applet &
+

@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # Session manager
 
@@ -55,3 +55,6 @@ picom --experimental-backends -b &
 
 killall volumeicon
 volumeicon &
+
+~/.scripts/system/startup/wmstartup &
+
