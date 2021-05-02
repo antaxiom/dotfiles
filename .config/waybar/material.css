@@ -1,0 +1,22 @@
+/*
+*
+* Base16 custom
+* Author: bryan
+* Author #2: alex
+*
+*/
+
+@define-color white #cccccc;
+@define-color gray #202020;
+@define-color dark #191919;
+@define-color darker #111111;
+@define-color dark-blue #3b4252;
+@define-color bright-blue #61afef;
+@define-color greenish #b8b8ac;
+@define-color cyan #a4c3b9;
+@define-color blue #5BC6D1;
+@define-color red #FF4444;
+@define-color orange #d59877;
+@define-color yellow #DFBF60;
+@define-color green #55EE82;
+@define-color purple #E06CDD;
