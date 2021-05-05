@@ -428,7 +428,7 @@ end)
 
             awful.widget.only_on_screen(
             full_wrap_margin(wrap_bg(mysystray_container, "#171717"), 1)),
-            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(mytitlewidget), "#ff4444")), 1),
+            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(my_battery_widget), "#ff4444")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     },
