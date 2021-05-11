@@ -6,8 +6,9 @@ killall volumeicon
 killall greenclip
 killall dunst
 killall mpDris2
+killall mpd
 killall lxsession
-killall nm-applet
+killall wpa-cute
 killall blueman-applet
 killall picom
 
@@ -49,8 +50,8 @@ exec lxsession &
 
 exec picom --experimental-backends -b
 
-# Wifi stuff and Bluetooth, not needed for a desktop but why not
+# Wifi stuff and Bluetooth
 
-nm-applet 2>&1 > /dev/null &
+wpa-cute -t &
+
 blueman-applet &
-
