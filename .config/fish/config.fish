@@ -26,7 +26,7 @@ set VISUAL "code"
 # Aliases from zsh
 
 # convienient dragon
-alias dr="dragon-drag-and-drop"
+alias dr="dragon"
 
 # safe cp
 alias cp="cp -i"                          # confirm before overwriting something
