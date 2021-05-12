@@ -6,11 +6,12 @@ killall volumeicon
 killall greenclip
 killall dunst
 killall mpDris2
-killall mpd
 killall lxsession
 killall wpa-cute
 killall blueman-applet
 killall picom
+
+sleep 1
 
 ## Startup
 
@@ -48,10 +49,15 @@ exec lxsession &
 
 # Picom
 
-exec picom --experimental-backends -b
+exec picom --experimental-backends -b &
 
 # Wifi stuff and Bluetooth
 
 wpa-cute -t &
 
 blueman-applet &
+
+# Audio
+
+pipewire &
+pipewire-pulse &
