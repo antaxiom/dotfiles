@@ -11,6 +11,7 @@ killall lxsession
 killall nm-applet
 killall blueman-applet
 killall picom
+killall kdeconnectd
 
 ## Startup
 
@@ -48,10 +49,13 @@ exec lxsession &
 
 # Picom
 
-exec picom --experimental-backends -b
+picom --experimental-backends -b &
 
 # Wifi stuff and Bluetooth, not needed for a desktop but why not
 
 nm-applet 2>&1 > /dev/null
 blueman-applet &
 
+# Kde connect
+
+/usr/lib/kdeconnectd &

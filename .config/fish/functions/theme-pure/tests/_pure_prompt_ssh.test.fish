@@ -1,9 +1,6 @@
 source $current_dirname/fixtures/constants.fish
 source $current_dirname/../functions/_pure_prompt_ssh.fish
-source $current_dirname/../functions/_pure_prompt_ssh_user.fish
-source $current_dirname/../functions/_pure_prompt_ssh_separator.fish
-source $current_dirname/../functions/_pure_prompt_ssh_host.fish
-source $current_dirname/../tools/versions-compare.fish
+source $current_dirname/../functions/_pure_user_at_host.fish
 @mesg (_print_filename $current_filename)
 
 
@@ -23,7 +20,6 @@ end
     set SSH_CONNECTION 127.0.0.1 56422 127.0.0.1 22
     function id; echo 'user'; end  # mock
 
-    set prompt_ssh_host (_pure_prompt_ssh)
-    string match --quiet --regex 'user@[\w]+' $prompt_ssh_host
+    string match --quiet --regex 'user@[\w]+' (_pure_prompt_ssh)
     # $hostname is read-only, we cant determine it preceisely (e.g. is dynamic in docker container)
 ) $status -eq $SUCCESS

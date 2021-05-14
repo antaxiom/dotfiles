@@ -1,0 +1,226 @@
+@import "material.css";
+
+* {
+  border: none;
+  font-size: 11px;
+  margin: 2px;
+  font-family: JetBrains Mono, Product Sans, Arial, Helvetica, sans-serif;
+}
+window#waybar {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  background-color: transparent;
+  color: @gray;
+  /* border-bottom: 1px solid @darker; */
+}
+window#waybar.empty {
+  /* background-color: @dark; */
+}
+#workspaces,
+#tags {
+  background-color: #191919;
+  padding: 0px;
+  font-size: 15px;
+  margin-right: 10px;
+  border-radius: 0px;
+}
+#workspaces button,
+#tags button {
+  font-size: 16px;
+  border-radius: 0px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 2px 10px 2px 10px;
+  color: @white;
+}
+#window {
+  color: @gray;
+  border-radius: 0px;
+  padding: 0px 8px 0px 8px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover,
+#tags button:hover {
+  background-color: transparent;
+  color: @purple;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  opacity: 1;
+}
+#workspaces button.focused,
+#tags button.focused {
+  /* background-color: ; */
+  font-size: 13px;
+  font-weight: bold;
+  color: @purple;
+  background-color: @gray;
+}
+#tags button.focused {
+  font-weight: 600;
+}
+#workspaces button.urgent {
+  color: @red;
+  font-weight: bold;
+}
+#tags button {
+  font-weight: 600;
+}
+/* TASKBAR */
+#taskbar {
+  /* margin: 0px; */
+}
+#taskbar button {
+  margin: 0px 3px 0px 3px;
+  border-radius: 0px;
+  padding: 1px 2px 1px 1px;
+}
+#taskbar button.active {
+  background-color: @dark;
+}
+#taskbar button.minimized {
+  /* color: @purple; */
+}
+#taskbar button:hover {
+  box-shadow: inherit;
+}
+/* WIDGETS */
+#cpu,
+#custom-pacman,
+#memory,
+#backlight,
+#disk,
+#network,
+#pulseaudio,
+#custom-weather,
+#temperature {
+  background-color: transparent;
+  padding: 0px 14px 0px 14px;
+  margin: 2px 0px 2px 0px;
+}
+#disk {
+  color: @purple;
+}
+#memory {
+  color: @orange;
+}
+#cpu {
+  color: @red;
+}
+#network {
+  color: @cyan;
+}
+#custom-weather {
+  color: @yellow;
+}
+#custom-weather {
+  padding: 0px 8px 0px 8px;
+}
+#custom-media,
+#mpd,
+#custom-mpd {
+  border-radius: 0px;
+  /* font-size: 12px; */
+  margin-left: 10px;
+  background-color: transparent;
+}
+#custom-media.Playing {
+  color: @yellow;
+  border-radius: 0px;
+  font-weight: 500;
+}
+#custom-mpd {
+  color: @purple;
+  border-radius: 0px;
+  font-weight: 500;
+}
+#custom-pacman {
+  color: @orange;
+  border-radius: 0px 0px 0px 0px;
+  font-weight: 600;
+}
+#pulseaudio {
+  color: @yellow;
+  border-radius: 0px 0px 0px 0px;
+}
+#pulseaudio.muted {
+  opacity: 0.5;
+}
+#temperature {
+  color: @blue;
+}
+#temperature.critical {
+  color: @yellow;
+}
+#battery {
+  color: @cyan;
+  padding: 0px 8px 0px 8px;
+}
+#battery.charging {
+  color: @gray;
+}
+@keyframes blink {
+  to {
+    background-color: @dark;
+    color: @white;
+  }
+}
+#battery.critical:not(.charging) {
+  background-color: @red;
+  color: @gray;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+label:focus {
+  background-color: @darker;
+}
+#idle_inhibitor {
+  font-size: 18px;
+  color: @gray;
+}
+#idle_inhibitor.activated {
+  color: @blue;
+}
+#clock,
+#idle_inhibitor,
+#custom-recorder,
+#tray {
+  background-color: transparent;
+  padding: 0px 5px 0px 5px;
+  margin: 2px 0px 2px 0px;
+}
+#clock {
+  border-radius: 0px 0px 0px 0px;
+  margin-right: 4px;
+}
+#custom-layout {
+  padding: 0px 5px 0px 5px;
+}
+#custom-recorder {
+  padding: 0px 5px 0px 5px;
+  font-size: 18px;
+}
+#custom-recorder.recording {
+  color: @red;
+}
+#tray {
+  border-radius: 0px 0px 0px 0px;
+  margin-right: 4px;
+  color: @cyan;
+}
+#custom-power {
+  color: @gray;
+  font-size: 17px;
+  border-radius: 0px 0px 0px 0px;
+  margin-right: 2px;
+}
