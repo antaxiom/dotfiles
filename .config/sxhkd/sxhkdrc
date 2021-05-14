@@ -13,7 +13,7 @@ XF86AudioMute
   pulsemixer --toggle-mute
 
 XF86Calculator
-  alacritty -e R
+    speedcrunch
 
 XF86MonBrightnessUp
     light -A 5

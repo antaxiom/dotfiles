@@ -401,9 +401,10 @@ mytitlewidget = { { title_widget, widget = wibox.container.background, fg = "#11
 -- Get Song Info
 awesome.connect_signal("bling::playerctl::title_artist_album",
                        function(title, _, _)
-
     -- Set title and artist widgets
     title_widget:set_markup_silently(title)
+
+    awful.spawn.with_shell("notify-send " .. title)
 end)
 
       -- Create the wibox

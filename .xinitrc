@@ -52,3 +52,5 @@ fi
 
 # setup my keyboard as desired
 ~/.scripts/system/keyboardsetup
+
+xset -dpms ; xset s off

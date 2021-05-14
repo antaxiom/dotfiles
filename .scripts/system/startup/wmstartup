@@ -11,6 +11,7 @@ killall lxsession
 killall wpa-cute
 killall blueman-applet
 killall picom
+killall kdeconnectd
 
 sleep 1
 
@@ -53,9 +54,13 @@ exec lxsession &
 exec picom --experimental-backends -b &
 
 # Wifi stuff and Bluetooth
-
 wpa-cute -t &
 
 blueman-applet &
 
+# Audio
 pulseaudio &
+
+# Kde connect
+
+/usr/lib/kdeconnectd &

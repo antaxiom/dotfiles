@@ -1,5 +1,5 @@
 export PF_INFO="ascii title os de shell uptime pkgs"
-echo 'Welcome back to' (hostname), $USER
+echo 'Welcome back to' $hostname, $USER
 
 set fish_greeting                      # Supresses fish's intro message
 set TERM "xterm-256color"              # Sets the terminal type
@@ -81,3 +81,52 @@ source /home/alex/.config/fish/functions/theme-pure/conf.d/pure.fish
 
 # Seems to help
 set -x SHELL /bin/bash
+
+# Useful fuctions
+
+function ex
+    if test -f $argv[1]
+        switch $argv[1]
+            case '*.tar.bz2'
+                tar xjf $argv[1]
+            case '*.tar.gz'
+                tar xzf $argv[1]
+            case '*.bz2'
+                bunzip2 $argv[1]
+            case '*.rar'
+                unrar x $argv[1]
+            case '*.gz'
+                gunzip $argv[1]
+            case '*.tar'
+                tar xf $argv[1]
+            case '*.tbz2'
+                tar xjf $argv[1]
+            case '*.tgz'
+                tar xzf $argv[1]
+            case '*.zip'
+                unzip $argv[1]
+            case '*.Z'
+                uncompress $argv[1]
+            case '*.7z'
+                7z x $argv[1]
+            case '*'
+                echo $argv[1]; echo "cannot be extracted via ex()"
+        end
+    else
+        echo $argv[1]; echo "is not a valid file"
+    end
+end
+
+function mkdir -d "Create a directory and set CWD"
+    command mkdir $argv
+    if test $status = 0
+        switch $argv[(count $argv)]
+            case '-*'
+
+            case '*'
+                cd $argv[(count $argv)]
+                return
+        end
+    end
+end
+

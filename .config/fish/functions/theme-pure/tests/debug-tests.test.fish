@@ -26,9 +26,6 @@ set test_files \
     # _pure_prompt_jobs \
     # _pure_prompt_new_line \
     # _pure_prompt_ssh \
-    # _pure_prompt_ssh_host \
-    # _pure_prompt_ssh_separator \
-    # _pure_prompt_ssh_user \
     # _pure_prompt_symbol \
     # _pure_prompt_system_time \
     # _pure_prompt_vimode \
@@ -37,6 +34,7 @@ set test_files \
     # _pure_set_default \
     # _pure_string_width \
     # _pure_uninstall \
+    # _pure_user_at_host \
     # # pure_tools_installer \
     # fish_greeting \
     # fish_mode_prompt \
@@ -62,7 +60,7 @@ for file in $test_files
     set make_status $status
 
     echo "^ ^ ^ ^ ^ ^" $files_to_test[1] | tee -a debug.txt
-    test $make_status -eq 0; or break
+    test "$make_status" -eq 0; or break
 
     set --append files_to_test $test_files[1]
     set --erase test_files[1]
