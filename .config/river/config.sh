@@ -12,6 +12,7 @@ riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
 riverctl spawn 'mpDris2'
 riverctl spawn 'volumeicon'
 riverctl spawn 'blueman-applet'
+riverctl spawn 'kanshi'
 # riverctl spawn 'syncthing -no-browser'
 if -z $SWAYSOCK; then
   riverctl spawn "swayidle -w\
