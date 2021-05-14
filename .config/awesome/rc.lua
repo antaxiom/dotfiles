@@ -222,9 +222,9 @@ function tag_add(tagname, layout)
   })
 end
 
-awful.tag( { "一", "二", "三", "四", "五", "六", "七"},
+awful.tag( { "一", "二", "三", "四", "五", "六", "七", "八"},
     s,
-    {awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[1], awful.layout.layouts[1]} )
+    {awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1]} )
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

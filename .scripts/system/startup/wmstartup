@@ -57,7 +57,4 @@ wpa-cute -t &
 
 blueman-applet &
 
-# Audio
-
-pipewire &
-pipewire-pulse &
+pulseaudio &
