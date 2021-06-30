@@ -54,3 +54,5 @@ fi
 ~/.scripts/system/keyboardsetup
 
 xset -dpms ; xset s off
+
+synclient HorizTwoFingerScroll=1

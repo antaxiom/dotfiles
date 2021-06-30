@@ -47,7 +47,7 @@ exec nitrogen --restore &
 
 # Lxsession
 
-exec lxsession &
+lxsession &
 
 # Picom
 

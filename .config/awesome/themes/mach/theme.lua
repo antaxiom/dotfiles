@@ -14,7 +14,7 @@ local theme = {}
 -- }}}
 
 -- {{{ Styles
-theme.font      = "JetBrainsMonoMedium Nerd Font 12"
+theme.font      = "JetBrainsMonoMedium Nerd Font 12.5"
 
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
@@ -88,7 +88,7 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[border_color|border_width]
 -- Wibar
 
-theme.wibar_height = dpi(44)
+theme.wibar_height = dpi(46)
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
 theme.wibar_bg = "#111111"

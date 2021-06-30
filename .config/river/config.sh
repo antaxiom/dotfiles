@@ -21,7 +21,7 @@ if -z $SWAYSOCK; then
 fi
 
 # Wallpaper
-riverctl spawn "swaybg -o* -c#111111"
+riverctl spawn "swaybg '-o*' '-c' '#111111'"
 
 
 # Use the "logo" key as the primary modifier

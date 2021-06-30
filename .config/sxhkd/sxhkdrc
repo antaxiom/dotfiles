@@ -9,9 +9,6 @@ XF86AudioNext
 XF86AudioPrev
   playerctl previous
 
-XF86AudioMute
-  pulsemixer --toggle-mute
-
 XF86Calculator
     speedcrunch
 
