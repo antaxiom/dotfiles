@@ -38,7 +38,6 @@ exec dunst &
 
 # mpd
 
-mpd &
 mpDris2 &
 
 # Walpaper

@@ -33,3 +33,6 @@ shift + Print
 
 alt + space
   ~/.scripts/system/dclip
+
+alt + r
+    ~/.scripts/dmenu/translate
