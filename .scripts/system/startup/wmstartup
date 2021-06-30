@@ -6,6 +6,7 @@ killall volumeicon
 killall greenclip
 killall dunst
 killall mpDris2
+killall mpd
 killall lxsession
 killall nm-applet
 killall blueman-applet

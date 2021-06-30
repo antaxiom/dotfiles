@@ -23,7 +23,7 @@ set VISUAL "code"
   set -g __fish_git_prompt_char_upstream_equal '  '
   set -g __fish_git_prompt_char_upstream_prefix ''''
 
-# Aliases from zsh
+## Aliases from zsh
 
 # convienient dragon
 alias dr="dragon"
@@ -75,6 +75,9 @@ source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)
 # Env stuff
 
 export EDITOR='nvim'
+set PATH $PATH $HOME/.dotnet
+set PATH $PATH $HOME/.cargo/bin/
+
 # THEME PURE #
 set fish_function_path /home/alex/.config/fish/functions/theme-pure/functions/ $fish_function_path
 source /home/alex/.config/fish/functions/theme-pure/conf.d/pure.fish
