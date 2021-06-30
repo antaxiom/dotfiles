@@ -1,4 +1,4 @@
-> ##### :arrow_up: Hey! Want to migrate from v3.x to v4.x? Check our [**migration guide**](https://github.com/pure-fish/pure/releases/tag/v4.0.0), done with :heart
+> ##### :arrow_up: Hey! Want to migrate from v3.x to v4.x? Check our [**migration guide**](https://github.com/pure-fish/pure/releases/tag/v4.0.0), done with :heart:
 
 # pure [![github-ci-badge]][github-ci-link] ![fish-3]
 
@@ -52,6 +52,7 @@ Fully **customizable** (colors, symbols and features):
   - Display `≡` when `git` repository is _stashed_ ;
   - Display `⇡` when branch is _ahead_ (commits to push) ;
   - Display `⇣` when branch is _behind_ (commits to pull) ;
+  - Async update when [configured with fish-async-prompt](https://github.com/pure-fish/pure/wiki/Async-git-Prompt) ;
 - Update terminal title with _current folder_ and _command_ ;
 
 ## :paintbrush: Configuration
