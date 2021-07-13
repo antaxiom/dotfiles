@@ -2,7 +2,7 @@
 
 # Autostart
 ~/.local/bin/eww daemon
-riverctl spawn 'kile'
+riverctl spawn '~/.local/bin/kile'
 riverctl spawn 'waybar'
 riverctl spawn 'mako'
 riverctl spawn 'nm-applet --indicator'

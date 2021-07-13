@@ -2,8 +2,10 @@
 
 * {
   border: none;
-  font-size: 11px;
+  font-size: 13px;
   margin: 2px;
+  margin-left: 4px;
+  margin-right: 4px;
   font-family: JetBrains Mono, Product Sans, Arial, Helvetica, sans-serif;
 }
 window#waybar {
@@ -147,7 +149,7 @@ window#waybar.empty {
   font-weight: 600;
 }
 #pulseaudio {
-  color: @yellow;
+  color: @blue;
   border-radius: 0px 0px 0px 0px;
 }
 #pulseaudio.muted {
@@ -195,11 +197,14 @@ label:focus {
 #idle_inhibitor,
 #custom-recorder,
 #tray {
-  background-color: transparent;
+  background-color: @gray;
   padding: 0px 5px 0px 5px;
   margin: 2px 0px 2px 0px;
 }
 #clock {
+  background-color: transparent;
+  color: @white;
+  font-weight: bold;
   border-radius: 0px 0px 0px 0px;
   margin-right: 4px;
 }
