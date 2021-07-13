@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "river/tags"],
   "modules-center": [],
-  "modules-right": ["pulseaudio", "network", "custom/pacman", "custom/recorder", "tray", "clock" ],
+  "modules-right": ["pulseaudio", "network", "custom/recorder", "tray", "clock" ],
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": false,
@@ -82,7 +82,7 @@
     }
   },
   "clock": {
-    // "timezone": "America/New_York",
+    // "timezone": "America/La_Paz",
     "format": "{:%I:%M %p}",
     // "format-alt": "{:%A, %B %d}",
     "on-click": "~/.local/bin/eww close hub && riverctl set-option -focused-output xoffset 0 || ~/.local/bin/eww open hub",
@@ -168,15 +168,6 @@
     "format": "{}",
     "return-type": "json",
     "interval": 600
-  },
-  "custom/pacman": {
-    "format": "{}  ",
-    "interval": 3600, // every hour
-    // "restart-interval": 3600,
-    "exec": "checkupdates | wc -l", // # of updates
-    "exec-if": "exit 0", // always run; consider advanced run conditions
-    "on-click": "foot yay; pkill -SIGRTMIN+8 waybar", // update system
-    "signal": 8,
   },
   "disk": {
     "interval": 30,
