@@ -1,4 +1,0 @@
-#!/bin/sh
-
-  pulsemixer --change-volume -5
-  notify-send "Volume set to: $(pulsemixer --get-volume | sed "s/ .*//")"

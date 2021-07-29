@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Sourcing layouts for river
+source ~/.config/river/layout
+
+# The namespace of the layout client
+NAMESPACE=kile
+
+# Launch menu prompt
+LAYOUT=$(wofi --dmenu 2> /dev/null << EOM
+centered
+stack
+rstack
+deck
+rdeck
+dwindle
+horizontal
+group
+fibonacci
+EOM
+)
+
+# Selecting the appropriate layout
+case $LAYOUT in
+  centered)
+    LAYOUT=$CENTERED
+    ;;
+  stack)
+    LAYOUT=$STACK
+    ;;
+  rstack)
+    LAYOUT=$RSTACK
+    ;;
+  deck)
+    LAYOUT=$DECK
+    ;;
+  rdeck)
+    LAYOUT=$RDECK
+    ;;
+  dwindle)
+    LAYOUT=$DWINDLE
+    ;;
+  horizontal)
+    LAYOUT=$HORIZONTAL
+    ;;
+  group)
+    LAYOUT=$GROUP
+    ;;
+  fibonacci)
+    LAYOUT=$FIBONACCI
+    ;;
+  *)
+    LAYOUT=""
+    ;;
+esac
+
+if [[ $LAYOUT != "" ]]; then
+  riverctl set-layout-value "$NAMESPACE" string focused "$LAYOUT"
+fi

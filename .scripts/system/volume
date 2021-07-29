@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+case $1 in
+  up)
+    pamixer -i 5
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+  down)
+    pamixer -d 5
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+  *)
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+esac
