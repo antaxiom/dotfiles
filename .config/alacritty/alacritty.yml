@@ -39,34 +39,42 @@ shell:
 
 
 background_opacity: 1
-# Colors (Dracula + One Dark-ish) (Made [partially] by antaxiom)
+# Base16 TooDark - alacritty color config
+# Antaxiom (https://github.com/antaxiom)
 colors:
   # Default colors
   primary:
-    background: "0x111111"
-    foreground: "0xf8f8f2"
+    background: '0x111111'
+    foreground: '0xDDDDDD'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x111111'
+    cursor: '0xDDDDDD'
 
   # Normal colors
   normal:
-    black: "0x111111"
-    red: "0xff4444"
-    green: "0x55ee82"
-    yellow: "0xdfbf60"
-    blue: "0x61afef"
-    magenta: "0xe06ccd"
-    cyan: "0x5bc6d1"
-    white: "0xdddddd"
+    black:   '0x111111'
+    red:     '0xef473e'
+    green:   '0x5edb83'
+    yellow:  '0xe5b967'
+    blue:    '0x61afef'
+    magenta: '0xe579d3'
+    cyan:    '0x56b6c2'
+    white:   '0xDDDDDD'
 
   # Bright colors
   bright:
-    black: "0x2b2b2b"
-    red: "0xff4444"
-    green: "0x55ee82"
-    yellow: "0xdfbf60"
-    blue: "0x61afef"
-    magenta: "0xe06ccd"
-    cyan: "0x5bc6d1"
-    white: "0xdddddd"
+    black:   '0x202020'
+    red:     '0xeda35e'
+    green:   '0x171717'
+    yellow:  '0x1C1C1C'
+    blue:    '0x303030'
+    magenta: '0xBBBBBB'
+    cyan:    '0xbe5046'
+    white:   '0xAAAAAA'
+
+draw_bold_text_with_bright_colors: false
 
 # Spread additional padding evenly around the terminal content.
 dynamic_padding: true
