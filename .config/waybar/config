@@ -1,12 +1,12 @@
 {
   // "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-   "height": 48, // Waybar height (to be removed for auto height)
+   "height": 56, // Waybar height (to be removed for auto height)
   // "width": 2560, // Waybar width
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "river/tags"],
-  "modules-center": [],
-  "modules-right": ["pulseaudio", "network", "custom/recorder", "tray", "clock" ],
+  // "modules-center": ["wlr/taskbar"],
+  "modules-right": ["pulseaudio", "backlight", "tray", "custom/weather", "battery", "network", "clock" ],
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": false,
@@ -41,7 +41,7 @@
   },
   "river/tags": {
       "num-tags": 9,
-      // "tag-labels": ["一","二","三","四","五","六","七","八","九"]
+      "tag-labels": ["一","二","三","四","五","六","七","八","九"],
   },
   "sway/window": {
     "format": "{}",
@@ -62,17 +62,9 @@
     "on-scroll-down": "playerctl next",
     "on-scroll-up": "playerctl previous"
   },
-  "custom/recorder": {
-    "return-type": "json",
-    "format": "{}",
-    "exec-if": "pgrep wf-recorder",
-    "exec": "echo '{\"text\": \"壘\", \"class\": \"recording\"}'",
-    "signal": 10,
-    "interval": "once",
-    "on-click": "kill -INT $(pgrep wf-recorder)",
-  },
   "tray": {
-    "spacing": 10,
+    "spacing": 1,
+    "icon-size": 20
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -84,18 +76,15 @@
   "clock": {
     // "timezone": "America/La_Paz",
     "format": "{:%I:%M %p}",
-    // "format-alt": "{:%A, %B %d}",
-    "on-click": "~/.local/bin/eww close hub && riverctl set-option -focused-output xoffset 0 || ~/.local/bin/eww open hub",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    // "format-alt": "{:%Y-%m-%d}"
+    "format-alt": "{:%A, %B %d}",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    // "format-alt": "{:%Y-%m-%d}",
+    "format-alt-click": "click-right",
   },
   "cpu": {
     "format": "{usage}  ",
     "on-click": "foot ytop",
     "tooltip": false
-  },
-  "memory": {
-    "format": "{}  "
   },
   "temperature": {
     "thermal-zone": 2,
@@ -112,8 +101,8 @@
     "format-alt": "{percent}% {icon}",
     "format-alt-click": "click-right",
     "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
-    "on-scroll-down": "brightnessctl -c backlight set +5%",
-    "on-scroll-up": "brightnessctl -c backlight set 5%-"
+    "on-scroll-up": "brightnessctl -c backlight set +5%",
+    "on-scroll-down": "brightnessctl -c backlight set 5%-"
   },
   "battery": {
     "states": {
@@ -127,24 +116,24 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["","","","","","","","","", ""]
   },
   "battery#bat2": {
     "bat": "BAT2"
   },
   "network": {
-    "interface": "wlan0", // (Optional) To force the use of this interface
-    "format-wifi": "直  connected",
+    // "interface": "wlan0", // (Optional) To force the use of this interface
+    "format-wifi": "直" ,
     "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
+    "format-disconnected": "睊",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "interval": 60,
-    "on-click-middle": "exec foot nmtui"
+    "on-click-middle": "wpa-cute -tq"
   },
   "pulseaudio": {
     "scroll-step": 1, // %, can be a float
-    "format": "{icon}",
+    "format": " {volume}% {icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": "ﱝ {icon} {format_source}",
     "format-muted": "ﱝ {format_source}",
@@ -157,22 +146,17 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["",""," ","  ","   ","    ","     ","      ","       ",]
+      "default": ["奔", "墳"]
     },
     "on-click": "pavucontrol",
-    "on-scroll-up": "pamixer -ui 2",
-    "on-scroll-down": "pamixer -ud 2",
+    "on-scroll-up": "pamixer -ui 5",
+    "on-scroll-down": "pamixer -ud 5",
   },
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/weather.sh Terrebonne",
+    "exec": "~/.config/waybar/scripts/weather.sh 'Puerto Rico'",
     "format": "{}",
     "return-type": "json",
     "interval": 600
-  },
-  "disk": {
-    "interval": 30,
-    "format": "{free}",
-    "path": "/run/media/bryan/",
   },
   "custom/power": {
     "format": "ﰪ",

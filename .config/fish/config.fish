@@ -1,4 +1,4 @@
-export PF_INFO="ascii title os de shell uptime pkgs"
+set PF_INFO "ascii title os wm shell uptime pkgs"
 echo 'Welcome back to' $hostname, $USER
 
 set fish_greeting                      # Supresses fish's intro message
@@ -74,7 +74,7 @@ source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)
 
 # Env stuff
 
-export EDITOR='nvim'
+set EDITOR 'nvim'
 set PATH $PATH $HOME/.dotnet
 set PATH $PATH $HOME/.cargo/bin/
 
