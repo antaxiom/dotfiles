@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Autostart
+~/.local/bin/eww daemon
 riverctl spawn "waybar"
 riverctl spawn "~/.local/bin/kile"
 riverctl spawn 'mpd'
@@ -8,7 +9,7 @@ riverctl spawn 'mpDris2'
 riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
 riverctl spawn '/usr/lib/kdeconnectd'
 riverctl spawn 'lxpolkit'
-~/.local/bin/eww daemon
+riverctl spawn 'exec wl-paste -t text --watch clipman store'
 
 # Sourcing layouts
 source ~/.config/river/layout
@@ -23,10 +24,14 @@ mod="Mod4"
 riverctl map normal $mod Return spawn alacritty
 
 # Launch wofi -run
-riverctl map normal $mod R spawn "dmenu_path | wofi --dmenu | sh"
+riverctl map normal $mod R spawn "dmenu_path | wofi --dmenu -p run | sh"
+
+# Open up clipman history manager and clear it
+riverctl map normal Mod1 Space spawn "clipman pick -t wofi -T'--dmenu -p clipboard'"
+riverctl map normal Mod1+Shift Space spawn "clipman clear --all"
 
 # Launch wofi -drun
-riverctl map normal $mod D spawn "wofi --show drun"
+riverctl map normal $mod D spawn "wofi --show drun -p start"
 
 # Screen lock
 riverctl map normal $mod f1 spawn swaylock
@@ -37,11 +42,14 @@ riverctl focus-follows-cursor normal
 # Mod+Q to close the focused view
 riverctl map normal $mod Q close
 
-# Mod+P to exit river
+# Mod+P to open the power menu
+riverctl map normal $mod P spawn "~/.local/bin/eww open power"
+
+# Mod+Shift+P to exit river
 riverctl map normal $mod+Shift P exit
 
 # Mod+T for the layout switcher
-riverctl map normal $mod S spawn ~/.config/river/switcher
+riverctl map normal $mod T spawn ~/.config/river/switcher
 
 # Mod+K and Mod+J to focus the next/previous view in the layout stack
 riverctl map normal $mod K focus-view next
@@ -61,8 +69,8 @@ riverctl map normal $mod Period focus-output next
 riverctl map normal $mod Comma focus-output previous
 
 # Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal $mod+Shift L spawn "riverctl send-to-output next"
-riverctl map normal $mod+Shift H spawn "riverctl send-to-output previous"
+riverctl map normal $mod+Shift Period spawn "riverctl send-to-output next"
+riverctl map normal $mod+Shift Comma spawn "riverctl send-to-output previous"
 riverctl set-cursor-warp on-output-change
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
@@ -74,30 +82,18 @@ riverctl declare-mode passthrough
 riverctl map normal $mod+Shift Return zoom
 
 # Keybindings for kile
-for mode in "normal" "testing"
-do
-  case "$mode" in
-    normal)
-      layout="kile"
-      ;;
-  esac
+layout="kile"
 
-  # Mod+H and Mod+L to decrease/increase the width of the master column by 5%
-  riverctl map "${mode}" $mod H mod-layout-value "${layout}" fixed main_factor -0.05
-  riverctl map "${mode}" $mod L mod-layout-value "${layout}" fixed main_factor 0.05
+# Mod+H and Mod+L to decrease/increase the width of the master column by 5%
+riverctl map normal $mod H send-layout-cmd "${layout}" "mod_main_factor -0.05"
+riverctl map normal $mod L send-layout-cmd "${layout}" "mod_main_factor 0.05"
 
-  # Mod+Shift+{K, L} to increment/decrement the number of master views in the layout
-  riverctl map "${mode}" $mod+Control L mod-layout-value "${layout}" int main_amount 1
-  riverctl map "${mode}" $mod+Control H mod-layout-value "${layout}" int main_amount -1
+# Mod+Shift+{K, L} to increment/decrement the number of master views in the layout
+riverctl map normal $mod+Control L send-layout-cmd "${layout}" "main_amount 1"
 
-  # Custom layouts
-  riverctl map "${mode}" $mod Y set-layout-value "${layout}" string focused "$DECK"
-  riverctl map "${mode}" $mod T set-layout-value "${layout}" string focused "$STACK"
-  riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string focused "$DWINDLE"
-  riverctl map "${mode}" $mod E set-layout-value "${layout}" string focused "$CENTERED"
-done
+riverctl map normal $mod+Control H send-layout-cmd  "${layout}" "main_amount -1"
 
-# Declaring scratchpads and their keybinds
+# Declaring tags and their keybinds
 for key in 1 2 3 4 5 6 7 8 9
 do
   case "$key" in
@@ -159,10 +155,6 @@ riverctl map normal $mod F11 enter-mode passthrough
 
 # Mod+F11 to return to normal mode
 riverctl map passthrough $mod F11 enter-mode normal
-riverctl map testing $mod F10 enter-mode normal
-
-# Mod+F10 to enter testing mode
-riverctl map normal $mod F10 enter-mode testing
 
 # Various media key mapping for both normal and locked mode
 for mode in normal locked
@@ -191,14 +183,14 @@ riverctl float-filter-add "imv"
 # Set app-ids of views which should use client side decorations
 riverctl csd-filter-add "swappy"
 
-# Set opacity and fade effect
-riverctl opacity 1.0 1.0 0.0 0.1 30
+# Set opacity and fade effect (removed, possibly revived in the future)
+# riverctl opacity 1.0 1.0 0.0 0.1 30
 
 # Border color focused
-riverctl border-color-focused '#61afef'
+riverctl border-color-focused "0x61AFEF"
 
 # Border color focused
-riverctl border-color-unfocused '#333333'
+riverctl border-color-unfocused "0x333333"
 
 # Border width
 riverctl border-width 4
@@ -207,24 +199,19 @@ riverctl border-width 4
 riverctl default-layout kile
 
 # Kile configuration
-for output in "eDP-1"
-do
-  riverctl set-layout-value kile int outer_padding 6
-  riverctl set-layout-value kile int view_padding 6
-  case $output in
-    eDP-1)
-      # Default layout
-      riverctl set-layout-value kile string all "$DECK"
-      ;;
-  esac
-  riverctl focus-output next
-done
-riverctl attach-mode bottom
+riverctl send-layout-cmd kile "outer_padding 6"
+riverctl send-layout-cmd kile "view_padding 6"
 riverctl focus-output next
+riverctl attach-mode bottom
+
+# Default layouts per workspace
+## Deck will be the default unless specified
+riverctl send-layout-cmd kile "all ${DECK}"
+riverctl send-layout-cmd kile "5 full"
 
 # Stuff that should start last because waybar is slow sometimes
 
-sleep 10
+sleep 15
 
 riverctl spawn 'nm-applet --indicator'
 riverctl spawn 'wpa-cute -tq'

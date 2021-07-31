@@ -1,0 +1,40 @@
+<eww>
+    <includes></includes>
+
+    <definitions>
+        <def name="buttons">
+            <box>
+
+                <box class="exit">
+                    <button onclick="~/.local/bin/eww close power; riverctl exit">﫼</button>
+                </box>
+                <box class="lock">
+                    <button onclick="~/.local/bin/eww close power; swaylock"></button>
+                </box>
+                <box class="shutdown">
+                    <button onclick="~/.local/bin/eww close power; sudo shutdown"></button>
+                </box>
+                <box class="hibernate">
+                    <button onclick=" ~/.local/bin/eww close power; sudo ZZZ"></button>
+                </box>
+            </box>
+        </def>
+        <def name="main">
+            <box>
+                <buttons/>
+            </box>
+        </def>
+    </definitions>
+
+    <variables></variables>
+
+    <windows>
+    <window name="power" stacking="fg" focusable="false" screen="0" windowtype="dock">
+        <geometry anchor="bottom right" x="15px" y="15px" width="700px" height="175px"/>
+        <widget>
+            <main/>
+        </widget>
+    </window>
+    </windows>
+
+</eww>

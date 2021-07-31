@@ -1,0 +1,46 @@
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+window {
+  background-color: #171717;
+  color: #DDDDDD;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 220%;
+}
+
+.shutdown,
+.hibernate,
+.lock,
+.exit {
+    background-color: #1C1C1C;
+    margin: 20px 16px 20px 16px;
+}
+
+.shutdown button:hover,
+.hibernate button:hover,
+.exit button:hover,
+.lock button:hover {
+    background-color: #202020;
+}
+
+.exit button:hover {
+    color: #61afef;
+}
+
+.lock button:hover {
+    color: #eda35e;
+}
+
+.shutdown button:hover {
+    color: #ef473e;
+}
+
+.sleep button:hover {
+    color: #61afef;
+}
+
+.hibernate button:hover {
+    color: #e579d3;
+}

@@ -1,9 +1,10 @@
-set PF_INFO "ascii title os wm shell uptime pkgs"
+export PF_INFO="ascii title os wm shell uptime pkgs"
 echo 'Welcome back to' $hostname, $USER
 
 set fish_greeting                      # Supresses fish's intro message
+export SUDO_EDITOR "nvim"
+export EDITOR "nvim"
 set TERM "xterm-256color"              # Sets the terminal type
-set EDITOR "nvim"
 set VISUAL "code"
 # Fishblocks prompt
 
