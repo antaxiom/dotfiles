@@ -10,9 +10,7 @@ NAMESPACE=kile
 LAYOUT=$(wofi --dmenu 2> /dev/null << EOM
 centered
 stack
-rstack
 deck
-rdeck
 dwindle
 horizontal
 group
@@ -28,14 +26,8 @@ case $LAYOUT in
   stack)
     LAYOUT=$STACK
     ;;
-  rstack)
-    LAYOUT=$RSTACK
-    ;;
   deck)
     LAYOUT=$DECK
-    ;;
-  rdeck)
-    LAYOUT=$RDECK
     ;;
   dwindle)
     LAYOUT=$DWINDLE
@@ -55,5 +47,5 @@ case $LAYOUT in
 esac
 
 if [[ $LAYOUT != "" ]]; then
-  riverctl set-layout-value "$NAMESPACE" string focused "$LAYOUT"
+  riverctl send-layout-cmd "$NAMESPACE" "focused $LAYOUT"
 fi

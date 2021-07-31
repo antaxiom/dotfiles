@@ -21,7 +21,7 @@ case $2 in
     echo $TEMP
     ;;
   * )
-    echo '{"text": "'$ICON $TEMP'", "tooltip": "'$ICON $TOOLTIP $LOC'", "class": '$CLASS' }'
+    echo '{"text": "'${ICON} ${TEMP}'", "tooltip": "'$ICON $TOOLTIP $LOC'", "class": '$CLASS' }'
     ;;
 esac
 

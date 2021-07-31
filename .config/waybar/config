@@ -4,7 +4,7 @@
    "height": 56, // Waybar height (to be removed for auto height)
   // "width": 2560, // Waybar width
   // Choose the order of the modules
-  "modules-left": ["sway/workspaces", "river/tags"],
+  "modules-left": ["river/tags"],
   // "modules-center": ["wlr/taskbar"],
   "modules-right": ["pulseaudio", "backlight", "tray", "custom/weather", "battery", "network", "clock" ],
   // Modules configuration
@@ -75,31 +75,16 @@
   },
   "clock": {
     // "timezone": "America/La_Paz",
-    "format": "{:%I:%M %p}",
+    "format": "{:%I:%M%p}",
     "format-alt": "{:%A, %B %d}",
-    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    // "format-alt": "{:%Y-%m-%d}",
-    "format-alt-click": "click-right",
-  },
-  "cpu": {
-    "format": "{usage}  ",
-    "on-click": "foot ytop",
-    "tooltip": false
-  },
-  "temperature": {
-    "thermal-zone": 2,
-    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
-    "critical-threshold": 80,
-    "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}  {icon}",
-    "interval": 60,
-    "format-icons": ["", "", ""]
+    "tooltip-format": "<big>{:%B %d %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt-click": "click-left",
   },
   "backlight": {
     "interval": 5,
     "format": "{icon}",
     "format-alt": "{percent}% {icon}",
-    "format-alt-click": "click-right",
+    "format-alt-click": "click-left",
     "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
     "on-scroll-up": "brightnessctl -c backlight set +5%",
     "on-scroll-down": "brightnessctl -c backlight set 5%-"
@@ -111,6 +96,7 @@
       "critical": 15
     },
     "format": "{capacity}% {icon}",
+    "format-time": "{H}h {M}m",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",

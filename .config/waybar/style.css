@@ -19,6 +19,7 @@ window#waybar.empty {
 }
 #workspaces,
 #tags {
+  font-weight: 500;
   background-color: @dark;
   padding: 0px;
   margin-right: 10px;
@@ -29,7 +30,7 @@ window#waybar.empty {
   font-size: 18px;
   border-radius: 0px;
   margin: 0px;
-  padding: 2px 10px 2px 10px;
+  padding: 2px 9px 2px 9px;
   color: @white;
   color: @less-gray;
 }
@@ -98,7 +99,6 @@ window#waybar.empty {
   margin: 2px 0px 2px 0px;
 }
 
-
 #disk {
   color: @purple;
 }
@@ -114,10 +114,6 @@ window#waybar.empty {
 #custom-weather {
   background-color: @yellow;
 }
-#custom-weather {
-  padding: 0px 10px 0px 8px;
-}
-
 
 #custom-media,
 #mpd,
@@ -166,14 +162,13 @@ window#waybar.empty {
 
 #pulseaudio {
   color: @bright-blue;
-  border-radius: 0px 0px 0px 0px;
+  padding: 2px 8px 0px 8px;
 }
 #pulseaudio.muted {
   opacity: 0.5;
 }
 
 #backlight {
-    background-color: @transparent;
     color: @purple;
 }
 
