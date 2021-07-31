@@ -6,36 +6,48 @@ Xft.hinting: true
 Xft.antialias: 1
 Xft.rgba: rgb
 
-! Colors 0-15.
-*.color0: #111111
-*color0:  #111111
-*.color1: #FF4444
-*color1:  #FF4444
-*.color2: #55EE82
-*color2:  #55EE82
-*.color3: #DFBF60
-*color3:  #DFBF60
-*.color4: #61AFEF
-*color4:  #61AFEF
-*.color5: #E06CCD
-*color5:  #E06CDD
-*.color6: #5BC6D1
-*color6:  #5BC6D1
-*.color7: #DDDDDD
-*color7:  #DDDDDD
-*.color8: #111111
-*color8:  #111111
-*.color9: #FF4444
-*color9:  #FF4444
-*.color10: #55EE82
-*color10:  #55EE92
-*.color11: #DFBF60
-*color11:  #DFBF60
-*.color12: #61AFEF
-*color12:  #61AFEF
-*.color13: #E06CCD
-*color13:  #E06CDD
-*.color14: #5BC6D1
-*color14:  #5BC6D1
-*.color15: #DDDDDD
-*color15:  #DDDDDD
+! Base16 TooDark
+! Scheme: Antaxiom (https://github.com/antaxiom)
+
+#define base00 #111111
+#define base01 #171717
+#define base02 #1C1C1C
+#define base03 #202020
+#define base04 #303030
+#define base05 #DDDDDD
+#define base06 #BBBBBB
+#define base07 #AAAAAA
+#define base08 #ef473e
+#define base09 #eda35e
+#define base0A #e5b967
+#define base0B #5edb83
+#define base0C #56b6c2
+#define base0D #61afef
+#define base0E #e579d3
+#define base0F #be5046
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07

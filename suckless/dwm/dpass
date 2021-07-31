@@ -1,2 +1,2 @@
 #! /bin/bash
-dmenu -P -p "$1" <&- && echo
+wofi --dmenu -H "10%" -P -p "Enter your sudo Password"
