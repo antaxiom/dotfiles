@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ~/.config/river/layout
+
+for output in "eDP-1" "HDMI-A-1"
+do
+  case $output in
+    HDMI-A-1)
+        source ~/.config/river/kile-setup
+        ;;
+    eDP-1)
+        source ~/.config/river/kile-setup
+        ;;
+    esac
+    riverctl send-layout-cmd kile "5 full"
+done

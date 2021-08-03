@@ -1,4 +1,4 @@
-export PF_INFO="ascii title os wm shell uptime pkgs"
+export PF_INFO="ascii title os wm uptime pkgs"
 echo 'Welcome back to' $hostname, $USER
 
 set fish_greeting                      # Supresses fish's intro message

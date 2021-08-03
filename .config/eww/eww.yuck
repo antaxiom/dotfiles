@@ -1,0 +1,36 @@
+(defwidget main []
+  (box :space-evenly true :orientation "h"
+    (item :text "" :class "lock" :function "swaylockk-f")
+    (item :text "" :class "shutdown" :function "sudo -A shutdown now")
+    (item :text "" :class "sleep" :function "sudo -A ZZZ")
+    (button :visibility "${extras-toggle}" :class "item extras" :onclick "eww open --toggle power-extras" '')
+  ))
+
+(defwidget item []
+  (button :class "item ${class}"
+    :onclick 'eww close-all; ${function}'
+    '${text}')
+  )
+
+(defwidget extras []
+  (box :space-evenly true :orientation "h"
+    (item :text "" :class "extra sleeplock" :function "sudo -A zzz; swaylock -f")
+    (item :text "ﰇ" :class "extra reboot" :function "sudo -A shutdown now")
+    (item :text "" :class "extra sleep" :function "sudo -A zzz")
+  ))
+
+(defwindow power :monitor 0
+  :windowtype "normal"
+  :focusable "false"
+  :stacking "fg"
+  :geometry (geometry :anchor "bottom left" :x "16px" :y "16px" :width "700px" :height "190px")
+  (main)
+  )
+
+(defwindow power-extras :monitor 0
+  :windowtype "normal"
+  :focusable "false"
+  :stacking "fg"
+ :geometry (geometry :anchor "bottom left" :x "16px" :y "190px" :width "530px" :height "190px")
+  (extras)
+  )
