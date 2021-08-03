@@ -4,12 +4,16 @@
 ~/.local/bin/eww daemon
 riverctl spawn "waybar"
 riverctl spawn "~/.local/bin/kile"
-riverctl spawn 'mpd'
-riverctl spawn 'mpDris2'
-riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
-riverctl spawn '/usr/lib/kdeconnectd'
-riverctl spawn 'lxpolkit'
-riverctl spawn 'exec wl-paste -t text --watch clipman store'
+riverctl spawn "mpd"
+riverctl spawn "mpDris2"
+riverctl spawn "/usr/lib/xdg-desktop-portal-wlr"
+riverctl spawn "/usr/lib/kdeconnectd"
+riverctl spawn "lxpolkit"
+riverctl spawn "dunst"
+riverctl spawn "exec wl-paste -t text --watch clipman store --no-persist"
+riverctl spawn '~/.config/river/scripts/idle\
+  -c 700 "wlopm --off *" -r "wlopm --on *"\
+  -c 900 "swaylock -f"'
 
 # Sourcing layouts
 source ~/.config/river/layout
@@ -43,13 +47,13 @@ riverctl focus-follows-cursor normal
 riverctl map normal $mod Q close
 
 # Mod+P to open the power menu
-riverctl map normal $mod P spawn "~/.local/bin/eww open power"
+riverctl map normal $mod P spawn "~/.local/bin/eww open --toggle power"
 
 # Mod+Shift+P to exit river
 riverctl map normal $mod+Shift P exit
 
 # Mod+T for the layout switcher
-riverctl map normal $mod T spawn ~/.config/river/switcher
+riverctl map normal $mod T spawn ~/.config/river/scripts/switcher
 
 # Mod+K and Mod+J to focus the next/previous view in the layout stack
 riverctl map normal $mod K focus-view next
@@ -61,8 +65,8 @@ riverctl map normal $mod+Shift K swap next
 riverctl map normal $mod+Shift J swap previous
 
 # Screenshot with Swappy
-riverctl map normal Mod1 print spawn 'grimshot --notify copy area'
-riverctl map normal None print spawn 'grimshot --notify copy output'
+riverctl map normal Mod1 print spawn "grimshot --notify copy area"
+riverctl map normal None print spawn "grimshot --notify copy output"
 
 # Mod+Period and Mod+Comma to focus the next/previous output
 riverctl map normal $mod Period focus-output next
@@ -135,8 +139,11 @@ riverctl map normal $mod+Mod1+Shift K resize vertical -100
 riverctl map normal $mod+Mod1+Shift L resize horizontal 100
 
 # Toggle and reload waybar
-riverctl map normal $mod B spawn 'killall -SIGUSR1 waybar'
-riverctl map normal $mod+Shift B spawn 'killall -SIGUSR2 waybar'
+riverctl map normal $mod B spawn "killall -SIGUSR1 waybar"
+riverctl map normal $mod+Shift B spawn "killall -SIGUSR2 waybar"
+
+# Reload kile config
+riverctl map normal $mod+Shift I spawn "~/.config/river/configure-kile; notify-send 'Kile reconfigured'"
 
 # Mod + Left Mouse Button to move views
 riverctl map-pointer normal $mod BTN_LEFT move-view
@@ -199,20 +206,12 @@ riverctl border-width 4
 riverctl default-layout kile
 
 # Kile configuration
-riverctl send-layout-cmd kile "outer_padding 6"
-riverctl send-layout-cmd kile "view_padding 6"
-riverctl focus-output next
-riverctl attach-mode bottom
-
-# Default layouts per workspace
-## Deck will be the default unless specified
-riverctl send-layout-cmd kile "all ${DECK}"
-riverctl send-layout-cmd kile "5 full"
+source ~/.config/river/configure-kile
 
 # Stuff that should start last because waybar is slow sometimes
 
 sleep 15
 
-riverctl spawn 'nm-applet --indicator'
-riverctl spawn 'wpa-cute -tq'
-riverctl spawn 'blueman-applet'
+riverctl spawn "nm-applet --indicator"
+riverctl spawn "wpa-cute -tq"
+riverctl spawn "blueman-applet"

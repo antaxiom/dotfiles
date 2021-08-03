@@ -85,7 +85,7 @@
     "format": "{icon}",
     "format-alt": "{percent}% {icon}",
     "format-alt-click": "click-left",
-    "format-icons": ["🌕", "🌔", "🌓", "🌒", "🌑"],
+    "format-icons": ["", "", "", "", "", "", "","", "", "", "", "", "", "", ""],
     "on-scroll-up": "brightnessctl -c backlight set +5%",
     "on-scroll-down": "brightnessctl -c backlight set 5%-"
   },
@@ -97,8 +97,9 @@
     },
     "format": "{capacity}% {icon}",
     "format-time": "{H}h {M}m",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% {icon}+",
     "format-plugged": "{capacity}% ",
+    "format-alt-click": "click-left",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
@@ -110,11 +111,11 @@
   "network": {
     // "interface": "wlan0", // (Optional) To force the use of this interface
     "format-wifi": "直" ,
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "{ifname} ",
+    "format-linked": "{ifname} (No IP) 直",
     "format-disconnected": "睊",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "interval": 60,
+    "interval": 20,
     "on-click-middle": "wpa-cute -tq"
   },
   "pulseaudio": {
@@ -134,12 +135,13 @@
       "car": "",
       "default": ["奔", "墳"]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pamixer -t",
+    "on-click-right": "pavucontrol",
     "on-scroll-up": "pamixer -ui 5",
     "on-scroll-down": "pamixer -ud 5",
   },
   "custom/weather": {
-    "exec": "~/.config/waybar/scripts/weather.sh 'Puerto Rico'",
+    "exec": "~/.config/waybar/scripts/weather.sh 'San Juan'",
     "format": "{}",
     "return-type": "json",
     "interval": 600
