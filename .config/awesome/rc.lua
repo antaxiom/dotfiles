@@ -384,7 +384,7 @@ end)
             layout = wibox.layout.fixed.horizontal,
             awful.widget.only_on_screen(
             full_wrap_margin(wrap_bg(mysystray_container, "#171717"), 1)),
-            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(mytitlewidget), "#ff4444")), 1),
+            awful.widget.only_on_screen(full_wrap_margin(wrap_bg(wrap_margin(mytitlewidget), "#ef473e")), 1),
             full_wrap_margin(wrap_bg(wrap_margin(mytextclock), "#61afef")),
         },
     },
