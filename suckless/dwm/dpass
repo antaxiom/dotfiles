@@ -1,2 +1,2 @@
 #! /bin/bash
-dmenu -P -p "$1" <&- && echo
+wofi --dmenu  -P -p 'Password' -H 10%

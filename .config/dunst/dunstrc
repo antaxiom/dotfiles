@@ -90,7 +90,14 @@
     background = "#E17B72"
 
 [flameshot]
-    appname = flameshot
+    appname = flameshot, grimshot
     format = "<span size="x-large">📷<b>  %s </b></span>\n<i>%b</i>"
     background = "#dfbf60"
+    foreground = "#111111"
+
+
+[grimshot]
+    appname = grimshot
+    format = "<span size="x-large">📷<b>  %s </b></span>\n<i>%b</i>"
+    background = "#edcf3b"
     foreground = "#111111"

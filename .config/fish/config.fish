@@ -1,5 +1,5 @@
 export PF_INFO="ascii title os wm uptime pkgs"
-echo 'Welcome back to' $hostname, $USER
+echo 'Welcome to' $hostname, $USER
 
 set fish_greeting                      # Supresses fish's intro message
 export SUDO_EDITOR "nvim"
@@ -82,9 +82,6 @@ set PATH $PATH $HOME/.cargo/bin/
 # THEME PURE #
 set fish_function_path /home/alex/.config/fish/functions/theme-pure/functions/ $fish_function_path
 source /home/alex/.config/fish/functions/theme-pure/conf.d/pure.fish
-
-# Seems to help
-set -x SHELL /bin/bash
 
 # Useful fuctions
 

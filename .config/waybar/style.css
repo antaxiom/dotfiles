@@ -37,7 +37,7 @@ window#waybar.empty {
 #window {
   color: @gray;
   border-radius: 0px;
-  padding: 0px 8px 0px 8px;
+  padding: 0px 12px 0px 12px;
 }
 @keyframes fadeIn {
   from {
@@ -108,9 +108,6 @@ window#waybar.empty {
 #cpu {
   color: @red;
 }
-#custom-weather {
-  background-color: @yellow;
-}
 
 #custom-media,
 #mpd,
@@ -140,47 +137,63 @@ window#waybar.empty {
 #backlight,
 #tray,
 #custom-weather,
+#custom-window,
 #pulseaudio,
 #network,
 #clock {
-    margin: 2px 4px 2px 4px;
-    padding: 0px 8px 0px 8px;
-    color: @black;
+    margin: 2px 3px 2px 3px;
+    padding: 0px 6px 0px 6px;
+}
+
+#custom-weather {
+  font-size: 22px;
+  background-color: @transparent;
+  color: @yellow;
+    margin: 2px 0px 2px 7px;
+    padding: 0px 0px 0px 0px;
+}
+
+#custom-window {
+  background-color: @dark;
+  color: @white;
+  padding: 0px 12px 0px 12px;
 }
 
 #pulseaudio {
-  color: @bright-blue;
+  color: @cyan;
   padding: 2px 8px 0px 8px;
 }
 #pulseaudio.muted {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 #backlight {
-    font-size: 26px;
+    font-size: 30px;
+    padding: 0px 4px 0px 4px;
     color: @purple;
 }
 
 #network {
-  background-color: @green;
+  color: @green;
+  background-color: @transparent;
   padding: 0px 14px 0px 9px;
 }
 
 #battery {
-  color: @black;
-  background-color: @red;
-  padding: 0px 12px 0px 8px;
+  color: @orange;
+  background-color: @transparent;
+  padding: 0px 8px 0px 8px;
 }
 
 @keyframes blink {
   to {
-    background-color: @transparent;
-    color: @darker;
+      opacity: 1;
+      opacity: 0.25;
   }
 }
 #battery.critical:not(.charging) {
-  background-color: @orange;
-  color: @gray;
+  background-color: @transparent;
+  color: @red;
   animation-name: blink;
   animation-duration: 1s;
   animation-timing-function: linear;
@@ -197,16 +210,15 @@ label:focus {
 #idle_inhibitor.activated {
   color: @cyan;
 }
-#clock,
 #idle_inhibitor,
 #custom-recorder,
 #tray {
-  background-color: @gray;
-  padding: 0px 8px 0px 8px;
+  background-color: @transparent;
+  padding: 0px 4px 0px 4px;
 }
 #clock {
-  background-color: @bright-blue;
-  color: @black;
+  background-color: @transparent;
+  color: @bright-blue;
   border-radius: 0px 0px 0px 0px;
 }
 #custom-layout {

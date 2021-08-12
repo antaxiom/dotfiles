@@ -15,7 +15,7 @@
 (defwidget extras []
   (box :space-evenly true :orientation "h"
     (item :text "" :class "extra sleeplock" :function "sudo -A zzz; swaylock -f")
-    (item :text "ﰇ" :class "extra reboot" :function "sudo -A shutdown now")
+    (item :text "ﰇ" :class "extra reboot" :function "sudo -A shutdown -P now")
     (item :text "" :class "extra sleep" :function "sudo -A zzz")
   ))
 

@@ -47,7 +47,7 @@
 highlight clear
 
 highlight Win cterm=none ctermfg=default ctermbg=default
-highlight Directory cterm=bold ctermfg=green ctermbg=default
+highlight Directory cterm=bold ctermfg=blue ctermbg=default
 highlight Link cterm=bold ctermfg=default ctermbg=default
 highlight BrokenLink cterm=bold ctermfg=red ctermbg=default
 highlight Socket cterm=bold ctermfg=magenta ctermbg=default
@@ -60,7 +60,7 @@ highlight TopLine cterm=none ctermfg=147 ctermbg=8
 highlight TopLineSel cterm=bold ctermfg=white ctermbg=default
 highlight StatusLine cterm=bold ctermfg=white ctermbg=8
 highlight WildMenu cterm=underline,reverse ctermfg=white ctermbg=black
-highlight CmdLine cterm=none ctermfg=green ctermbg=black
+highlight CmdLine cterm=none ctermfg=blue ctermbg=black
 highlight ErrorMsg cterm=none ctermfg=red ctermbg=black
 highlight Border cterm=none ctermfg=black ctermbg=8
 highlight JobLine cterm=bold,reverse ctermfg=black ctermbg=white

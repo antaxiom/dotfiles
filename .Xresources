@@ -17,9 +17,9 @@ Xft.rgba: rgb
 #define base05 #DDDDDD
 #define base06 #BBBBBB
 #define base07 #AAAAAA
-#define base08 #ef473e
-#define base09 #eda35e
-#define base0A #e5b967
+#define base08 #e23f36
+#define base09 #f96f04
+#define base0A #edcf3b
 #define base0B #5edb83
 #define base0C #56b6c2
 #define base0D #61afef
