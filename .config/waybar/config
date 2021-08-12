@@ -5,8 +5,8 @@
   // "width": 2560, // Waybar width
   // Choose the order of the modules
   "modules-left": ["river/tags"],
-  // "modules-center": ["wlr/taskbar"],
-  "modules-right": ["pulseaudio", "backlight", "tray", "custom/weather", "battery", "network", "clock" ],
+  "modules-center": ["custom/window"],
+  "modules-right": ["pulseaudio", "tray", "custom/weather", "battery", "clock", "backlight" ],
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": false,
@@ -64,7 +64,7 @@
   },
   "tray": {
     "spacing": 1,
-    "icon-size": 20
+    "icon-size": 24
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -123,8 +123,8 @@
     "format": " {volume}% {icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": "ﱝ {icon} {format_source}",
-    "format-muted": "ﱝ {format_source}",
-    "format-source": "{volume}% ",
+    "format-muted": "ﱝ %{volume}",
+    "format-source": "{volume}%",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
@@ -137,14 +137,19 @@
     },
     "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
-    "on-scroll-up": "pamixer -ui 5",
-    "on-scroll-down": "pamixer -ud 5",
+    "on-scroll-up": "pamixer -ui 2",
+    "on-scroll-down": "pamixer -ud 2",
   },
   "custom/weather": {
     "exec": "~/.config/waybar/scripts/weather.sh 'San Juan'",
     "format": "{}",
     "return-type": "json",
     "interval": 600
+  },
+  "custom/window": {
+    "format": "{}",
+    "max-length": 70,
+    "exec": "~/.local/bin/ristate -w | jq -r -c --unbuffered .title",
   },
   "custom/power": {
     "format": "ﰪ",

@@ -8,10 +8,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"
 
-export PF_INFO="ascii title os de shell uptime pkgs"
-echo "\n"
-pfetch
-echo "Welcome back to $HOST, $USER"
+export PF_INFO="ascii title os de uptime pkgs"
+echo "Welcome to $HOST, $USER"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -215,7 +213,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-# Who uses mate??????
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(lua5.2 ~/.zsh-plugins/z.lua/z.lua --init zsh enchanced)"

@@ -18,7 +18,7 @@ theme.font      = "JetBrainsMonoMedium Nerd Font 12.5"
 
 -- {{{ Colors
 theme.fg_normal  = "#DDDDDD"
-theme.fg_focus   = "#e06ccd"
+theme.fg_focus   = "#e579d3"
 theme.fg_urgent  = "#61afef"
 theme.bg_normal  = "#171717"
 theme.bg_focus   = "#1C1C1C"
