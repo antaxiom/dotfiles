@@ -10,9 +10,6 @@
 [submodule ".zsh-plugins/z.lua"]
 	path = .zsh-plugins/z.lua
 	url = https://github.com/skywind3000/z.lua.git
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = https://github.com/antaxiom/nvimrc.git
 [submodule ".zsh-plugins/zsh-autocomplete"]
 	path = .zsh-plugins/zsh-autocomplete
 	url = https://github.com/marlonrichert/zsh-autocomplete.git
@@ -24,7 +21,7 @@
 	url = https://github.com/Nooo37/bling.git
 [submodule "/home/alex/.config/nvim"]
 	path = /home/alex/.config/nvim
-	url = https://github.com/antaxiom/nvimrc.git
+	url = https://github.com/antaxiom/neomesa.git
 [submodule ".config/awesome/battery-widget"]
 	path = .config/awesome/battery-widget
 	url = https://github.com/deficient/battery-widget.git

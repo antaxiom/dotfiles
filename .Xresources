@@ -21,7 +21,11 @@ Xft.rgba: rgb
 #define base09 #f96f04
 #define base0A #dbc34d
 #define base0B #5edb83
+<<<<<<< HEAD
 #define base0C #4dc1b4
+=======
+#define base0C #56c6c2
+>>>>>>> master
 #define base0D #61afef
 #define base0E #e579d3
 #define base0F #be5046

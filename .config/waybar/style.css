@@ -5,7 +5,7 @@
   font-size: 20px;
   padding: 0px 2px 0px 2px;
   margin: 2px 2px 2px 2px;
-  font-family: JetBrainsMonoMedium Nerd Font, Noto Sans CJK JP, Product Sans, Arial, Helvetica, sans-serif;
+  font-family: JetBrainsMonoMedium Nerd Font Mono;
 }
 window#waybar {
   animation-name: fadeIn;
@@ -141,16 +141,16 @@ window#waybar.empty {
 #pulseaudio,
 #network,
 #clock {
-    margin: 2px 3px 2px 3px;
-    padding: 0px 6px 0px 6px;
+  margin: 2px 3px 2px 3px;
+  padding: 0px 6px 0px 6px;
 }
 
 #custom-weather {
   font-size: 22px;
   background-color: @transparent;
   color: @yellow;
-    margin: 2px 0px 2px 7px;
-    padding: 0px 0px 0px 0px;
+  margin: 2px 0px 2px 7px;
+  padding: 0px 0px 0px 0px;
 }
 
 #custom-window {
@@ -168,9 +168,9 @@ window#waybar.empty {
 }
 
 #backlight {
-    font-size: 30px;
-    padding: 0px 4px 0px 4px;
-    color: @purple;
+  font-size: 30px;
+  padding: 0px 4px 0px 4px;
+  color: @purple;
 }
 
 #network {
@@ -187,8 +187,8 @@ window#waybar.empty {
 
 @keyframes blink {
   to {
-      opacity: 1;
-      opacity: 0.25;
+    opacity: 1;
+    opacity: 0.25;
   }
 }
 #battery.critical:not(.charging) {
