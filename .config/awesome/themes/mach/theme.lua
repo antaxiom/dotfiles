@@ -88,7 +88,7 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[border_color|border_width]
 -- Wibar
 
-theme.wibar_height = dpi(44)
+theme.wibar_height = dpi(48)
 theme.wibar_margin = dpi(15)
 theme.wibar_spacing = dpi(15)
 theme.wibar_bg = "#111111"

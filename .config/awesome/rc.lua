@@ -330,8 +330,8 @@ function full_wrap_tasklist(widget)
   return wibox.widget {
   {
     widget,
-    left = dpi(3),
-    right = dpi(3),
+    left = dpi(6),
+    right = dpi(6),
     top = dpi(6),
     bottom = dpi(6),
     widget = wibox.container.margin,

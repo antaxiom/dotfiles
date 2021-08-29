@@ -1,36 +1,24 @@
 (defwidget main []
-  (box :space-evenly true :orientation "h"
-    (item :text "" :class "lock" :function "swaylockk-f")
-    (item :text "" :class "shutdown" :function "sudo -A shutdown now")
-    (item :text "" :class "sleep" :function "sudo -A ZZZ")
-    (button :visibility "${extras-toggle}" :class "item extras" :onclick "eww open --toggle power-extras" '')
+  (box
+  (item :text "test1" :name "power")
+  (item :text "test2" :name "power")
+  (item :text "test3" :name "power")
+  (item :text "test4" :name "power")
   ))
 
-(defwidget item []
-  (button :class "item ${class}"
-    :onclick 'eww close-all; ${function}'
-    '${text}')
+(defwidget item [text ?name]
+  (button 
+    :class "item ${name}"
+    "${text}")
   )
 
-(defwidget extras []
-  (box :space-evenly true :orientation "h"
-    (item :text "" :class "extra sleeplock" :function "sudo -A zzz; swaylock -f")
-    (item :text "ﰇ" :class "extra reboot" :function "sudo -A shutdown -P now")
-    (item :text "" :class "extra sleep" :function "sudo -A zzz")
-  ))
-
-(defwindow power :monitor 0
-  :windowtype "normal"
-  :focusable "false"
-  :stacking "fg"
-  :geometry (geometry :anchor "bottom left" :x "16px" :y "16px" :width "700px" :height "190px")
-  (main)
-  )
-
-(defwindow power-extras :monitor 0
-  :windowtype "normal"
-  :focusable "false"
-  :stacking "fg"
- :geometry (geometry :anchor "bottom left" :x "16px" :y "190px" :width "530px" :height "190px")
-  (extras)
-  )
+(defwindow power
+           :monitor 0
+           :geometry (geometry :x "0px"
+                               :y "0px"
+                               :width "1000px"
+                               :height "250px"
+                               :anchor "center")
+           :stacking "fg"
+           :focusable false
+  (main))

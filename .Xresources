@@ -1,4 +1,4 @@
-Xft.dpi: 140
+Xft.dpi: 130
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
@@ -21,7 +21,7 @@ Xft.rgba: rgb
 #define base09 #f96f04
 #define base0A #edcf3b
 #define base0B #5edb83
-#define base0C #56b6c2
+#define base0C #56c6c2
 #define base0D #61afef
 #define base0E #e579d3
 #define base0F #be5046

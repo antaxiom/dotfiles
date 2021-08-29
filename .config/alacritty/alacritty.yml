@@ -1,11 +1,10 @@
 # Font configuration (changes require restart)
 font:
   # The size to use.
-  size: 14
+  size: 13
   # The normal (roman) font face to use.
   normal:
-    family: JetBrains Mono
-    family: JetBrainsMono Nerd Font
+    family: JetBrains Mono Nerd Font
     # Style can be specified to pick a specific face.
     style: Regular
 
@@ -14,14 +13,14 @@ font:
     family: JetBrains Mono
     family: JetBrainsMono Nerd Font
     # Style can be specified to pick a specific face.
-    # style: Bold
+    style: Bold
 
   # The italic font face
   italic:
     family: JetBrainsMono Nerd Font
     family: JetBrains Mono
     # Style can be specified to pick a specific face.
-    # style: Italic
+    style: Italic
   offset:
     x: 0
     y: 0
@@ -57,21 +56,21 @@ colors:
     black:   '0x111111'
     red:     '0xef473e'
     green:   '0x5edb83'
-    yellow:  '0xe5b967'
+    yellow:  '0xefd14c'
     blue:    '0x61afef'
     magenta: '0xe579d3'
-    cyan:    '0x56b6c2'
+    cyan:    '0x61ccc4'
     white:   '0xDDDDDD'
 
   # Bright colors
   bright:
     black:   '0x202020'
-    red:     '0xeda35e'
+    red:     '0xf96f04'
     green:   '0x171717'
     yellow:  '0x1C1C1C'
     blue:    '0x303030'
     magenta: '0xBBBBBB'
-    cyan:    '0xbe5046'
+    cyan:    '0xaf551f'
     white:   '0xAAAAAA'
 
 draw_bold_text_with_bright_colors: false

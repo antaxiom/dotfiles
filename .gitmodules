@@ -19,3 +19,6 @@
 [submodule ".config/awesome/bling"]
 	path = .config/awesome/bling
 	url = https://github.com/Nooo37/bling.git
+[submodule "/home/alex/.config/nvim"]
+	path = /home/alex/.config/nvim
+	url = https://github.com/antaxiom/neomesa.git
