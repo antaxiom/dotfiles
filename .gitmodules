@@ -19,9 +19,9 @@
 [submodule ".config/awesome/bling"]
 	path = .config/awesome/bling
 	url = https://github.com/Nooo37/bling.git
-[submodule ".config/nvim"]
-	path = .config/nvim
-	url = https://github.com/antaxiom/neomesa.git
 [submodule ".config/awesome/battery-widget"]
 	path = .config/awesome/battery-widget
 	url = https://github.com/deficient/battery-widget.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/antaxiom/neomesa.git
