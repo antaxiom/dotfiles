@@ -5,7 +5,7 @@
   font-size: 20px;
   padding: 0px 2px 0px 2px;
   margin: 2px 2px 2px 2px;
-  font-family: JetBrainsMonoMedium Nerd Font Mono;
+  font-family: JetBrainsMonoMedium Nerd Font;
 }
 window#waybar {
   animation-name: fadeIn;
@@ -168,7 +168,7 @@ window#waybar.empty {
 }
 
 #backlight {
-  font-size: 30px;
+  font-size: 24px;
   padding: 0px 4px 0px 4px;
   color: @purple;
 }

@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["river/tags"],
   "modules-center": ["custom/window"],
-  "modules-right": ["pulseaudio", "tray", "custom/weather", "battery", "clock", "backlight" ],
+  "modules-right": ["pulseaudio", "tray", "custom/weather", "backlight", "battery", "clock"  ],
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": false,

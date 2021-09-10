@@ -10,11 +10,8 @@ NAMESPACE=kile
 LAYOUT=$(wofi --dmenu 2> /dev/null << EOM
 centered
 stack
-deck
-dwindle
-horizontal
-group
-fibonacci
+mosaic
+stacktile
 EOM
 )
 
@@ -26,20 +23,11 @@ case $LAYOUT in
   stack)
     LAYOUT=$STACK
     ;;
-  deck)
-    LAYOUT=$DECK
+  stacktile)
+    LAYOUT=$STACKTILE
     ;;
-  dwindle)
-    LAYOUT=$DWINDLE
-    ;;
-  horizontal)
-    LAYOUT=$HORIZONTAL
-    ;;
-  group)
-    LAYOUT=$GROUP
-    ;;
-  fibonacci)
-    LAYOUT=$FIBONACCI
+  mosaic)
+    LAYOUT=$MOSAIC
     ;;
   *)
     LAYOUT=""

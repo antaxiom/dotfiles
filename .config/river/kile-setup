@@ -5,5 +5,5 @@ source ~/.config/river/layout
 riverctl send-layout-cmd kile "outer_padding 6"
 riverctl send-layout-cmd kile "view_padding 6"
 riverctl focus-output next
-riverctl attach-mode bottom
-riverctl send-layout-cmd kile "all ${DECK}"
+riverctl send-layout-cmd kile "order ascend"
+riverctl send-layout-cmd kile "all ${STACKTILE}"

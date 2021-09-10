@@ -13,4 +13,5 @@ do
         ;;
     esac
     riverctl send-layout-cmd kile "5 full"
+    riverctl send-layout-cmd kile "6 full"
 done

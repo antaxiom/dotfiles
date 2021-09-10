@@ -95,13 +95,13 @@ riverctl map normal $mod+Shift Return zoom
 layout="kile"
 
 # Mod+H and Mod+L to decrease/increase the width of the master column by 5%
-riverctl map normal $mod H send-layout-cmd "${layout}" "mod_main_factor -0.05"
-riverctl map normal $mod L send-layout-cmd "${layout}" "mod_main_factor 0.05"
+riverctl map normal $mod H send-layout-cmd "${layout}" "mod_main_ratio -0.05"
+riverctl map normal $mod L send-layout-cmd "${layout}" "mod_main_ratio 0.05"
 
 # Mod+Shift+{K, L} to increment/decrement the number of master views in the layout
-riverctl map normal $mod+Control L send-layout-cmd "${layout}" "main_amount 1"
+riverctl map normal $mod+Control L send-layout-cmd "${layout}" "mod_main_amount 1"
 
-riverctl map normal $mod+Control H send-layout-cmd  "${layout}" "main_amount -1"
+riverctl map normal $mod+Control H send-layout-cmd  "${layout}" "mod_main_amount -1"
 
 # Declaring tags and their keybinds
 for key in 1 2 3 4 5 6 7 8 9
@@ -204,6 +204,9 @@ riverctl border-color-unfocused "0x333333"
 
 # Border width
 riverctl border-width 4
+
+# Attach-mode
+riverctl attach-mode bottom
 
 # Default layout
 riverctl default-layout kile
