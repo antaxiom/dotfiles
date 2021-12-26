@@ -78,6 +78,7 @@ source (lua ~/.zsh-plugins/z.lua/z.lua --init fish | psub)
 set EDITOR 'nvim'
 set PATH $PATH $HOME/.dotnet
 set PATH $PATH $HOME/.cargo/bin/
+set PATH $PATH /home/alex/Documents/git-clones/pebble-dev/pebble-sdk-4.5-linux64/bin
 
 # THEME PURE #
 set fish_function_path /home/alex/.config/fish/functions/theme-pure/functions/ $fish_function_path

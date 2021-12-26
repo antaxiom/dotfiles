@@ -192,6 +192,8 @@ export SUDO_ASKPASS=~/suckless/dwm/dpass
 # Other path stuff
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH:/home/alex/bin"
+export PATH="$PATH:/home/alex/Documents/git-clones/pebble-sdk-4.5-linux64/bin"
+export PATH="$PATH:/home/alex/.local/bin"
 
 # Basic auto/tab complete:
 autoload -U compinit

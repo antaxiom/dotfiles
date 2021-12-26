@@ -3,10 +3,9 @@
 # Autostart
 ~/.local/bin/eww daemon
 riverctl spawn "waybar"
+riverctl spawn "kanshi"
 riverctl spawn "~/.local/bin/kile"
-riverctl spawn "pipewire"
-riverctl spawn "pipewire-pulse"
-riverctl spawn "pipewire-media-session"
+riverctl spawn "pulseaudio"
 riverctl spawn "mpd"
 riverctl spawn "mpDris2"
 riverctl spawn "/usr/lib/kdeconnectd"
@@ -183,6 +182,9 @@ riverctl map normal None XF86MonBrightnessDown spawn light -U 5
 
 # Set repeat rate
 riverctl set-repeat 50 300
+
+# Set touchpad for Thinkpad
+riverctl input 2:14:ETPS/2_Elantech_Touchpad disable-while-typing disabled
 
 # Set app-ids of views which should float
 riverctl float-filter-add "float"

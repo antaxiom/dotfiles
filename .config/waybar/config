@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["river/tags"],
   "modules-center": ["custom/window"],
-  "modules-right": ["pulseaudio", "tray", "custom/weather", "backlight", "battery", "clock"  ],
+  "modules-right": ["pulseaudio", "tray", "backlight", "battery", "clock"  ],
   // Modules configuration
   "sway/workspaces": {
     "disable-scroll": false,
@@ -81,7 +81,7 @@
     "format-alt-click": "click-left",
   },
   "backlight": {
-    "interval": 5,
+    "interval": 2,
     "format": "{icon}",
     "format-alt": "{percent}% {icon}",
     "format-alt-click": "click-left",
@@ -102,8 +102,8 @@
     "format-alt-click": "click-left",
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["","","","","","","","","", ""]
+    "format-full": " {capacity}%",
+    "format-icons": ["","","","","","","","",""]
   },
   "battery#bat2": {
     "bat": "BAT2"
