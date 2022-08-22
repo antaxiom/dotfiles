@@ -37,7 +37,6 @@ shell:
      - --login
 
 
-background_opacity: 1
 # Base16 TooDark - alacritty color config
 # Antaxiom (https://github.com/antaxiom)
 colors:

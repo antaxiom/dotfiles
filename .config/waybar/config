@@ -149,7 +149,7 @@
   "custom/window": {
     "format": "{}",
     "max-length": 70,
-    "exec": "~/.local/bin/ristate -w | jq -r -c --unbuffered .title",
+    "exec ": "~/.local/bin/ristate --title | jq --unbuffered -r .title" 
   },
   "custom/power": {
     "format": "ﰪ",
