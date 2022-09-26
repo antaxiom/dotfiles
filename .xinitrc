@@ -54,3 +54,4 @@ fi
 ~/.scripts/system/keyboardsetup
 
 xset -dpms ; xset s off
+xrandr --output DP-1 --mode 3440x1440 --rate 100.00

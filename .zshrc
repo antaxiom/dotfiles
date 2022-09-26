@@ -192,6 +192,8 @@ export SUDO_ASKPASS=~/suckless/dwm/dpass
 # Other path stuff
 export PATH="$PATH:/usr/lib/dart/bin"
 export PATH="$PATH:/home/alex/bin"
+export PATH="$PATH:/home/alex/Documents/git-clones/pebble-dev/sdk/bin"
+export PATH=~/bin:$PATH
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -214,5 +216,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /home/alex/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/alex/.zsh-plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 eval "$(lua5.2 ~/.zsh-plugins/z.lua/z.lua --init zsh enchanced)"
+export PATH=~/.pebble-sdk/bin:$PATH

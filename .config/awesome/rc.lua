@@ -13,6 +13,7 @@ local dpi = require("beautiful.xresources").apply_dpi
 local beautiful = require("beautiful")
 local menubar = require("menubar")
 local stolen = require("./stolen")
+local naughty = ""
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -225,7 +226,7 @@ end
 
 awful.tag( { "一", "二", "三", "四", "五", "六", "七", "八", "九" },
     s,
-    {awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1]} )
+    {awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[2], awful.layout.layouts[2], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1]} )
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -655,5 +656,8 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+
 --- Autostart Script
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+
+local naughty = ""
